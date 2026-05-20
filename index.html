@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highland Heritages of Bhutan</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="mobile-fixes.css"> 
+    <style>
+
+        /* ── Section spacing ── */
+        :root {
+            --section-padding-y: 100px;
+            --section-padding-x: 6%;
+        }
+        section,
+        .site-footer .footer-main {
+            padding-top: var(--section-padding-y);
+            padding-bottom: var(--section-padding-y);
+            padding-left: var(--section-padding-x);
+            padding-right: var(--section-padding-x);
+        }
+.themes-section {
+    padding-top: 95px !important;
+    padding-bottom: 0px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+#about-portal {
+    padding-top: 5px !important;
+    padding-bottom: 60px !important;
+}
+        /* ONLY these get zeroed — nothing else */
+        .slider-section,
+        .slider-section .slider-container,
+        .stories-teaser {
+            padding: 0 !important;
+        }
+
+        /* video-section keeps its own padding from style.css */
+        .video-section {
+            padding: 100px 4% 80px !important;
+        }
+
+        @media (max-width: 900px) {
+            :root { --section-padding-y: 64px; --section-padding-x: 5%; }
+        }
+        @media (max-width: 768px) {
+            :root { --section-padding-y: 48px; --section-padding-x: 5%; }
+        }
+
+        /* ── Splash screen ── */
+        #rtc-splash {
+            position: fixed; inset: 0; z-index: 999999;
+            background: #000000;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            opacity: 1; transition: opacity 0.7s ease;
+        }
+        #rtc-splash.fade-out { opacity: 0; pointer-events: none; }
+        #rtc-splash.hidden { display: none; }
+        .splash-ring {
+            width: 160px; height: 160px; border-radius: 50%;
+            border: 1.5px solid rgba(255,255,255,0.2);
+            display: flex; align-items: center; justify-content: center;
+            position: relative; margin-bottom: 2rem;
+            animation: splashRingPulse 2.5s ease infinite;
+        }
+        .splash-ring::before {
+            content: ''; position: absolute; inset: -12px;
+            border-radius: 50%; border: 1px solid rgba(255,255,255,0.08);
+        }
+        @keyframes splashRingPulse {
+            0%,100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.1); }
+            50%      { box-shadow: 0 0 0 18px rgba(255,255,255,0); }
+        }
+        .splash-logo {
+            width: 110px; height: 110px; object-fit: contain;
+            border-radius: 50%; display: block;
+            opacity: 0; transform: scale(0.85);
+            animation: splashLogoIn 0.65s 0.15s cubic-bezier(0.34,1.56,0.64,1) forwards;
+        }
+        @keyframes splashLogoIn { to { opacity:1; transform:scale(1); } }
+        .splash-text {
+            text-align: center; max-width: 320px; padding: 0 1.5rem;
+            opacity: 0; transform: translateY(12px);
+            animation: splashTextIn 0.6s 0.4s ease forwards;
+        }
+        @keyframes splashTextIn { to { opacity:1; transform:translateY(0); } }
+        .splash-tag {
+            display: inline-block; font-size: 0.58rem; letter-spacing: 0.22em;
+            color: #fff; background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.28rem 0.8rem; border-radius: 100px;
+            margin-bottom: 0.9rem; font-family: 'Raleway', sans-serif;
+        }
+        .splash-name {
+            font-family: 'Raleway', sans-serif; font-size: 1.05rem;
+            font-weight: 600; color: #fff; letter-spacing: 0.02em;
+            margin-bottom: 0.5rem; line-height: 1.3;
+        }
+        .splash-desc {
+            font-family: 'Raleway', sans-serif; font-size: 0.73rem;
+            font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.8;
+        }
+        .splash-bar-wrap {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            height: 2.5px; background: rgba(255,255,255,0.1);
+        }
+        .splash-bar-fill {
+            height: 100%; width: 0%; background: #fff;
+            animation: splashBarGrow var(--splash-ms, 3000ms) 0.3s linear forwards;
+        }
+        @keyframes splashBarGrow { to { width: 100%; } }
+        .splash-footer {
+            position: absolute; bottom: 22px; left: 0; right: 0;
+            text-align: center; font-family: 'Raleway', sans-serif;
+            font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+            color: rgba(255,255,255,0.25);
+            opacity: 0; animation: splashTextIn 0.5s 0.6s ease forwards;
+        }
+
+    /* ═══════════════════════════════════════
+   HEADER / NAV
+   ═══════════════════════════════════════ */
+header { position: sticky; top: 0; z-index: 1000; background: #fff; padding: 18px 8%; border-bottom: 1px solid #e8e8e8; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.nav-container { display: flex; justify-content: space-between; align-items: center; position: relative; }
+.logo { font-family: 'Raleway', sans-serif; font-size: 1.05rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; flex-shrink: 0; color: #000; }
+.nav-list { list-style: none; display: flex; align-items: center; gap: 28px; margin: 0; padding: 0; }
+.nav-list > li { position: relative; }
+.nav-list > li > a { font-family: 'Raleway', sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; transition: opacity 0.3s; display: flex; align-items: center; gap: 5px; white-space: nowrap; }
+.nav-list > li > a:hover { opacity: 0.45; }
+.arrow { font-size: 0.65rem; transition: transform 0.3s; display: inline-block; }
+.has-dropdown { padding-bottom: 14px; margin-bottom: -14px; }
+.dropdown { display: none; position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%); background: #fff; border: 1.5px solid #e0e0e0; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); padding: 10px 8px; list-style: none; flex-direction: row; gap: 4px; white-space: nowrap; z-index: 2000; min-width: max-content; margin-top: -14px; padding-top: 14px; }
+.dropdown::before { content:''; position:absolute; top:-7px; left:50%; transform:translateX(-50%); border-left:7px solid transparent; border-right:7px solid transparent; border-bottom:7px solid #e0e0e0; }
+.dropdown::after  { content:''; position:absolute; top:-5px; left:50%; transform:translateX(-50%); border-left:6px solid transparent; border-right:6px solid transparent; border-bottom:6px solid #fff; }
+.has-dropdown:hover .dropdown { display: flex; }
+.dropdown li a { display: block; padding: 8px 16px; font-family: 'Raleway', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em; border-radius: 8px; transition: background 0.2s; white-space: nowrap; }
+.dropdown li a:hover { background: #f4f4f4; }
+.mega-dropdown { display: none; position: absolute; top: calc(100% + 14px); left: 0; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.13); padding: 24px 20px; flex-direction: row; gap: 0; z-index: 2000; min-width: 520px; margin-top: -14px; padding-top: 24px; }
+.mega-dropdown::before { content:''; position:absolute; top:-7px; left:36px; border-left:7px solid transparent; border-right:7px solid transparent; border-bottom:7px solid #e0e0e0; }
+.mega-dropdown::after  { content:''; position:absolute; top:-5px; left:36px; border-left:6px solid transparent; border-right:6px solid transparent; border-bottom:6px solid #fff; }
+.mega-parent:hover .mega-dropdown { display: flex; }
+.mega-col { display: flex; flex-direction: column; gap: 2px; flex: 1; padding: 0 16px; }
+.mega-col:first-child { padding-left: 4px; }
+.mega-col:last-child  { padding-right: 4px; }
+.mega-heading { font-family: 'Raleway', sans-serif; font-size: 0.58rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.28em; color: #999; margin: 0 0 10px 8px; }
+.mega-col a { display: block; padding: 8px 12px; font-family: 'Raleway', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em; border-radius: 8px; transition: background 0.2s; white-space: nowrap; }
+.mega-col a:hover { background: #f4f4f4; }
+.mega-divider { width: 1px; background: #eee; margin: 0 4px; align-self: stretch; }
+.hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 1100; }
+.hamburger span { display: block; width: 24px; height: 2px; background: #000; border-radius: 2px; transition: all 0.3s; }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── LANGUAGE TOGGLE ── */
+.lang-item { list-style: none; margin-left: auto; }
+.lang-wrapper { position: relative; }
+.lang-btn { display: flex; align-items: center; gap: 6px; background: #f4f4f4; border: 1.5px solid #e0e0e0; border-radius: 999px; padding: 6px 12px 6px 10px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #000; cursor: pointer; transition: background 0.2s, border-color 0.2s; font-family: 'Raleway', sans-serif; white-space: nowrap; }
+.lang-btn:hover { background: #ebebeb; border-color: #bbb; }
+.lang-btn .arrow { font-size: 0.65rem; transition: transform 0.3s; }
+.lang-wrapper.open .lang-btn .arrow { transform: rotate(180deg); }
+.lang-dropdown { display: none; position: absolute; top: calc(100% + 10px); right: 0; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); padding: 8px; z-index: 2000; min-width: 180px; flex-direction: column; gap: 2px; }
+.lang-dropdown::before { content: ''; position: absolute; top: -7px; right: 18px; border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 7px solid #e0e0e0; }
+.lang-dropdown::after  { content: ''; position: absolute; top: -5px; right: 18px; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid #fff; }
+.lang-wrapper.open .lang-dropdown { display: flex; }
+.lang-option { display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 12px; background: none; border: none; border-radius: 8px; cursor: pointer; font-family: 'Raleway', sans-serif; transition: background 0.2s; text-align: left; }
+.lang-option:hover:not([disabled]) { background: #f4f4f4; }
+.lang-option[disabled] { cursor: default; opacity: 1; }
+.lang-option.active { background: #f8f8f8; }
+.lang-code { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: #000; min-width: 24px; }
+.lang-option[disabled] .lang-code { color: #999; }
+.lang-name { font-size: 0.85rem; font-weight: 500; color: #000; flex: 1; }
+.lang-option[disabled] .lang-name { color: #aaa; }
+.lang-check { font-size: 0.75rem; font-weight: 700; color: #000; }
+.lang-soon { font-size: 0.58rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #888; background: #f0f0f0; border: 1px solid #e0e0e0; padding: 2px 7px; border-radius: 999px; white-space: nowrap; }
+
+/* ── SEARCH ── */
+.search-item { list-style: none; }
+.search-wrapper { display: flex; align-items: center; background: #f4f4f4; border-radius: 999px; padding: 6px 10px; transition: width 0.35s, background 0.2s; overflow: hidden; width: 36px; }
+.search-wrapper.expanded { width: 200px; background: #f0f0f0; }
+.search-icon-btn { background: none; border: none; cursor: pointer; padding: 0; display: flex; align-items: center; flex-shrink: 0; }
+.search-input { border: none; background: transparent; outline: none; font-size: 0.82rem; color: #000; width: 0; padding: 0; transition: width 0.35s, padding 0.35s; font-family: 'Raleway', sans-serif; }
+.search-wrapper.expanded .search-input { width: 140px; padding: 0 0 0 8px; }
+
+/* ── MOBILE NAV ── */
+@media (max-width: 900px) {
+    .hamburger { display: flex; }
+    #main-nav { display: none; position: absolute; top: calc(100% + 18px); left: 0; right: 0; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); padding: 16px 0; z-index: 999; }
+    #main-nav.open { display: block; }
+    .nav-list { flex-direction: column; align-items: flex-start; gap: 0; padding: 0 8px; }
+    .nav-list > li { width: 100%; }
+    .nav-list > li > a { padding: 12px 16px; border-radius: 10px; justify-content: space-between; width: 100%; }
+    .nav-list > li > a:hover { background: #f4f4f4; opacity: 1; }
+    .mega-dropdown { position: static; flex-direction: column; box-shadow: none; border: none; border-radius: 0; padding: 0 0 8px 12px; min-width: unset; width: 100%; display: none !important; margin-top: 0; }
+    .mega-dropdown::before, .mega-dropdown::after { display: none; }
+    .mega-dropdown.mobile-open { display: flex !important; }
+    .mega-col { padding: 4px 0; }
+    .mega-divider { width: 100%; height: 1px; margin: 6px 0; }
+    .dropdown { position: static; transform: none; box-shadow: none; border: none; border-radius: 0; padding: 0 0 8px 16px; flex-direction: column; background: transparent; min-width: unset; display: none !important; margin-top: 0; }
+    .dropdown::before, .dropdown::after { display: none; }
+    .dropdown.mobile-open { display: flex !important; }
+    .search-item { padding: 8px 16px; width: 100%; }
+    .search-wrapper { width: 100% !important; }
+    .search-input { width: 100% !important; padding: 0 0 0 8px !important; }
+    .lang-item { padding: 8px 16px; width: 100%; margin-left: 0; }
+    .lang-dropdown { position: static; box-shadow: none; border: none; border-radius: 0; padding: 0; display: none !important; }
+    .lang-dropdown::before, .lang-dropdown::after { display: none; }
+    .lang-wrapper.open .lang-dropdown { display: flex !important; }
+}
+/* ── HEADER TEXT SIZE OVERRIDES ── */
+.logo                { font-size: 1.3rem; }
+.nav-list > li > a   { font-size: 0.88rem; }
+.dropdown li a       { font-size: 0.88rem; }
+.mega-col a          { font-size: 0.88rem; }
+.mega-heading        { font-size: 0.72rem; }
+.lang-btn            { font-size: 0.88rem; }
+.lang-name           { font-size: 1rem; }
+.lang-code           { font-size: 0.85rem; }
+.lang-soon           { font-size: 0.68rem; }
+.search-input        { font-size: 0.95rem; }
+
+    </style>
+</head>
+
+<body>
+<header>
+    <div class="nav-container">
+       <a href="index.html" class="logo">RTC Heritage Portal</a>
+</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav id="main-nav">
+            <ul class="nav-list">
+                <li class="has-dropdown mega-parent">
+                    <a href="#">Location, Theme & More <span class="arrow">▾</span></a>
+                    <div class="mega-dropdown">
+                        <div class="mega-col">
+                            <p class="mega-heading">Location</p>
+                            <a href="haa-resourea.html">Haa Resources</a>
+                            <a href="#sephu">Sephu Resources</a>
+                            <a href="#thimphu">Thimphu Resources</a>
+                        </div>
+                        <div class="mega-divider"></div>
+                        <div class="mega-col" style="gap:0;">
+    <p class="mega-heading">Theme</p>
+    <a href="#themesScrollTrack" style="padding:5px 12px;font-size:0.75rem;">Migration</a>
+    <a href="#themesScrollTrack" style="padding:5px 12px;font-size:0.75rem;">Social Changes</a>
+    <a href="#themesScrollTrack" style="padding:5px 12px;font-size:0.75rem;">Cosmological Landscape</a>
+    <a href="#themesScrollTrack" style="padding:5px 12px;font-size:0.75rem;">People, Plant & Animal</a>
+</div>
+                        <div class="mega-divider"></div>
+                        <div class="mega-col">
+                            <p class="mega-heading">More</p>
+                            <a href="resources.html">Additional Resources</a>
+                            <a href="interactive-map.html">Interactive Map</a>
+                            <a href="#">Announcements</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="has-dropdown">
+                    <a href="#">About <span class="arrow">▾</span></a>
+                    <ul class="dropdown">
+                        <li><a href="#about-portal">VMO</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                    </ul>
+                </li>
+                <li class="has-dropdown">
+                    <a href="#">Archive <span class="arrow">▾</span></a>
+                    <ul class="dropdown">
+                        <li><a href="#card-flims">Films</a></li>
+                        <li><a href="#card-essay">Photo Essays</a></li>
+                        <li><a href="#card-vignette">Vignettes</a></li>
+                        <li><a href="#card-audio">Sounds</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="lesson-plan.html">Lesson Plans</a>
+                </li>
+                <li class="lang-item">
+                    <div class="lang-wrapper" id="lang-wrapper">
+                        <button class="lang-btn" id="lang-btn" aria-label="Change language">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                            <span id="lang-label">EN</span>
+                            <span class="arrow">▾</span>
+                        </button>
+                        <div class="lang-dropdown" id="lang-dropdown">
+                            <button class="lang-option active" data-lang="en">
+                                <span class="lang-code">EN</span>
+                                <span class="lang-name">English</span>
+                                <span class="lang-check">✓</span>
+                            </button>
+                            <button class="lang-option" data-lang="dz" disabled>
+                                <span class="lang-code">DZ</span>
+                                <span class="lang-name">རྫོང་ཁ</span>
+                                <span class="lang-soon">Coming Soon</span>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li class="search-item">
+                    <div class="search-wrapper" id="search-wrapper">
+                        <button class="search-icon-btn" id="search-btn" aria-label="Search">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"/>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                            </svg>
+                        </button>
+                        <input type="text" class="search-input" id="search-input" placeholder="Search...">
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO SLIDER -->
+<section class="slider-section">
+    <div class="slider-container">
+        <div class="slide active"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slider-overlay-text">
+            <span class="slider-tag">Highland Heritages of Bhutan</span>
+            <h1 class="slider-heading">Where the Mountains<br>Hold Memory</h1>
+            <p class="slider-subtext">Preserving the living traditions and sacred wisdom<br>of Bhutan's highland communities.</p>
+        </div>
+    </div>
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="video-section">
+    <div class="video-container">
+        <div class="story-text-box">
+            <h3>Experience Our Storytelling</h3>
+            <p>Listen to the oral histories and ancient legends passed down through generations of Bhutanese highlanders.</p>
+        </div>
+        <div class="video-wrapper" style="position: relative;">
+            <video id="main-video" poster="images/thumbnail2.jpg">
+                <source src="image/AQPBd4f9xG1uJQHm9mvqDD3CxjiwTqgFL2smbXxAKavKMzD8IvKih31SCG1qAohS8WSCOhVbAJKb6E71Qj_0sUW-prxm5KKJ6nEKwZusD1lnPw.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <button class="play-overlay-btn" id="play-overlay-btn">
+                <span class="play-circle">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#000">
+                        <polygon points="6,3 20,12 6,21"/>
+                    </svg>
+                </span>
+                <span class="play-label">Play Video</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- RESOURCES HEADER -->
+<div class="media-gallery-header">
+    <h2 class="media-gallery-title">Explore the Resources</h2>
+    <p class="media-gallery-desc">Four distinct formats — each a different way of seeing highland Bhutan. From cinematic documentaries to intimate photo essays, ethnographic vignettes, and natural soundscapes, every piece is rooted in community and place.</p>
+    <div class="media-gallery-pills">
+        <a href="films.html" class="mgp">Films</a>
+        <a href="photoessay.html" class="mgp">Photo Essays</a>
+        <a href="vignettes.html" class="mgp">Vignettes</a>
+        <a href="audio.html" class="mgp">Audio Gallery</a>
+    </div>
+</div>
+
+<!-- RESOURCES GALLERY -->
+<div class="media-gallery" id="media-gallery">
+
+    <div class="gallery-card" id="card-films" style="overflow:hidden;">
+        <video class="gallery-bg-img" autoplay muted loop playsinline preload="auto" poster="images/slider6.jpg" style="pointer-events:none;">
+            <source src="images/0424(1).mp4" type="video/mp4">
+        </video>
+        <img class="films-mobile-img" src="image/wave.png" alt="Films">
+        <div class="gallery-info-box info-right">
+            <h3>Films</h3>
+            <p>Immersive documentary films capturing the living traditions, landscapes, and voices of Bhutan's highland communities.</p>
+            <a href="films.html" class="gallery-btn">Explore Films</a>
+        </div>
+    </div>
+
+    <div class="gallery-card" id="card-essay">
+        <img src="images/pe2.jpg" alt="Photo Essay" class="gallery-bg-img">
+        <div class="gallery-info-box info-left">
+            <h3>Photo Essays</h3>
+            <p>Intimate visual narratives told through close-up portraits and detail photography across the highlands.</p>
+            <a href="photoessay.html" class="gallery-btn">Explore Essays</a>
+        </div>
+    </div>
+
+    <div class="gallery-row">
+        <div class="gallery-card" id="card-vignette">
+            <img src="images/vig.jpg" alt="Ethnographic Vignettes" class="gallery-bg-img">
+            <div class="gallery-info-box">
+                <h3>Ethnographic Vignettes</h3>
+                <a href="vignettes.html" class="gallery-btn">Explore Vignettes</a>
+            </div>
+        </div>
+
+        <div class="gallery-card" id="card-audio">
+            <img src="images/Gemini_Generated_Image_odjdoxodjdoxodjd.png" alt="Audio Gallery" class="gallery-bg-img">
+            <div class="audio-icon" aria-hidden="true">
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+            </div>
+            <div class="gallery-info-box">
+                <h3>Audio Gallery</h3>
+                <a href="audio.html" class="gallery-btn">Explore Sounds</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<section class="themes-section" id="features">
+  <div class="themes-layout">
+
+    <div class="themes-text-panel">
+      <span class="themes-label">Explore by Theme</span>
+      <h2>Four Ways of Seeing</h2>
+      <p>Each theme offers a distinct lens through which to explore the highlands — migration, social change, cosmological landscape, and the relationships between people, plants and animals. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga explicabo aliquid incidunt. Voluptatum earum id quasi? Possimus sit velit placeat sapiente nemo? Modi beatae cupiditate libero voluptas in ipsum molestias eum culpa quam possimus accusamus pariatur distinctio impedit, esse necessitatibus alias, sapiente rerum unde assumenda quo inventore, officia iusto itaque.</p>
+      <div style="display:flex;gap:6px;align-items:center;margin-top:24px;">
+        <div class="ts-dot active" data-step="0"></div>
+        <div class="ts-dot" data-step="1"></div>
+      </div>
+    </div>
+
+    <div class="themes-scroll-outer">
+      <div class="themes-scroll-track" id="themesScrollTrack">
+
+        <div class="themes-pair">
+          <div class="theme-item">
+            <div class="theme-circle"><img src="images/migration.jpg" alt="Migration"></div>
+            <span class="theme-item-label">Migration</span>
+            <p class="theme-item-desc">Sacred landscapes, seasonal cycles, and the living relationship between people and terrain.</p>
+            <a href="theme-environment.html" class="theme-explore-btn">Explore Theme</a>
+          </div>
+          <div class="theme-item">
+            <div class="theme-circle"><img src="images/change.jpg" alt="Social Changes"></div>
+            <span class="theme-item-label">Social Changes</span>
+            <p class="theme-item-desc">Oral traditions, ritual practices, and indigenous knowledge passed through generations.</p>
+            <a href="theme-culture.html" class="theme-explore-btn">Explore Theme</a>
+          </div>
+        </div>
+
+        <div class="themes-pair">
+          <div class="theme-item">
+            <div class="theme-circle"><img src="images/csm_2024-10_Thimphu-City_22bc5183bf.jpg" alt="Cosmological Landscape"></div>
+            <span class="theme-item-label">Cosmological Landscape</span>
+            <p class="theme-item-desc">Spiritual worldviews, sacred sites, and cosmic frameworks shaping highland life.</p>
+            <a href="theme-cosmology.html" class="theme-explore-btn">Explore Theme</a>
+          </div>
+          <div class="theme-item">
+            <div class="theme-circle"><img src="images/ppp.webp" alt="People Plant Animal"></div>
+            <span class="theme-item-label">People, Plant &amp; Animal</span>
+            <p class="theme-item-desc">Intimate relationships between communities and the ecosystems around them.</p>
+            <a href="theme-people-plant-animal.html" class="theme-explore-btn">Explore Theme</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+<style>
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Raleway', sans-serif;
+            background: #ffffff;
+            color: #000000;
+        }
+
+        /* ── ABOUT SECTION ── */
+        .aesthetic-portal {
+            padding: 90px 8%;
+            background: #ffffff;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .ap-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .ap-identity {
+            position: sticky;
+            top: 110px;
+        }
+
+        .ap-eyebrow {
+            display: block;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #000000;
+            font-weight: 800;
+            margin-bottom: 22px;
+        }
+
+        .ap-heading {
+            font-family: 'Raleway', sans-serif;
+            font-size: 3.8rem;
+            font-weight: 800;
+            color: #000000;
+            line-height: 1.1;
+            margin: 0 0 24px;
+        }
+
+        .ap-heading em {
+            font-style: italic;
+            color: #000000;
+            font-weight: 400;
+        }
+
+        .ap-desc {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.95rem;
+            color: #000000;
+            line-height: 1.85;
+            margin-bottom: 32px;
+            max-width: 400px;
+            font-weight: 400;
+        }
+
+        .ap-tag {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #fff;
+            border: 1px solid #cccccc;
+            border-radius: 50px;
+            padding: 10px 20px;
+            width: fit-content;
+        }
+
+        .ap-tag img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .ap-tag span {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #000000;
+        }
+
+        /* ── AP CARDS ── */
+        .ap-pillars {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ap-card {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            align-items: start;
+            padding: 28px 0;
+            border-bottom: 1px solid #e8e8e8;
+            border-left: none;
+            background: transparent;
+            transition: transform 0.28s cubic-bezier(0.22, 0.61, 0.36, 1), background 0.28s ease;
+            border-radius: 4px;
+        }
+
+        .ap-card:first-child { border-top: 1px solid #e8e8e8; }
+
+        .ap-card:hover {
+            transform: translateX(10px);
+            background: #f8f8f8;
+        }
+
+        .ap-card-left {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding-left: 16px;
+            padding-right: 24px;
+        }
+
+        .ap-label {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #888888;
+            line-height: 1.6;
+        }
+
+        .ap-label-bar {
+            width: 24px;
+            height: 2px;
+            background: #cccccc;
+            margin-top: 4px;
+            transition: background 0.28s ease;
+        }
+
+        .ap-card:hover .ap-label-bar { background: #000000; }
+
+        .ap-card-right { padding-right: 16px; }
+
+        .ap-card h3 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #000000;
+            margin: 0 0 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .ap-card p {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.9rem;
+            color: #000000;
+            line-height: 1.8;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        /* ── READ MORE (CSS checkbox trick) ── */
+        .ap-rm-check { display: none; }
+
+        .ap-full {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .ap-rm-check:checked ~ .ap-full { max-height: 200px; }
+
+        .ap-rm-btn {
+            display: inline-block;
+            margin-top: 14px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: #000000;
+            cursor: pointer;
+            user-select: none;
+            text-transform: uppercase;
+        }
+
+        .ap-rm-btn:hover { opacity: 0.5; }
+        .ap-close { display: none; }
+        .ap-rm-check:checked ~ .ap-rm-btn .ap-open { display: none; }
+        .ap-rm-check:checked ~ .ap-rm-btn .ap-close { display: inline; }
+
+        /* ── BOTTOM SECTION ── */
+        .ap-bottom {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 80px;
+            max-width: 1200px;
+            margin: 48px auto 0;
+            align-items: start;
+        }
+
+        .ap-img-wrap {
+            border-radius: 8px;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .ap-img-wrap img {
+            width: 100%;
+            height: 460px;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .ap-img-placeholder {
+            width: 100%;
+            height: 460px;
+            background: #000000;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.4);
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .ap-guide-side {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        /* ── GUIDING PRINCIPLES ── */
+        .ap-principles-label {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #888888;
+            font-weight: 800;
+            margin-bottom: 20px;
+            margin-top: 32px;
+        }
+
+        .ap-values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .ap-value-box {
+            background: #fafafa;
+            border: 1px solid #e8e8e8;
+            border-radius: 10px;
+            padding: 22px 16px;
+            text-align: center;
+            transition: background 0.25s ease, transform 0.25s ease;
+        }
+
+        .ap-value-box:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .ap-value-icon {
+            font-size: 26px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .ap-value-box h4 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #000000;
+            margin: 0 0 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .ap-value-box p {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.82rem;
+            color: #000000;
+            line-height: 1.7;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        /* ── ENTRANCE ANIMATION ── */
+        .ap-hidden {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.55s ease, transform 0.55s ease;
+        }
+        .ap-visible {
+            opacity: 1 !important;
+            transform: translateY(0);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 960px) {
+            .ap-grid, .ap-bottom {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .ap-identity { position: static; }
+            .ap-heading { font-size: 40px; }
+            .ap-img-wrap img,
+            .ap-img-placeholder { height: 300px; }
+        }
+
+        @media (max-width: 560px) {
+            .aesthetic-portal { padding: 60px 5%; }
+            .ap-heading { font-size: 32px; }
+            .ap-values-grid { grid-template-columns: 1fr; }
+            .ap-card { grid-template-columns: 110px 1fr; }
+        }
+    </style>
+<section id="about-portal" class="aesthetic-portal">
+
+    <div class="ap-grid">
+
+        <div class="ap-identity ap-hidden">
+            <span class="ap-eyebrow">✦ ABOUT THE PROJECT</span>
+            <h1 class="ap-heading">A Digital Bridge <br>to the Highlands</h1>
+            <p class="ap-desc">Documenting the sacred rituals, oral histories, and environmental wisdom of Bhutan's high-altitude communities through an academic lens.</p>
+            <div class="ap-tag">
+                <img src="images/rtc.webp" alt="RTC" onerror="this.style.display='none'">
+                <span>A Royal Thimphu College Initiative</span>
+            </div>
+        </div>
+
+        <div class="ap-pillars">
+
+            <a href="vmo.html" class="ap-card ap-hidden" style="text-decoration: none; color: inherit;">
+                <div class="ap-card-left">
+                    <div class="ap-label">01<br>ORGANIZATION</div>
+                    <div class="ap-label-bar"></div>
+                </div>
+                <div class="ap-card-right">
+                    <h3>Academic Stewardship</h3>
+                    <p>Led by <strong>RTC faculty and students</strong> in collaboration with local community leaders.</p>
+                </div>
+            </a>
+
+            <a href="vmo.html" class="ap-card ap-hidden" style="text-decoration: none; color: inherit;">
+                <div class="ap-card-left">
+                    <div class="ap-label">02<br>OUR MISSION</div>
+                    <div class="ap-label-bar"></div>
+                </div>
+                <div class="ap-card-right">
+                    <h3>Cultural Preservation</h3>
+                    <p>Creating a <strong>sustainable digital repository</strong> for future generations of Bhutanese scholars.</p>
+                </div>
+            </a>
+
+            <a href="vmo.html" class="ap-card ap-hidden" style="text-decoration: none; color: inherit;">
+                <div class="ap-card-left">
+                    <div class="ap-label">03<br>THE VISION</div>
+                    <div class="ap-label-bar"></div>
+                </div>
+                <div class="ap-card-right">
+                    <h3>Global Connection</h3>
+                    <p>Showcasing the <strong>resilience of highland life</strong> to the global digital community.</p>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <div class="ap-bottom">
+
+        <div class="ap-img-wrap ap-hidden">
+            <img src="images/rtc1.jpg" alt="Bhutan Highlands"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <!-- <div class="ap-img-placeholder">Bhutan Highlands</div> -->
+        </div>
+
+        <div class="ap-guide-side">
+
+            <div class="ap-card ap-hidden" style="border-top: 1px solid #e8e8e8;">
+                <div class="ap-card-left">
+                    <div class="ap-label">04<br>PROJECT DEPTH</div>
+                    <div class="ap-label-bar"></div>
+                </div>
+                <div class="ap-card-right">
+                    <h3>The Highland Narrative</h3>
+                    <p>This initiative integrates <strong>traditional ecological knowledge</strong> with digital archiving.</p>
+                    <input type="checkbox" id="ap-rm-check" class="ap-rm-check">
+                    <div class="ap-full">
+                        <p style="margin-top:10px;">Our methodology involves <strong>year-long field studies</strong> across Haa and Sephu. We ensure that <strong>environmental wisdom</strong> is preserved for future research.</p>
+                    </div>
+                    <label for="ap-rm-check" class="ap-rm-btn">
+                        <span class="ap-open">Read More ✦</span>
+                        <span class="ap-close">Show Less ▴</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="ap-hidden">
+                <div class="ap-principles-label">OUR GUIDING PRINCIPLES</div>
+                <div class="ap-values-grid">
+                    <div class="ap-value-box">
+                        <span class="ap-value-icon">🌿</span>
+                        <h4>Authenticity</h4>
+                        <p>Honoring <strong>raw community voices</strong>.</p>
+                    </div>
+                    <div class="ap-value-box">
+                        <span class="ap-value-icon">📚</span>
+                        <h4>Scholarship</h4>
+                        <p>Maintaining <strong>academic rigor</strong> always.</p>
+                    </div>
+                    <div class="ap-value-box">
+                        <span class="ap-value-icon">🤝</span>
+                        <h4>Reciprocity</h4>
+                        <p>Ensuring <strong>mutual benefit</strong> for all.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+<script>
+    /* Scroll entrance animation */
+    (function () {
+        var els = document.querySelectorAll('.ap-hidden');
+        if ('IntersectionObserver' in window && els.length) {
+            var obs = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry, i) {
+                    if (entry.isIntersecting) {
+                        setTimeout(function () {
+                            entry.target.classList.add('ap-visible');
+                        }, i * 90);
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            els.forEach(function (el) { obs.observe(el); });
+        } else {
+            els.forEach(function (el) { el.classList.add('ap-visible'); });
+        }
+    })();
+</script>
+<footer class="site-footer">
+
+    <div class="footer-partners">
+    <p class="footer-partners-label">In Partnership With</p>
+    <div class="footer-partners-logos">
+
+        <a href="#" target="_blank" rel="noopener" class="partner-logo-link">
+            <img src="imag/HCEH logo.png" alt="HCEH — Himalayan Centre for Environmental Humanities">
+        </a>
+
+        <a href="https://www.rtc.bt" target="_blank" rel="noopener" class="partner-logo-link">
+            <img src="imag/Royal Thimpu College - logo.png" alt="Royal Thimphu College">
+        </a>
+
+        <a href="https://www.universiteitleiden.nl/en" target="_blank" rel="noopener" class="partner-logo-link">
+            <img src="imag/UL - Algemeen Internationaal - RGB-color.jpg" alt="Universiteit Leiden">
+        </a>
+
+        <a href="#" target="_blank" rel="noopener" class="partner-logo-link">
+            <img src="imag/jpg__de.jpg" alt="Gerda Henkel Stiftung">
+        </a>
+
+    </div>
+</div>
+
+    <div class="footer-main">
+        <div class="footer-brand">
+            <span class="footer-logo">RTC Heritage Portal</span>
+            <p>Documenting the living traditions, oral histories, and sacred wisdom of Bhutan's highland communities — for the generations to come.</p>
+        </div>
+        <div class="footer-social">
+            <h4>Follow Our Work</h4>
+            <div class="footer-social-links">
+                <a href="#" class="social-btn" aria-label="Facebook">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    Facebook
+                </a>
+                <a href="#" class="social-btn" aria-label="Instagram">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                    Instagram
+                </a>
+                <a href="#" class="social-btn" aria-label="YouTube">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+                    YouTube
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <span class="footer-copy">© 2025 RTC Heritage Portal — Royal Thimphu College, Bhutan</span>
+        <nav class="footer-bottom-links">
+            <a href="vmo.html">VMO</a>
+            <a href="films.html">Films</a>
+            <a href="photoessay.html">Essays</a>
+            <a href="vignettes.html">Vignettes</a>
+        </nav>
+    </div>
+
+</footer>
+
+<style>
+.site-footer {
+    background: #fff;
+    border-top: none;
+}
+
+/* ── PARTNERS STRIP ── */
+.footer-partners {
+    border-top: none;
+    border-bottom: none;
+    padding: 28px 8%;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    background: #fff;
+    flex-wrap: wrap;
+}
+
+.footer-partners-label {
+    font-size: 0.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #aaa;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.footer-partners-logos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    gap: 24px;
+    flex-wrap: nowrap;
+}
+
+.partner-logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.25s;
+    flex: 1;
+}
+
+.partner-logo-link:hover { opacity: 1; }
+
+.partner-logo-link img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    max-height: 90px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Gerda Henkel is text-only so constrain it a little */
+.partner-logo-link:nth-child(4) img {
+    max-width: 160px;
+    max-height: 40px;
+}
+
+/* ── MAIN FOOTER ── */
+.footer-main {
+    padding: 16px 8% !important;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
+    align-items: start;
+    border-top: none;
+    border-bottom: none;
+}
+
+.footer-brand .footer-logo {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #000;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.footer-brand p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.82rem;
+    color: #333;
+    line-height: 1.65;
+    margin: 0;
+    max-width: 360px;
+}
+
+.footer-social h4 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #888;
+    margin: 0 0 10px 0;
+}
+
+.footer-social-links {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    border: 1.5px solid #000;
+    border-radius: 999px;
+    text-decoration: none;
+    color: #000;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: background 0.25s, color 0.25s;
+}
+
+.social-btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+.social-btn svg { flex-shrink: 0; }
+
+/* ── FOOTER BOTTOM ── */
+.footer-bottom {
+    padding: 10px 8% !important;
+    border-top: 1px solid #e8e8e8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-copy {
+    font-size: 0.72rem;
+    color: #888;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-bottom-links a {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.72rem;
+    color: #888;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-bottom-links a:hover { color: #000; }
+
+/* ── FOOTER RESPONSIVE ── */
+@media (max-width: 768px) {
+    .footer-partners {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 18px 6%;
+    }
+    .footer-partners-logos {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 28px;
+        width: 100%;
+    }
+    .partner-logo-link {
+        flex: 0 0 calc(50% - 28px);
+    }
+    .partner-logo-link img {
+        max-width: 140px;
+        max-height: 70px;
+    }
+    .partner-logo-link:nth-child(4) img {
+        max-width: 130px;
+        max-height: 36px;
+    }
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 16px 6% !important;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 6% !important;
+        gap: 10px;
+    }
+}
+</style>
+<script>
+(function(){
+    const hamburger = document.getElementById('hamburger');
+    const mainNav   = document.getElementById('main-nav');
+    const searchBtn     = document.getElementById('search-btn');
+    const searchWrapper = document.getElementById('search-wrapper');
+    const searchInput   = document.getElementById('search-input');
+    const langWrapper   = document.getElementById('lang-wrapper');
+    const langBtn       = document.getElementById('lang-btn');
+
+    /* ── DESKTOP DROPDOWNS (hover) ── */
+    document.querySelectorAll('.has-dropdown').forEach(function(item) {
+        const drop = item.querySelector('.mega-dropdown') || item.querySelector('.dropdown');
+        if (!drop) return;
+        let t;
+        function openDrop()  { clearTimeout(t); document.querySelectorAll('.mega-dropdown,.dropdown').forEach(d => { if (d !== drop) d.style.display = ''; }); drop.style.display = 'flex'; }
+        function closeDrop() { t = setTimeout(() => drop.style.display = '', 120); }
+        item.addEventListener('mouseenter', () => { if (window.innerWidth > 900) openDrop(); });
+        item.addEventListener('mouseleave', () => { if (window.innerWidth > 900) closeDrop(); });
+        drop.addEventListener('mouseenter', () => { if (window.innerWidth > 900) clearTimeout(t); });
+        drop.addEventListener('mouseleave', () => { if (window.innerWidth > 900) closeDrop(); });
+    });
+
+    /* ── MOBILE DROPDOWNS (click) ── */
+document.querySelectorAll('.has-dropdown').forEach(function(item) {
+    item.addEventListener('click', function(e) {
+        if (window.innerWidth <= 900) {
+            // If the click was on a child link inside the dropdown, let it navigate
+            var clickedLink  = e.target.closest('a');
+            var toggleLink   = item.querySelector(':scope > a');
+            if (clickedLink && clickedLink !== toggleLink) return;
+
+            const drop  = item.querySelector('.mega-dropdown') || item.querySelector('.dropdown');
+            const arrow = item.querySelector('.arrow');
+            if (!drop) return;
+            const isOpen = drop.classList.contains('mobile-open');
+            document.querySelectorAll('.mega-dropdown.mobile-open,.dropdown.mobile-open').forEach(d => d.classList.remove('mobile-open'));
+            document.querySelectorAll('.has-dropdown .arrow').forEach(a => a.style.transform = '');
+            if (!isOpen) { drop.classList.add('mobile-open'); if (arrow) arrow.style.transform = 'rotate(180deg)'; }
+            e.preventDefault();
+        }
+    });
+});
+
+    /* ── HAMBURGER ── */
+    if (hamburger) {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            hamburger.classList.toggle('open');
+            mainNav.classList.toggle('open');
+        });
+    }
+
+    /* ── CLOSE NAV ON OUTSIDE CLICK ── */
+    document.addEventListener('click', function(e) {
+        if (mainNav && hamburger && !mainNav.contains(e.target) && !hamburger.contains(e.target)) {
+            mainNav.classList.remove('open');
+            hamburger.classList.remove('open');
+            document.querySelectorAll('.mega-dropdown.mobile-open,.dropdown.mobile-open').forEach(d => d.classList.remove('mobile-open'));
+        }
+    });
+
+    /* ── SEARCH EXPAND ── */
+    if (searchBtn) {
+        searchBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const expanded = searchWrapper.classList.toggle('expanded');
+            if (expanded) searchInput.focus();
+            else { searchInput.value = ''; searchInput.blur(); }
+        });
+    }
+    document.addEventListener('click', function(e) {
+        if (searchWrapper && !searchWrapper.contains(e.target)) {
+            searchWrapper.classList.remove('expanded');
+            if (searchInput) searchInput.value = '';
+        }
+    });
+
+    /* ── LANGUAGE TOGGLE ── */
+    if (langBtn) {
+        langBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            langWrapper.classList.toggle('open');
+        });
+    }
+    document.addEventListener('click', function(e) {
+        if (langWrapper && !langWrapper.contains(e.target)) {
+            langWrapper.classList.remove('open');
+        }
+    });
+})();
+</script>
+<script src="script.js"></script>
+</body>
+</html>

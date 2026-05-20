@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethnographic Vignettes — Highland Heritages of Bhutan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #0d0d0d;
+            --muted: #555;
+            --faint: #999;
+            --rule: #e4e4e4;
+            --bg: #fff;
+            --bg-warm: #f8f7f5;
+            --accent: #0d0d0d;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--bg); color: var(--ink); overflow-x: hidden; font-family: 'Raleway', sans-serif; }
+        a { text-decoration: none; color: inherit; }
+
+        /* ── NAV ── */
+        header { position: sticky; top: 0; z-index: 1000; background: #fff; padding: 18px 8%; border-bottom: 1px solid #e8e8e8; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; position: relative; }
+        .logo { font-size: 1.4rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; flex-shrink: 0; }
+        .nav-list { list-style: none; display: flex; align-items: center; gap: 28px; margin: 0; padding: 0; }
+        .nav-list > li { position: relative; }
+        .nav-list > li > a { font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1.2px; transition: opacity 0.3s; display: flex; align-items: center; gap: 5px; white-space: nowrap; }
+        .nav-list > li > a:hover { opacity: 0.45; }
+        .arrow { font-size: 0.68rem; transition: transform 0.3s; display: inline-block; }
+        .has-dropdown:hover .arrow { transform: rotate(180deg); }
+        .dropdown { display: none; position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%); background: #fff; border: 1.5px solid #e0e0e0; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); padding: 10px 8px; list-style: none; flex-direction: column; gap: 4px; white-space: nowrap; z-index: 2000; min-width: max-content; }
+        .dropdown::before { content: ''; position: absolute; top: -7px; left: 50%; transform: translateX(-50%); border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 7px solid #e0e0e0; }
+        .dropdown::after  { content: ''; position: absolute; top: -5px; left: 50%; transform: translateX(-50%); border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid #fff; }
+        .has-dropdown:hover .dropdown { display: flex; }
+        .dropdown li a { display: block; padding: 8px 16px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; border-radius: 8px; transition: background 0.2s; white-space: nowrap; }
+        .dropdown li a:hover { background: #f4f4f4; }
+        .mega-dropdown { display: none; position: absolute; top: calc(100% + 14px); left: 0; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.13); padding: 24px 20px; flex-direction: row; gap: 0; z-index: 2000; min-width: 520px; }
+        .mega-dropdown::before { content: ''; position: absolute; top: -7px; left: 36px; border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 7px solid #e0e0e0; }
+        .mega-dropdown::after  { content: ''; position: absolute; top: -5px; left: 36px; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid #fff; }
+        .mega-parent:hover .mega-dropdown { display: flex; }
+        .mega-col { display: flex; flex-direction: column; gap: 2px; flex: 1; padding: 0 16px; }
+        .mega-col:first-child { padding-left: 4px; }
+        .mega-col:last-child  { padding-right: 4px; }
+        .mega-heading { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: #888; margin: 0 0 10px 8px; }
+        .mega-col a { display: block; padding: 8px 12px; font-size: 0.82rem; font-weight: 600; border-radius: 8px; transition: background 0.2s; white-space: nowrap; }
+        .mega-col a:hover { background: #f4f4f4; }
+        .mega-divider { width: 1px; background: #eee; margin: 0 4px; align-self: stretch; }
+        .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 1100; }
+        .hamburger span { display: block; width: 24px; height: 2px; background: #000; border-radius: 2px; transition: all 0.3s; }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        .lang-item { list-style: none; margin-left: auto; }
+        .lang-wrapper { position: relative; }
+        .lang-btn { display: flex; align-items: center; gap: 6px; background: #f4f4f4; border: 1.5px solid #e0e0e0; border-radius: 999px; padding: 6px 12px 6px 10px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #000; cursor: pointer; transition: background 0.2s; font-family: 'Raleway', sans-serif; white-space: nowrap; }
+        .lang-btn:hover { background: #ebebeb; border-color: #bbb; }
+        .lang-btn .arrow { font-size: 0.65rem; }
+        .lang-wrapper.open .lang-btn .arrow { transform: rotate(180deg); }
+        .lang-dropdown { display: none; position: absolute; top: calc(100% + 10px); right: 0; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); padding: 8px; z-index: 2000; min-width: 180px; flex-direction: column; gap: 2px; }
+        .lang-dropdown::before { content: ''; position: absolute; top: -7px; right: 18px; border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 7px solid #e0e0e0; }
+        .lang-dropdown::after  { content: ''; position: absolute; top: -5px; right: 18px; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid #fff; }
+        .lang-wrapper.open .lang-dropdown { display: flex; }
+        .lang-option { display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 12px; background: none; border: none; border-radius: 8px; cursor: pointer; font-family: 'Raleway', sans-serif; transition: background 0.2s; text-align: left; }
+        .lang-option:hover:not([disabled]) { background: #f4f4f4; }
+        .lang-option[disabled] { cursor: default; opacity: 1; }
+        .lang-option.active { background: #f8f8f8; }
+        .lang-code { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: #000; min-width: 24px; }
+        .lang-option[disabled] .lang-code { color: #999; }
+        .lang-name { font-size: 0.85rem; font-weight: 500; color: #000; flex: 1; }
+        .lang-option[disabled] .lang-name { color: #aaa; }
+        .lang-check { font-size: 0.75rem; font-weight: 700; color: #000; }
+        .lang-soon { font-size: 0.58rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #888; background: #f0f0f0; border: 1px solid #e0e0e0; padding: 2px 7px; border-radius: 999px; white-space: nowrap; }
+        .search-item { list-style: none; margin-left: auto; }
+        .search-wrapper { display: flex; align-items: center; background: #f4f4f4; border-radius: 999px; padding: 6px 10px; transition: width 0.35s, background 0.2s; overflow: hidden; width: 36px; }
+        .search-wrapper.expanded { width: 200px; background: #f0f0f0; }
+        .search-icon-btn { background: none; border: none; cursor: pointer; padding: 0; display: flex; align-items: center; flex-shrink: 0; }
+        .search-input { border: none; background: transparent; outline: none; font-size: 0.82rem; color: #000; width: 0; padding: 0; transition: width 0.35s, padding 0.35s; font-family: 'Raleway', sans-serif; }
+        .search-wrapper.expanded .search-input { width: 140px; padding: 0 0 0 8px; }
+        /* breadcrumb */
+        .breadcrumb { position: sticky; top: 57px; z-index: 900; background: #fff; border-bottom: 1px solid #ececec; padding: 10px 8%; display: flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .breadcrumb a { color: #888; transition: color 0.2s; }
+        .breadcrumb a:hover { color: #000; }
+        .bc-sep { color: #ccc; }
+        .bc-current { color: #000; }
+        /* mobile nav */
+        @media (max-width: 900px) {
+            .hamburger { display: flex; }
+            #main-nav { display: none; position: absolute; top: calc(100% + 18px); left: 0; right: 0; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); padding: 16px 0; z-index: 999; }
+            #main-nav.open { display: block; }
+            .nav-list { flex-direction: column; align-items: flex-start; gap: 0; padding: 0 8px; }
+            .nav-list > li { width: 100%; }
+            .nav-list > li > a { padding: 12px 16px; border-radius: 10px; justify-content: space-between; width: 100%; }
+            .nav-list > li > a:hover { background: #f4f4f4; opacity: 1; }
+            .mega-dropdown { position: static; flex-direction: column; box-shadow: none; border: none; border-radius: 0; padding: 0 0 8px 12px; min-width: unset; width: 100%; display: none !important; }
+            .mega-dropdown::before, .mega-dropdown::after { display: none; }
+            .mega-dropdown.mobile-open { display: flex !important; }
+            .mega-col { padding: 4px 0; }
+            .mega-divider { width: 100%; height: 1px; margin: 6px 0; }
+            .dropdown { position: static; transform: none; box-shadow: none; border: none; border-radius: 0; padding: 0 0 8px 16px; flex-direction: column; background: transparent; min-width: unset; display: none !important; }
+            .dropdown::before, .dropdown::after { display: none; }
+            .dropdown.mobile-open { display: flex !important; }
+            .search-item { padding: 8px 16px; width: 100%; }
+            .search-wrapper { width: 100% !important; }
+            .search-input { width: 100% !important; padding: 0 0 0 8px !important; }
+        }
+
+        /* ── PAGE INTRO ── */
+        .inner-intro { max-width: 760px; margin: 0 auto; padding: 48px 6% 40px; text-align: center; }
+        .inner-intro h2 { font-size: 2.4rem; font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+        .inner-intro p { font-size: 0.95rem; color: var(--muted); line-height: 1.9; }
+
+
+
+        /* ── FILTER BAR ── */
+        .films-controls { padding: 20px 6% 12px; background: #fff; border-bottom: 1px solid #ececec; }
+        .filter-toggle-btn { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 999px; padding: 8px 18px 8px 14px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; cursor: pointer; font-family: 'Raleway', sans-serif; transition: background 0.2s; }
+        .filter-toggle-btn.open { background: #000; color: #fff; border-color: #000; }
+        .filter-arrow { font-size: 0.62rem; transition: transform 0.3s; }
+        .filter-toggle-btn.open .filter-arrow { transform: rotate(180deg); }
+        .films-layout { display: flex; align-items: flex-start; padding: 28px 6% 80px; gap: 0; }
+        .filter-sidebar { width: 0; opacity: 0; overflow: hidden; transition: width 0.5s, opacity 0.4s; position: sticky; top: 141px; }
+        .filter-sidebar.open { width: 240px; opacity: 1; }
+        .filter-sidebar-inner { width: 240px; padding: 0 24px 0 0; }
+        .filter-sidebar-title { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: #aaa; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #ececec; }
+        .filter-check-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 10px; cursor: pointer; transition: background 0.2s; }
+        .filter-check-item:hover { background: #f4f4f4; }
+        .filter-check-box { width: 16px; height: 16px; border: 1.5px solid #ccc; border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s, border-color 0.2s; }
+        .filter-check-item.checked .filter-check-box { background: #000; border-color: #000; }
+        .filter-check-box svg { width: 9px; height: 9px; opacity: 0; }
+        .filter-check-item.checked .filter-check-box svg { opacity: 1; }
+        .filter-check-label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; flex: 1; }
+        .filter-check-count { font-size: 0.65rem; font-weight: 700; color: #aaa; background: #f0f0f0; padding: 2px 7px; border-radius: 999px; }
+        .filter-check-item.checked .filter-check-count { background: #000; color: #fff; }
+        .filter-sidebar-divider { height: 1px; background: #f0f0f0; margin: 6px 8px; }
+        .filter-clear { text-align: center; padding: 8px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #888; cursor: pointer; border-radius: 8px; transition: color 0.2s; }
+        .filter-clear:hover { color: #000; }
+
+        /* ── CARD GRID ── */
+        .cards-area { flex: 1; min-width: 0; }
+        .inner-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .filter-sidebar.open ~ .cards-area .inner-cards { grid-template-columns: repeat(2, 1fr); }
+        .film-card { cursor: pointer; border-radius: 4px; overflow: hidden; background: #fff; transition: transform 0.3s, box-shadow 0.3s; }
+        .film-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.15); }
+        .film-card.hidden { display: none !important; }
+        .film-card-thumb { position: relative; aspect-ratio: 16/10; overflow: hidden; }
+        .film-card-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .film-card:hover .film-card-thumb img { transform: scale(1.04); }
+        /* Format badge on card */
+        .card-format-badge { position: absolute; bottom: 12px; left: 12px; display: flex; gap: 6px; flex-wrap: wrap; }
+        .badge-pill { background: rgba(0,0,0,0.75); color: #fff; font-size: 0.55rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; padding: 4px 9px; border-radius: 999px; display: flex; align-items: center; gap: 4px; backdrop-filter: blur(4px); }
+        .badge-pill svg { width: 9px; height: 9px; }
+        .film-card-info { padding: 16px 18px 20px; border-top: 1px solid #f0f0f0; }
+        .film-card-info .film-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: #aaa; display: block; margin-bottom: 6px; }
+        .film-card-info h4 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+        .film-card-info p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+        .card-read-hint { margin-top: 12px; display: inline-flex; align-items: center; gap: 6px; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #000; border-bottom: 1.5px solid #000; padding-bottom: 1px; transition: opacity 0.2s; }
+        .film-card:hover .card-read-hint { opacity: 0.5; }
+
+        /* ════════════════════════════════════════════
+           VIGNETTE READER — Full-page side panel
+        ════════════════════════════════════════════ */
+        .reader-overlay { position: fixed; inset: 0; z-index: 9000; display: flex; pointer-events: none; }
+        .reader-overlay.open { pointer-events: all; }
+
+        /* dim scrim */
+        .reader-scrim { position: absolute; inset: 0; background: rgba(0,0,0,0); transition: background 0.5s ease; }
+        .reader-overlay.open .reader-scrim { background: rgba(0,0,0,0.55); }
+
+        /* panel */
+        .reader-panel { position: absolute; top: 0; right: 0; width: min(860px, 100vw); height: 100vh; background: #fff; overflow-y: auto; transform: translateX(100%); transition: transform 0.55s cubic-bezier(0.4,0,0.2,1); display: flex; flex-direction: column; }
+        .reader-overlay.open .reader-panel { transform: translateX(0); }
+
+        /* panel close bar */
+        .reader-topbar { position: sticky; top: 0; z-index: 10; background: #fff; border-bottom: 1px solid var(--rule); padding: 0 40px; height: 56px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+        .reader-topbar-left { display: flex; align-items: center; gap: 12px; }
+        .reader-back-btn { background: none; border: none; cursor: pointer; font-family: 'Raleway', sans-serif; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #888; display: flex; align-items: center; gap: 6px; padding: 0; transition: color 0.2s; }
+        .reader-back-btn:hover { color: #000; }
+        .reader-back-btn svg { width: 14px; height: 14px; }
+        .reader-location-tag { font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: #aaa; background: #f4f4f4; padding: 4px 10px; border-radius: 999px; }
+        .reader-progress-bar { position: sticky; top: 56px; z-index: 9; height: 2px; background: var(--rule); flex-shrink: 0; }
+        .reader-progress-fill { height: 100%; background: #000; width: 0%; transition: width 0.1s linear; }
+
+        /* hero */
+        .reader-hero { position: relative; height: 440px; overflow: hidden; flex-shrink: 0; }
+        .reader-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .reader-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 50%, transparent 100%); }
+        .reader-hero-text { position: absolute; bottom: 0; left: 0; right: 0; padding: 40px; }
+        .reader-hero-label { font-size: 0.58rem; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; color: rgba(255,255,255,0.65); margin-bottom: 10px; display: block; }
+        .reader-hero-title { font-family: 'Lora', Georgia, serif; font-size: 2.4rem; font-weight: 600; font-style: italic; color: #fff; line-height: 1.2; letter-spacing: -0.3px; }
+
+        /* body */
+        .reader-body { padding: 52px 64px 0; flex: 1; }
+        .reader-meta { display: flex; align-items: center; gap: 24px; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid var(--rule); flex-wrap: wrap; }
+        .reader-meta-item { display: flex; align-items: center; gap: 7px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #888; }
+        .reader-meta-item svg { width: 12px; height: 12px; opacity: 0.6; }
+        .reader-meta-formats { display: flex; gap: 6px; margin-left: auto; }
+        .fmt-tag { font-size: 0.58rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; padding: 4px 10px; border-radius: 999px; border: 1.5px solid #e0e0e0; color: #555; display: flex; align-items: center; gap: 4px; }
+        .fmt-tag svg { width: 10px; height: 10px; }
+
+        /* narrative text */
+        .reader-narrative { font-family: 'Lora', Georgia, serif; font-size: 1.08rem; line-height: 2; color: #1a1a1a; }
+        .reader-narrative p { margin-bottom: 1.6rem; }
+        .reader-narrative p:last-child { margin-bottom: 0; }
+
+        /* drop cap */
+        .reader-narrative p:first-child::first-letter { font-size: 3.8rem; font-family: 'Lora', Georgia, serif; font-style: italic; line-height: 0.75; float: left; margin: 0.06em 0.12em 0 0; color: #000; }
+
+        /* pull quote */
+        .reader-pullquote { margin: 44px 0; padding: 0 0 0 28px; border-left: 3px solid #000; }
+        .reader-pullquote p { font-family: 'Lora', Georgia, serif; font-size: 1.35rem; font-style: italic; line-height: 1.6; color: #000; margin: 0; }
+        .reader-pullquote cite { display: block; margin-top: 12px; font-family: 'Raleway', sans-serif; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: #888; font-style: normal; }
+
+        /* section break */
+        .reader-section-label { display: flex; align-items: center; gap: 14px; margin: 48px 0 28px; }
+        .reader-section-label span { font-family: 'Raleway', sans-serif; font-size: 0.58rem; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; color: #bbb; white-space: nowrap; }
+        .reader-section-label::before, .reader-section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+        /* inline photo */
+        .reader-photo { margin: 40px -20px; }
+        .reader-photo img { width: 100%; height: 320px; object-fit: cover; display: block; border-radius: 3px; }
+        .reader-photo-caption { font-family: 'Raleway', sans-serif; font-size: 0.72rem; color: #888; line-height: 1.6; margin-top: 10px; padding: 0 20px; font-style: italic; }
+
+        /* photo grid */
+        .reader-photo-grid { margin: 40px -20px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .reader-photo-grid img { width: 100%; height: 220px; object-fit: cover; display: block; border-radius: 3px; }
+        .reader-photo-grid-caption { font-family: 'Raleway', sans-serif; font-size: 0.72rem; color: #888; margin-top: 10px; padding: 0 20px; font-style: italic; grid-column: 1 / -1; }
+
+        /* audio player */
+        .reader-audio-block { margin: 40px 0; background: #f8f7f5; border-radius: 8px; padding: 24px 28px; display: flex; flex-direction: column; gap: 12px; }
+        .reader-audio-label { font-family: 'Raleway', sans-serif; font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: #888; display: flex; align-items: center; gap: 8px; }
+        .reader-audio-label svg { width: 11px; height: 11px; }
+        .reader-audio-title { font-family: 'Raleway', sans-serif; font-size: 0.92rem; font-weight: 700; color: #000; }
+        .audio-player-ui { display: flex; align-items: center; gap: 16px; margin-top: 4px; }
+        .audio-play-btn { width: 44px; height: 44px; border-radius: 50%; background: #000; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s, transform 0.15s; }
+        .audio-play-btn:hover { background: #333; transform: scale(1.05); }
+        .audio-play-btn svg { width: 16px; height: 16px; fill: #fff; }
+        .audio-scrubber-wrap { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+        .audio-scrubber { width: 100%; height: 3px; -webkit-appearance: none; appearance: none; background: #ddd; border-radius: 999px; cursor: pointer; outline: none; }
+        .audio-scrubber::-webkit-slider-thumb { -webkit-appearance: none; width: 13px; height: 13px; border-radius: 50%; background: #000; cursor: pointer; }
+        .audio-time { display: flex; justify-content: space-between; font-family: 'Raleway', sans-serif; font-size: 0.62rem; font-weight: 700; color: #aaa; letter-spacing: 1px; }
+        .audio-desc { font-family: 'Raleway', sans-serif; font-size: 0.78rem; color: #777; line-height: 1.6; font-style: italic; }
+
+        /* video embed */
+        .reader-video-block { margin: 40px -20px; }
+        .reader-video-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 3px; }
+        .reader-video-wrap video, .reader-video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        .reader-video-caption { font-family: 'Raleway', sans-serif; font-size: 0.72rem; color: #888; margin-top: 10px; padding: 0 20px; font-style: italic; }
+
+        /* custom video player overlay */
+        .video-play-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); cursor: pointer; border-radius: 3px; transition: background 0.2s; }
+        .video-play-overlay:hover { background: rgba(0,0,0,0.15); }
+        .video-play-circle { width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.92); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 24px rgba(0,0,0,0.3); }
+        .video-play-circle svg { width: 22px; height: 22px; fill: #000; margin-left: 4px; }
+
+        /* ── RELATED RESOURCES ── */
+        .reader-related { margin: 64px -64px 0; padding: 48px 64px 64px; background: var(--bg-warm); border-top: 1px solid var(--rule); }
+        .related-heading { font-family: 'Raleway', sans-serif; font-size: 0.62rem; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; color: #888; margin-bottom: 28px; display: flex; align-items: center; gap: 14px; }
+        .related-heading::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .related-card { background: #fff; border-radius: 6px; overflow: hidden; cursor: pointer; transition: transform 0.25s, box-shadow 0.25s; border: 1px solid var(--rule); }
+        .related-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.12); }
+        .related-card-img { position: relative; aspect-ratio: 16/9; overflow: hidden; }
+        .related-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+        .related-card:hover .related-card-img img { transform: scale(1.06); }
+        .related-type-badge { position: absolute; top: 10px; left: 10px; background: #000; color: #fff; font-size: 0.55rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; padding: 4px 9px; border-radius: 2px; display: flex; align-items: center; gap: 5px; }
+        .related-type-badge svg { width: 8px; height: 8px; }
+        .related-card-info { padding: 14px 16px 18px; }
+        .related-card-label { font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2.5px; color: #aaa; display: block; margin-bottom: 5px; }
+        .related-card-title { font-size: 0.88rem; font-weight: 700; line-height: 1.35; color: #000; }
+        .related-card-meta { font-size: 0.7rem; color: #888; margin-top: 6px; }
+        .reader-related-empty { font-size: 0.85rem; color: #aaa; font-style: italic; }
+
+        
+
+        @media (max-width: 900px) {
+            .slide { grid-template-columns: 1fr; }
+            .slide-img-wrap { height: 260px; }
+            .inner-cards { grid-template-columns: repeat(2,1fr); }
+            .reader-panel { width: 100vw; }
+            .reader-body { padding: 32px 28px 0; }
+            .reader-hero-title { font-size: 1.8rem; }
+            .related-grid { grid-template-columns: 1fr; }
+            .reader-related { margin: 48px -28px 0; padding: 36px 28px 48px; }
+            .reader-photo, .reader-video-block { margin: 32px 0; }
+        }
+        @media (max-width: 600px) {
+            .inner-cards { grid-template-columns: 1fr; }
+            .reader-hero { height: 280px; }
+            .reader-hero-title { font-size: 1.5rem; }
+            .reader-topbar { padding: 0 20px; }
+        }
+        /* Bridge the gap so cursor doesn't fall through */
+.has-dropdown {
+    padding-bottom: 14px;
+    margin-bottom: -14px;
+}
+
+/* Keep dropdown open while cursor travels to it */
+.dropdown,
+.mega-dropdown {
+    margin-top: -14px;
+    padding-top: 14px;
+}
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <a href="index.html" class="logo">RTC Heritage Portal</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav id="main-nav">
+            <ul class="nav-list">
+                <li class="has-dropdown mega-parent">
+                    <a href="#">Location, Theme &amp; More <span class="arrow">▾</span></a>
+                    <div class="mega-dropdown">
+                        <div class="mega-col">
+                            <p class="mega-heading">Location</p>
+                            <a href="haa-resourea.html">Haa Resources</a>
+                            <a href="#sephu">Sephu Resources</a>
+                            <a href="#thimphu">Thimphu Resources</a>
+                        </div>
+                        <div class="mega-divider"></div>
+                      <div class="mega-col" style="gap:0;">
+    <p class="mega-heading">Theme</p>
+    <a href="#themesScrollTrack" style="padding:5px 12px;font-size:0.75rem;">Migration</a>
+    <a href="#themesScrollTrack" style="padding:5px 12px;font-size:0.75rem;">Social Changes</a>
+    <a href="#themesScrollTrack" style="padding:5px 12px;font-size:0.75rem;">Cosmological Landscape</a>
+    <a href="#themesScrollTrack" style="padding:5px 12px;font-size:0.75rem;">People, Plant & Animal</a>
+</div>
+                        <div class="mega-divider"></div>
+                        <div class="mega-col">
+                            <p class="mega-heading">More</p>
+                            <a href="resources.html">Additional Resources</a>
+                            <a href="interactive-map.html">Interactive Map</a>
+                            <a href="#">Announcement</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="has-dropdown">
+                    <a href="">About <span class="arrow">▾</span></a>
+                    <ul class="dropdown">
+                        <li><a href="index.html#about-portal">VMO</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                    </ul>
+                </li>
+                <li class="has-dropdown">
+                    <a href="#">Archive <span class="arrow">▾</span></a>
+                    <ul class="dropdown">
+                        <li><a href="index.html#card-films">Films</a></li>
+                        <li><a href="index.html#card-essay">Photo Essays</a></li>
+                        <li><a href="index.html#card-vignette">Vignettes</a></li>
+                        <li><a href="index.html#card-audio">Sounds</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="lesson-plan.html">Lesson Plans</a>
+                </li>
+                <li class="lang-item">
+                    <div class="lang-wrapper" id="lang-wrapper">
+                        <button class="lang-btn" id="lang-btn" aria-label="Change language">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                            <span id="lang-label">EN</span>
+                            <span class="arrow">▾</span>
+                        </button>
+                        <div class="lang-dropdown" id="lang-dropdown">
+                            <button class="lang-option active" data-lang="en">
+                                <span class="lang-code">EN</span>
+                                <span class="lang-name">English</span>
+                                <span class="lang-check">✓</span>
+                            </button>
+                            <button class="lang-option" data-lang="dz" disabled>
+                                <span class="lang-code">DZ</span>
+                                <span class="lang-name">རྫོང་ཁ</span>
+                                <span class="lang-soon">Coming Soon</span>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li class="search-item">
+                    <div class="search-wrapper" id="search-wrapper">
+                        <button class="search-icon-btn" id="search-btn" aria-label="Search">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        </button>
+                        <input type="text" class="search-input" id="search-input" placeholder="Search...">
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<nav class="breadcrumb">
+    <a href="index.html">Home</a><span class="bc-sep">›</span>
+    <a href="index.html#media-gallery">Media Gallery</a><span class="bc-sep">›</span>
+    <span class="bc-current">Vignettes</span>
+</nav>
+
+<div class="inner-intro">
+    <h2>Small Portraits of a Vast Cultural World</h2>
+    <p>Ethnographic vignettes are short, closely observed accounts of everyday moments — a lamp being lit, a story told over butter tea, a skill passed from elder to child. Each vignette weaves together text, images, and sound into a living portrait of highland Bhutanese life.</p>
+</div>
+
+
+
+<!-- FILTER + CARDS -->
+<div class="films-controls">
+    <button class="filter-toggle-btn" id="filterToggleBtn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+        Filter <span class="filter-arrow">▾</span>
+    </button>
+</div>
+
+<div class="films-layout">
+    <aside class="filter-sidebar" id="filterSidebar">
+        <div class="filter-sidebar-inner">
+            <p class="filter-sidebar-title">Filter by location</p>
+            <div class="filter-check-item" data-category="haa">
+                <div class="filter-check-box"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></div>
+                <span class="filter-check-label">Haa</span><span class="filter-check-count">2</span>
+            </div>
+            <div class="filter-check-item" data-category="laya">
+                <div class="filter-check-box"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></div>
+                <span class="filter-check-label">Laya</span><span class="filter-check-count">2</span>
+            </div>
+            <div class="filter-check-item" data-category="rtc">
+                <div class="filter-check-box"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></div>
+                <span class="filter-check-label">RTC Memory</span><span class="filter-check-count">2</span>
+            </div>
+            <div class="filter-sidebar-divider"></div>
+            <div class="filter-clear" id="filterClear">Clear all</div>
+        </div>
+    </aside>
+
+    <div class="cards-area">
+        <div class="inner-cards" id="innerCards">
+
+           <!-- VIGNETTE 1 — Riwo Sangchö -->
+<div class="film-card" id="vig-1" data-category="haa"
+     data-vignette="1"
+     data-label="Haa — Ritual"
+     data-location="Bji Gewog, Haa"
+     data-title="Riwo Sangchö"
+     data-readtime="12 min"
+     data-hero="img/vig1.jpg"
+     data-formats='["photo"]'>
+    <div class="film-card-thumb">
+        <img src="img/vig1.jpg" alt="Riwo Sangchö">
+        <div class="card-format-badge">
+            <span class="badge-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Photo</span>
+        </div>
+    </div>
+    <div class="film-card-info">
+        <span class="film-label">Haa — Ritual</span>
+        <h4>Riwo Sangchö</h4>
+        <p>On the 15th lunar month, villagers of Tokay ascend windswept ridges to light ritual fires — smoke rising as offering to deities, spirits, and the elemental forces of the valley.</p>
+        <span class="card-read-hint">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            Read · 12 min
+        </span>
+    </div>
+</div>
+
+            <!-- VIGNETTE 2 — Nature's Calendar -->
+<div class="film-card" id="vig-haa-2" data-category="haa"
+     data-vignette="2"
+     data-label="Haa — Indigenous Knowledge"
+     data-location="Bji Gewog, Haa"
+     data-title="Nature's Calendar"
+     data-readtime="10 min"
+     data-hero="img/v1.jpg"
+     data-formats='["photo","video"]'>
+    <div class="film-card-thumb">
+        <img src="img/v1.jpg" alt="Nature's Calendar">
+        <div class="card-format-badge">
+            <span class="badge-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Photo</span>
+            <span class="badge-pill"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>Video</span>
+        </div>
+    </div>
+    <div class="film-card-info">
+        <span class="film-label">Haa — Indigenous Knowledge</span>
+        <h4>Nature's Calendar</h4>
+        <p>How herders in Bji Gewog read birds, flowers, and wind to understand time and weather — a living archive of environmental wisdom passed down without ever being written.</p>
+        <span class="card-read-hint">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            Read · 10 min
+        </span>
+    </div>
+</div>
+
+           <!-- VIGNETTE 3 — In Search of the Missing Yaks -->
+<div class="film-card" id="vig-laya-1" data-category="haa"
+     data-vignette="3"
+     data-label="Haa — Ritual & Loss"
+     data-location="Chushokha, Haa"
+     data-title="In Search of the Missing Yaks"
+     data-readtime="14 min"
+     data-hero="img/S1.jpg"
+     data-formats='["photo"]'>
+    <div class="film-card-thumb">
+        <img src="img/S1.jpg" alt="In Search of the Missing Yaks">
+        <div class="card-format-badge">
+            <span class="badge-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Photo</span>
+        </div>
+    </div>
+    <div class="film-card-info">
+        <span class="film-label">Haa — Ritual & Loss</span>
+        <h4>In Search of the Missing Yaks</h4>
+        <p>Thirty yaks vanish from a herd in Chushokha. Two herders search for days. An astrologer is consulted. Rituals are performed. The crows come. The yaks never return.</p>
+        <span class="card-read-hint">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            Read · 14 min
+        </span>
+    </div>
+</div>
+
+            <!-- VIGNETTE 4 -->
+            <div class="film-card" id="vig-2" data-category="laya"
+                 data-vignette="4"
+                 data-label="Laya — Knowledge"
+                 data-location="Laya / Merak"
+                 data-title="Reading the Sky"
+                 data-readtime="7 min"
+                 data-hero="images/3.jpg"
+                 data-formats='["audio","photo"]'>
+                <div class="film-card-thumb">
+                    <img src="images/3.jpg" alt="Reading the Sky">
+                    <div class="card-format-badge">
+                        <span class="badge-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>Audio</span>
+                        <span class="badge-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Photo</span>
+                    </div>
+                </div>
+                <div class="film-card-info">
+                    <span class="film-label">Laya — Knowledge</span>
+                    <h4>Reading the Sky</h4>
+                    <p>An elder from Merak explains cloud formations, wind direction, and snowfall patterns — knowledge passed down without ever being written.</p>
+                    <span class="card-read-hint">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                        Read · 7 min
+                    </span>
+                </div>
+            </div>
+
+            <!-- VIGNETTE 5 -->
+            <div class="film-card" id="vig-rtc-1" data-category="rtc"
+                 data-vignette="5"
+                 data-label="RTC Memory — Memory"
+                 data-location="RTC Memory Archive"
+                 data-title="Ara &amp; Absence"
+                 data-readtime="6 min"
+                 data-hero="images/theme2.jpg"
+                 data-formats='["audio"]'>
+                <div class="film-card-thumb">
+                    <img src="images/theme2.jpg" alt="Ara & Absence">
+                    <div class="card-format-badge">
+                        <span class="badge-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>Audio</span>
+                    </div>
+                </div>
+                <div class="film-card-info">
+                    <span class="film-label">RTC Memory — Memory</span>
+                    <h4>Ara &amp; Absence</h4>
+                    <p>On the ritual of distilling home-brewed ara and the conversations it opens — a vignette about grief, memory, and highland hospitality.</p>
+                    <span class="card-read-hint">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                        Read · 6 min
+                    </span>
+                </div>
+            </div>
+
+            <!-- VIGNETTE 6 -->
+            <div class="film-card" id="vig-3" data-category="rtc"
+                 data-vignette="6"
+                 data-label="RTC Memory — Craft"
+                 data-location="RTC Memory Archive"
+                 data-title="The Last Thangka Painter"
+                 data-readtime="9 min"
+                 data-hero="images/theme1.jpg"
+                 data-formats='["video","photo","audio"]'>
+                <div class="film-card-thumb">
+                    <img src="images/theme1.jpg" alt="The Last Thangka Painter">
+                    <div class="card-format-badge">
+                        <span class="badge-pill"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>Video</span>
+                        <span class="badge-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Photo</span>
+                        <span class="badge-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>Audio</span>
+                    </div>
+                </div>
+                <div class="film-card-info">
+                    <span class="film-label">RTC Memory — Craft</span>
+                    <h4>The Last Thangka Painter</h4>
+                    <p>A portrait of a master thangka artist in his seventies — his hands still steady, his apprentice absent, his pigments ground from stone.</p>
+                    <span class="card-read-hint">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                        Read · 9 min
+                    </span>
+                </div>
+            </div>
+
+        </div><!-- /inner-cards -->
+    </div><!-- /cards-area -->
+</div><!-- /films-layout -->
+
+
+<!-- ═══════════════════════════════════════════════
+     VIGNETTE READER PANEL
+═══════════════════════════════════════════════ -->
+<div class="reader-overlay" id="readerOverlay">
+    <div class="reader-scrim" id="readerScrim"></div>
+    <div class="reader-panel" id="readerPanel">
+
+        <!-- Top bar -->
+        <div class="reader-topbar">
+            <div class="reader-topbar-left">
+                <button class="reader-back-btn" id="readerCloseBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                    All Vignettes
+                </button>
+                <span class="reader-location-tag" id="readerLocation"></span>
+            </div>
+            <div id="readerFormats" style="display:flex;gap:6px;"></div>
+        </div>
+        <div class="reader-progress-bar"><div class="reader-progress-fill" id="readerProgress"></div></div>
+
+        <!-- Hero -->
+        <div class="reader-hero" id="readerHero">
+            <img id="readerHeroImg" src="" alt="">
+            <div class="reader-hero-overlay"></div>
+            <div class="reader-hero-text">
+                <span class="reader-hero-label" id="readerLabel"></span>
+                <h1 class="reader-hero-title" id="readerTitle"></h1>
+            </div>
+        </div>
+
+        <!-- Body -->
+        <div class="reader-body" id="readerBodyWrap">
+            <div class="reader-meta" id="readerMeta"></div>
+            <div id="readerContent"></div>
+
+            <!-- RELATED RESOURCES -->
+            <div class="reader-related" id="readerRelated">
+                <p class="related-heading">Related Resources</p>
+                <div class="related-grid" id="relatedGrid"></div>
+            </div>
+        </div>
+
+    </div><!-- /reader-panel -->
+</div><!-- /reader-overlay -->
+
+
+<!-- ═══════════════════════════════════════════════
+     VIGNETTE DATA
+═══════════════════════════════════════════════ -->
+<script>
+// Each vignette: id matches data-vignette on cards
+// content: HTML string with narrative, media blocks, pullquotes
+// related: array of resource objects {type, label, title, img, duration}
+
+var VIGNETTES = {
+
+    1: {
+    location: 'Bji Gewog, Haa',
+    label: 'Haa — Ritual',
+    title: 'Riwo Sangchö',
+    hero: 'img/vig1.jpg',
+    readtime: '12 min',
+    formats: ['photo'],
+    content: `
+
+        <div class="reader-narrative">
+            <p>Riwo Sangchö — Mountain Smoke Offering — is a cornerstone of Bhutanese Buddhist tradition. It encompasses a series of offerings and ceremonial actions intended to cultivate good spiritual energy, cleanse the surrounding environment, and appease spirits. The careful preparation and distribution of grains, incense, and fragrant materials, which represent offerings to deities and spirits, is central to this rite.</p>
+            <p>Smoke customs vary greatly in terms of the material used and certain cosmological frameworks, but they all highlight the transformational power of smoke — its liminal existence in the betwixt and between. Smoke is both material and non-material from the moment of production until the moment of dissipation. Its liminality allows it to permeate matter and the senses and have transformative effects.</p>
+        </div>
+
+        <div class="reader-section-label"><span>The Setting</span></div>
+
+        <div class="reader-photo">
+            <img src="img/vig2.webp" alt="Stone shrine on highland ridge">
+            <p class="reader-photo-caption">A stone shrine perched on the windswept ridges of the mountain — the site where the Riwo Sangchö ritual is performed each year. Bji Gewog, Haa.</p>
+        </div>
+
+        <div class="reader-narrative">
+            <p>July 10th corresponds to the 15th day of the fifth lunar month, celebrated as the auspicious Dzam Ling Chi Sang — World Sang Offering Day. According to organizer Tship Wangchuk, the residents of Bji Gewog, and especially those of Tokay Village, performed the Riwo Sangchö ritual. Villagers ascend toward stone shrines perched on the windswept ridges of the mountain. Here, in the thin air, they lay out trays heaped with offerings gathered from the surrounding land.</p>
+        </div>
+
+        <div class="reader-section-label"><span>The Materials</span></div>
+
+        <div class="reader-photo">
+            <img src="img/vig3.jpg" alt="Buckwheat flowers in bloom">
+            <p class="reader-photo-caption">Buckwheat in bloom — one of the key grains laid out in ritual trays alongside barley, aromatic juniper, and evergreens gathered from nearby pine groves. Haa highlands.</p>
+        </div>
+
+        <div class="reader-narrative">
+            <p>These materials — grains, incense, and fragrant herbs — fuel the ritual bonfires whose rising tendrils of smoke serve as offerings to deities, guardian spirits, and the elemental forces of the valley, according to the lama conducting the ritual. Across Bhutanese Buddhism, smoke-purification rites serve multiple ends: to appease territorial deities, to cleanse human-made pollutants, gain karmic merits, protect from evil eye, and for the overall wellbeing of the community.</p>
+        </div>
+
+        <div class="reader-section-label"><span>The Fire</span></div>
+
+        <div class="reader-photo">
+            <img src="img/vig4.jpg" alt="Ritual bonfire at night">
+            <p class="reader-photo-caption">The ritual bonfire burns through the night — a slender pillar of smoke rises and billows, merging with wind currents and bridging the human world and the unseen realms of spirits.</p>
+        </div>
+
+        <div class="reader-pullquote">
+            <p>"Smoke straddles the boundary between materiality and immateriality. It requires a solid fuel to originate, yet its ethereal, shifting form defies containment."</p>
+            <cite>— Sutton, 1999</cite>
+        </div>
+
+        <div class="reader-narrative">
+            <p>From the crackling embers, a slender pillar of grayish-white tendrils rises and billows, merging with wind currents — bridging the human world and the unseen realms of spirits. Once the fires burn evenly, the lama and laymen ritual performers (chhospa) begin reciting prayers in lyrical Tibetan.</p>
+        </div>
+
+        <div class="reader-section-label"><span>The Lama & Ritual Performers</span></div>
+
+        <div class="reader-photo-grid">
+            <img src="img/vig5.jpg" alt="Lama beside ritual fire">
+            <img src="img/vig8.jpg" alt="Bhutanese ritual performers chhospa">
+            <p class="reader-photo-grid-caption">Left: A lama meditates beside the ritual fire — the offerings and prayers creating a threshold between the visible and invisible world. Right: Chhospa (lay ritual performers) in traditional gho conduct the ceremony, their chants and instruments creating a liminal space. Bji Gewog, Haa.</p>
+        </div>
+
+            <div class="reader-audio-block">
+                <p class="reader-audio-label">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+                    Oral Knowledge
+                </p>
+                <p class="reader-audio-title">Ap Rinzin describes the pre-storm silence — Merak, 2023</p>
+                <div class="audio-player-ui">
+                    <button class="audio-play-btn" onclick="toggleAudio(this)">
+                        <svg class="play-icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                        <svg class="pause-icon" viewBox="0 0 24 24" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                    </button>
+                    <div class="audio-scrubber-wrap">
+                        <input type="range" class="audio-scrubber" value="0" min="0" max="100">
+                        <div class="audio-time"><span>0:00</span><span>3:17</span></div>
+                    </div>
+                </div>
+                <p class="audio-desc">Ap Rinzin speaks in Dzongkha. He pauses frequently — not from uncertainty, but to listen to the wind outside while he describes it. Subtitles available.</p>
+            </div>
+        <div class="reader-section-label"><span>The Prayer — བྷྲཱུྃ༔</span></div>
+
+        <div class="reader-photo">
+            <img src="img/vig6.webp" alt="Tibetan prayer manuscript">
+            <p class="reader-photo-caption">The Riwo Sangchö prayers, drawn from the translated works of Lhatsün Namkha' Jikmé, are preserved by Lotsawa House. The prayers open with the powerful syllable "Bhrūṃ" — a ritual marker declaring the start of transformation.</p>
+        </div>
+
+        <div class="reader-narrative">
+            <p>The prayer begins with the powerful syllable "Bhrūṃ," which acts as a ritual marker declaring the start of transformation. What follows is an extensive list of recipients of the offering — enlightened beings: lamas, yidams, ḍākinīs, and dharmapālas, as well as more worldly or ambiguous entities: local territorial deities, spirits of the six realms of rebirth, karmic creditors, and demons that cause sickness.</p>
+        </div>
+
+        <div class="reader-section-label"><span>Spirits, Deities & the Unseen</span></div>
+
+        <div class="reader-photo">
+            <img src="img/vig7.jpg" alt="Buddhist deity and spirits artwork">
+            <p class="reader-photo-caption">The prayer addresses a vast assembly of beings — enlightened and wrathful, benevolent and malevolent. Unlike secular logic, which would distinguish sharply between them, the chant includes all. The offering is meant to satisfy, pacify, or transform these entities through generosity and recognition.</p>
+        </div>
+
+        <div class="reader-pullquote">
+            <p>"Within the ritual space, they are directly addressed and invited. The chants act as a bridge between the visible world and the invisible one."</p>
+            <cite>— Passang Om & Pema Lhazom Namgay</cite>
+        </div>
+
+        <div class="reader-section-label"><span>Liminality & Community</span></div>
+
+        <div class="reader-photo">
+            <img src="img/vig9.webp" alt="Cham dancers in ceremonial masks">
+            <p class="reader-photo-caption">Liminality — the transitional phase where participants exist "betwixt and between." The chants and instruments help create such a liminal space: participants, while physically present in the village, enter a different reality shaped by sound, smoke, and symbolic language.</p>
+        </div>
+
+        <div class="reader-narrative">
+            <p>As people take part, they feel like they are between two worlds — not fully in the physical world, but not completely in the spiritual one either. They are in a state of change, just like the smoke that rises, turning from something solid into something that disappears from sight.</p>
+            <p>Central to the ritual's ethos is its organizer's declaration: "We started this for peace, for the King, the Je Khenpo, for all sentient beings." As the smoke rises into the sky, it carries prayers not just for personal wishes, but for the whole nation — asking for unity, healthy animals, good rains, and peace in the world.</p>
+            <p>In Haa Valley, the Riwo Sangchö stands as more than an ancient rite — it is where individual hopes fuse into communal aspirations, and where the liminal smoke binds generations. It reminds us that culture endures not through static dogma but through the embodied practices that weave people together with place and with the unseen.</p>
+        </div>
+
+        <div class="reader-section-label"><span>Authors & References</span></div>
+
+        <div class="reader-narrative">
+            <p style="font-size:0.85rem; color:#888; line-height:1.8;">
+                Passang Om and Pema Lhazom Namgay. <em>Riwo Sangchö</em>, Bji Gewog, Haa District, Bhutan, 2024.<br><br>
+                Descola, P. (2013). <em>The Ecology of Others.</em> Chicago, IL: Prickly Paradigm Press.<br>
+                Lhatsün Namkha' Jikmé. (n.d.). <em>Riwo Sangchö Smoke Offering.</em> Lotsawa House.<br>
+                Sutton, D. (1999). Rituals of Smoking. <em>Film &amp; History</em>, 29(3), 70–85.<br>
+                Thubten Lekshey Ling. (2016). <em>Riwo Sangcho.</em> lekshey.org.
+            </p>
+        </div>
+    `,
+    related: [
+        { type: 'film', label: 'Film — Haa', title: 'Voices of the Valley', img: 'img/vig8.jpg', meta: '18 min · 2024' },
+        { type: 'essay', label: 'Photo Essay — Haa', title: 'Between Pastures and Persistence', img: 'img/vig2.webp', meta: '9 photographs' },
+        { type: 'audio', label: 'Audio Archive — Haa', title: 'Sang Ritual Soundscape', img: 'img/vig4.jpg', meta: 'Field recording · 2024' }
+    ]
+},
+    2: {
+    location: 'Bji Gewog, Haa',
+    label: 'Haa — Indigenous Knowledge',
+    title: 'Nature\'s Calendar',
+    hero: 'img/v1.jpg',
+    readtime: '10 min',
+    formats: ['photo','video'],
+    content: `
+
+        <div class="reader-narrative">
+            <p>Long before clocks ticked or satellites tracked storms, people looked into the land, sky, and the creatures that moved through them to understand time, weather, and change. In the high pastures of Bji Gewog, where seasons can be both generous and unforgiving, pastoralists have developed an intimate system of ecological knowledge — what some might call nature's own calendar.</p>
+            <p>Birds and flowers are not just part of the scenery here. They are messengers, timekeepers, and advisors. Their presence, songs, and rhythms signal everything from impending snowfall to the health of yaks, from the onset of hardship to the promise of milk. Passed down orally through generations, this knowledge binds ecological observation with cultural meaning, forming a living archive of environmental wisdom.</p>
+        </div>
+
+        <div class="reader-section-label"><span>Aum Dorji & Her Herd</span></div>
+
+        <div class="reader-photo">
+            <img src="img/VONE.jpg" alt="Aum Dorji with her yak herd">
+            <p class="reader-photo-caption">Aum Dorji tends her herd in the high pastures of Bji Gewog — her daily routine shaped by decades of reading the landscape for signs of weather and seasonal change. Haa highlands, 2024.</p>
+        </div>
+
+        <div class="reader-narrative">
+            <p>During fieldwork in Bji Gewog with herder Aum Dorji and her herd, researchers observed a flock of sparrow-like birds flying over the pastoral. Aum Dorji explained that these birds are called Khabji, and the sudden appearance of Khabji in great numbers indicates snowfall. And to their surprise, a few hours later it rained, followed by snowfall.</p>
+        </div>
+
+        <div class="reader-section-label"><span>The Khabji — A Flock That Warns of Snow</span></div>
+
+        <div class="reader-photo-grid">
+            <img src="img/v2.avif" alt="Khabji birds flying over mountain">
+            <img src="img/v4.webp" alt="Yak grazing in highland pasture">
+            <p class="reader-photo-grid-caption">Left: A flock of Khabji birds in flight over the highlands — their sudden mass appearance is closely watched by herders as a reliable indicator of incoming snowfall. Right: A yak grazes in the high pasture below a snow-capped peak. When the Khabji appear, herders shelter their animals and adjust grazing patterns. Bji Gewog, Haa, 2024.</p>
+        </div>
+
+        <div class="reader-pullquote">
+            <p>"The sudden appearance of Khabji in great numbers indicates snowfall — a signal for the community to shelter animals, collect fodder, and change where the animals graze."</p>
+            <cite>— Aum Dorji, herder, Bji Gewog</cite>
+        </div>
+
+        <div class="reader-narrative">
+            <p>This natural event is not just something people notice, but also a signal for the community to change how they manage daily tasks. They use it to decide when to shelter animals, collect food for them, and change where the animals graze. The herders used to depend on these bird behaviors to adjust to nature, creating a close connection between the environment and their actions.</p>
+        </div>
+
+        <div class="reader-section-label"><span>The Snow & Birds — Field Recording</span></div>
+
+        <div class="reader-video-block">
+            <div class="reader-video-wrap" id="videoBlock-v2">
+                <img src="img/v2.avif" alt="Snow and birds video" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+                <div class="video-play-overlay" onclick="playVideoSrc(this,'videoBlock-v2','img/SNOW & BIRDS.mp4')">
+                    <div class="video-play-circle"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                </div>
+            </div>
+            <p class="reader-video-caption">Field recording: Snow & Birds — the Khabji flock appears over the pasture, followed hours later by snowfall. Bji Gewog, Haa, 2024. Filmed by Passang Om & Pema Lhazom Namgay.</p>
+        </div>
+
+        <div class="reader-section-label"><span>The Bja Si-Jeru — Beauty That Warns of Hardship</span></div>
+
+        <div class="reader-photo">
+            <img src="img/v6.jpg" alt="Bja Si-Jeru hawk-cuckoo bird">
+            <p class="reader-photo-caption">The Bja Si-Jeru — likely the Large Hawk-Cuckoo (Hierococcyx sparverioides) — arrives just before a challenging season marked by heat, pests, and labor. Its call is melodious, but its arrival is bittersweet. Haa highlands.</p>
+        </div>
+
+        <div class="reader-narrative">
+            <p>Another culturally significant bird is the Bja Si-Jeru. Known for its emotional "si-jeru si-jeru" call, it arrives just before a challenging season marked by heat, pests, and labor. When this bird sings, people often sing a line that goes: "The way this bird appears is beautiful, its call melodious and moving, but the season it arrives in is not."</p>
+            <p>While the bird's presence is pleasing to the senses, it is also a reminder of the difficult time ahead. Its arrival, typically between spring and summer, coincides with a season marked by intense labor, scorching sun, sudden rains, and swarms of biting flies. The bird becomes a bittersweet sign — welcomed for its song, but also signaling the onset of seasonal hardship.</p>
+        </div>
+
+        <div class="reader-pullquote">
+            <p>"Bjha sisi sewi si-jeru — the way this bird appears is beautiful, its call melodious and moving, but the season it arrives in is not."</p>
+            <cite>— Traditional herder song, Bji Gewog</cite>
+        </div>
+
+        <div class="reader-section-label"><span>The Ozho Meto — White Flower of Abundance</span></div>
+
+        <div class="reader-photo">
+            <img src="img/VTWO.jpg" alt="Ozho Meto flower in bloom with mountain backdrop">
+            <p class="reader-photo-caption">Flowering plants in the Haa highlands — the Ozho Meto, a milky-white blossom, appears just before the yaks begin to calve. For herders, its bloom signals higher milk yields and the busy weeks of dairy collection ahead. Haa highlands, 2024.</p>
+        </div>
+
+        <div class="reader-narrative">
+            <p>Alongside the signs carried in birdsong, herders also pay close attention to flowers. One such flower is the Ozho Meto, a milky-white blossom that shows up just before the yaks begin to calve. For many herders, its appearance is more than just a sign of seasonal change — it is a sign of abundance to come. The flower is closely linked with higher milk yields, and seeing it bloom helps families prepare for the busy weeks of dairy collection ahead.</p>
+        </div>
+
+            <div class="reader-audio-block">
+                <p class="reader-audio-label">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+                    Oral Knowledge
+                </p>
+                <p class="reader-audio-title">Ap Rinzin describes the pre-storm silence — Merak, 2023</p>
+                <div class="audio-player-ui">
+                    <button class="audio-play-btn" onclick="toggleAudio(this)">
+                        <svg class="play-icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                        <svg class="pause-icon" viewBox="0 0 24 24" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                    </button>
+                    <div class="audio-scrubber-wrap">
+                        <input type="range" class="audio-scrubber" value="0" min="0" max="100">
+                        <div class="audio-time"><span>0:00</span><span>3:17</span></div>
+                    </div>
+                </div>
+                <p class="audio-desc">Ap Rinzin speaks in Dzongkha. He pauses frequently — not from uncertainty, but to listen to the wind outside while he describes it. Subtitles available.</p>
+            </div>
+        <div class="reader-section-label"><span>Oral Knowledge in the Field</span></div>
+
+        <div class="reader-photo">
+            <img src="img/v9.avif" alt="Researcher recording oral knowledge from herder">
+            <p class="reader-photo-caption">A researcher records oral ecological knowledge from a highland herder. This knowledge — unwritten, passed through generations — is the subject of systematic documentation by the RTC Heritage Portal team. Bji Gewog, Haa, 2024.</p>
+        </div>
+
+        <div class="reader-narrative">
+            <p>These biological markers create a living calendar that is both ecological and cultural — a system of phenological literacy developed through long-term, place-based observation. Herders do not rely on written records or modern forecasting tools but instead use natural signs as part of a resilient and sustainable system.</p>
+            <p>The seasonal return of the Khabji, the haunting call of the Bja Si-Jeru, the bloom of the Ozho Meto — each of these is part of a living dialogue between people and place. This is not knowledge stored in books or apps, but in memory, ritual, and daily practice. In listening to birds and watching flowers, herders are not just predicting weather or planning work — they are continuing a relationship with the land built on care, attentiveness, and inherited wisdom.</p>
+        </div>
+
+        <div class="reader-section-label"><span>Authors & References</span></div>
+
+        <div class="reader-narrative">
+            <p style="font-size:0.85rem; color:#888; line-height:1.9;">
+                Passang Om and Pema Lhazom Namgay. <em>Nature's Calendar: How Herders Read the Landscape.</em> Bji Gewog, Haa District, Bhutan, 2024.<br><br>
+                Avibase. (2024). Large Hawk-Cuckoo (<em>Hierococcyx sparverioides</em>). avibase.bsc-eoc.org<br>
+                Fernández-Giménez, M. E. (2000). The role of Mongolian nomadic pastoralists' ecological knowledge in rangeland management. <em>Ecological Applications</em>, 10(5), 1318–1326.<br>
+                Ingold, T. (2000). <em>The perception of the environment.</em> Routledge.<br>
+                Tamou, C., et al. (2017). Traditional ecological knowledge underlying herding decisions. <em>Animal</em>, 11(9), 1617–1625.
+            </p>
+        </div>
+    `,
+    related: [
+    { type: 'film',  label: 'Film — Haa',           title: 'Voices of the Valley',             img: 'img/v4.webp',  meta: '22 min · 2024',        href: 'films.html' },
+    { type: 'essay', label: 'Photo Essay — Haa',    title: 'Between Pastures and Persistence', img: 'img/v5.jpg',   meta: '9 photographs · 2024', href: 'photoessay.html' },
+    { type: 'audio', label: 'Audio Archive — Haa',  title: 'Bird Calls of the Highland Pasture', img: 'img/v2.avif', meta: 'Field recording · 2024', href: 'audio.html' }
+]
+},
+
+    3: {
+    location: 'Chushokha, Haa',
+    label: 'Haa — Ritual & Loss',
+    title: 'In Search of the Missing Yaks',
+    hero: 'img/S1.jpg',
+    readtime: '14 min',
+    formats: ['photo'],
+    content: `
+
+        <div class="reader-narrative">
+            <p>In the spring pastures of Chushokha in Haa, two herders — Chencho and Dawa — found themselves in deep distress. Around thirty of their yaks had disappeared from the larger herd without any apparent explanation. Weeks had passed, yet there was still no sign of them. The absence of the animals weighed heavily on both men, not simply because the yaks were their primary source of livelihood through milk, butter, and cheese, but because they were also regarded as kin.</p>
+        </div>
+
+        <div class="reader-section-label"><span>The Setting — Chushokha, Haa</span></div>
+
+        <div class="reader-photo">
+            <img src="img/S3.webp" alt="Chushokha Haa highland valley">
+            <p class="reader-photo-caption">The spring pastures of Chushokha in Haa District — a vast highland landscape where herders have grazed yaks for generations. It was here that thirty yaks vanished without trace. Haa, Bhutan, 2024.</p>
+        </div>
+
+        <div class="reader-photo">
+            <img src="img/S4.jpg" alt="Haa valley from above">
+            <p class="reader-photo-caption">The Haa valley seen from the ridgeline — the same terrain that Chencho and Dawa combed for days, climbing steep ridges and searching through nearby forests, finding no footprints, no distant sounds, no traces of the missing animals.</p>
+        </div>
+
+        <div class="reader-section-label"><span>Yaks as Kin</span></div>
+
+        <div class="reader-photo">
+            <img src="img/S2.jpg" alt="Herder woman leading yaks through highland village">
+            <p class="reader-photo-caption">A herder leads her yak caravan through a highland village — a daily scene that reflects the intimate bond between herders and their animals. Among yak-herding communities in western Bhutan, yaks are rarely understood as mere livestock. Chushokha, Haa, 2024.</p>
+        </div>
+
+        <div class="reader-narrative">
+            <p>Among yak-herding communities in western Bhutan, yaks are rarely understood as mere livestock. As Wouters (2021) observes in his study of the highlands of Paro and Thimphu, herders often relate to their yaks as children because they raise them with care, nurture them from birth, and spend most of their lives in their company. At the same time, yaks are also perceived as parental figures because they sustain human life through food, labour, and income. Relations between herders and yaks are therefore shaped through mutual dependence, affection, and long-term familiarity.</p>
+            <p>Each evening, Chencho gathered his herd from the surrounding grazing grounds and brought them close to his temporary hut for safety. "Yaks are my companions," he often remarked. During long periods in the highlands, especially when Dawa was away, it was the presence of the animals that eased his loneliness. The relationship between herders and yaks was therefore not solely economic, but deeply emotional and existential.</p>
+        </div>
+
+        <div class="reader-pullquote">
+            <p>"Yaks are my companions — it seemed impossible that thirty could simply vanish on their own."</p>
+            <cite>— Chencho, herder, Chushokha, Haa</cite>
+        </div>
+
+        <div class="reader-section-label"><span>The Search Across the Highlands</span></div>
+
+        <div class="reader-photo">
+            <img src="img/S1.jpg" alt="Herders with yak caravan on mountain trail">
+            <p class="reader-photo-caption">Herders move their yaks along the mountain trail — the same kind of terrain that Chencho and Dawa searched for days, following trails toward summer grazing pastures, climbing steep ridges, combing through nearby forests. Yet there were no footprints, no distant sounds, no traces of the missing animals. Haa highlands, 2024.</p>
+        </div>
+
+        <div class="reader-narrative">
+            <p>Over several days, they searched relentlessly across the highlands. They followed trails leading toward the summer grazing pastures, climbed steep ridges, and combed through nearby forests. Yet there were no footprints, no distant sounds, and no traces of the missing animals. Gradually, the two men began to suspect that forces beyond the visible world might be involved.</p>
+            <p>In the cosmological imagination of the Haa highlands, the landscape is inhabited not only by humans and animals but also by territorial deities and unseen spirits. Herders maintain relationships with these beings through regular offerings and ritual observances, seeking harmony and protection. The unexplained disappearance of the yaks therefore raised the troubling possibility that some spiritual force had been offended.</p>
+        </div>
+
+        <div class="reader-section-label"><span>Consulting the Astrologer — Tsib</span></div>
+
+        <div class="reader-photo" style="display:flex; gap:32px; align-items:flex-start; margin: 40px -20px;">
+            <img src="img/s5.jpg" alt="Elderly Bhutanese man astrologer" style="width:340px; height:auto; border-radius:3px; flex-shrink:0; object-fit:contain; background:#f8f7f5;">
+            <div style="flex:1; padding-top:8px;">
+                <p style="font-family:'Lora',Georgia,serif; font-size:1.05rem; line-height:2; color:#1a1a1a; margin-bottom:16px;">Seeking guidance, Chencho climbed a nearby mountain in search of a mobile network and contacted a tsib — an astrologer and ritual specialist. Consulting astrologers during moments of uncertainty remains common across Bhutan. Spiritual practitioners are consulted regarding the wellbeing of yaks and the uncertainties of life in the mountains.</p>
+                <p style="font-family:'Lora',Georgia,serif; font-size:1.05rem; line-height:2; color:#1a1a1a;">The astrologer confirmed their fears. According to his divination, the yaks had been led astray by dhue — malevolent spirits — and taken toward the northern mountains. The animals, he explained, were still alive but had become invisible to human eyes. The herders may even have unknowingly crossed paths with them during their search, yet the spirits prevented them from seeing the animals. The astrologer assured them that the yaks themselves could still see their owners.</p>
+                <p style="font-family:'Raleway',sans-serif; font-size:0.72rem; color:#888; margin-top:14px; font-style:italic;">Portrait of an elder herder — the kind of elder whose wisdom and experience guide younger herders through moments of uncertainty in the Haa highlands. 2024.</p>
+            </div>
+        </div>
+
+        <div class="reader-pullquote">
+            <p>"The yaks are still alive but have become invisible to human eyes. You may have crossed paths with them — but the spirits prevented you from seeing."</p>
+            <cite>— The astrologer's divination, as recounted by Chencho</cite>
+        </div>
+
+        <div class="reader-section-label"><span>The Ritual — Jasur & Changphuel</span></div>
+
+        <div class="reader-narrative">
+            <p>To restore the disrupted balance, the astrologer advised them to perform offerings dedicated to Ap Chundu, the guardian deity of Haa. The rituals involved the preparation of Jasur — an offering made from tea leaves and butter — and Changphuel — an offering of alcohol. Chencho packed wheat flour, butter, tea leaves, biscuits, a small bottle of locally brewed ara, water, a knife, and a matchbox before climbing toward a nearby hill. Along the way he gathered aromatic shrubs used as sang — incense.</p>
+            <p>Dressed in his traditional gho and wearing a red scarf in place of a ceremonial kabney, he carefully prepared the ritual space at the hilltop. Using a flat stone placed upon a pot, Chencho arranged ritual offerings of flour, butter shaped into small torma, and biscuits. Holding a ladle filled with ara, butter, and water, he chanted prayers to Ap Chundu, asking the deity to protect the missing yaks from predators and misfortune and to guide them safely home.</p>
+        </div>
+
+        <div class="reader-section-label"><span>Two Crows — An Auspicious Sign</span></div>
+
+        <div class="reader-photo">
+            <img src="img/s6.jpeg" alt="Two black crows — sacred beings in Haa">
+            <p class="reader-photo-caption">Two black crows — in Haa, crows are not regarded as ordinary birds but as beings associated with divine presence, as representatives of the guardian deity Ap Chundu. During the ritual, two black crows descended and began feeding on the offerings. Chencho interpreted their appearance as an auspicious sign indicating that the deity had accepted the prayers. Haa, 2024.</p>
+        </div>
+
+        <div class="reader-pullquote">
+            <p>"Haap mii mein, Ola Bja mein lhab Bja enn, Khenpa Shing mein Sa-ang shing enn."</p>
+            <cite>— The people of Haa are not merely ordinary humans. Crows are not simply birds but manifestations of deities. Artemisia is not only a plant but sacred incense. — A lama from Gaychukha</cite>
+        </div>
+
+        <div class="reader-narrative">
+            <p>Rituals such as Jasur and Changphuel remain deeply embedded within the pastoral life of the Haa highlands. Illness, sudden weather changes, accidents, or unexplained losses are often understood as signs that harmony between humans, animals, and spiritual beings has been disturbed. Ritual offerings therefore function not simply as acts of worship but as practices aimed at restoring balance and reciprocity within the landscape.</p>
+        </div>
+
+        <div class="reader-section-label"><span>Semo La — Prayer Flags at the Summit</span></div>
+
+        <div class="reader-photo-grid">
+            <img src="img/s7.jpg" alt="Prayer flags at mountain summit Semo La">
+            <img src="img/s8.jpg" alt="Stone chortens with prayer flags in snow mountain">
+            <p class="reader-photo-grid-caption">Left: Colourful lungdhar prayer flags flutter intensely in the mountain wind at a high-altitude pass — Chencho replaced old prayer flags with new ones at Semo La, hoping to accumulate merit and invite favourable karma. Right: Stone chortens draped with prayer flags on a snow-covered mountain ridge — the kind of sacred landmark that marks the boundary between human territory and the realm of mountain deities. Haa highlands, 2024.</p>
+        </div>
+
+        <div class="reader-narrative">
+            <p>The search continued the next day. Dawa and Thubtoen headed south, while Chencho and Nima moved north toward Semo La mountain. The path wound through dense shrubs and steep, rocky terrain. At the summit, colourful lungdhar fluttered intensely in the mountain wind. Chencho replaced old prayer flags with new ones, hoping to accumulate merit and invite favourable karma.</p>
+            <p>As Nima and Chencho descended, light snow began to fall across the slopes. Walking carefully across the slippery ground, Chencho quietly reflected:</p>
+        </div>
+
+        <div class="reader-pullquote">
+            <p>"ནོར་དང་བདག་པོའི་སྨོན་ལམ་མ་རྫོགས་ན།། ས་གངས་རྩེ་ལུ་འཐོན་འོང་།།"</p>
+            <cite>— "If the karmic bond between the herder and the yak remains unfinished, their paths will cross again in the highlands." — Chencho</cite>
+        </div>
+
+        <div class="reader-section-label"><span>The Yaks Never Found — But the Bonds Remain</span></div>
+
+        <div class="reader-photo">
+            <img src="img/s9.webp" alt="Bhutan river valley wide landscape closing reflection">
+            <p class="reader-photo-caption">The Bhutan highlands — a landscape shared between humans, animals, deities, and unseen forces. Despite days of searching, the thirty yaks were never found. Yet the story extends beyond a narrative of loss: it reveals the intimate relationships that bind herders, animals, landscapes, and spiritual beings within the Haa highlands. Bhutan, 2024.</p>
+        </div>
+
+        <div class="reader-narrative">
+            <p>Despite days of searching, the yaks were never found. Yet the story of the missing yaks extends beyond a narrative of loss. It reveals the intimate relationships that bind herders, animals, landscapes, and unseen spiritual beings within the Haa highlands. The absence of the thirty yaks became, paradoxically, a reaffirmation of these bonds.</p>
+            <p>Whether wandering across distant slopes or hidden from human sight — as the astrologer suggested — the yaks remained present within the emotional, spiritual, and moral world of the herders. Every call Chencho and Dawa made into the mountains was therefore not merely a search for livestock, but an appeal to beings regarded as family. Their connection was not understood solely through labour or economic necessity, but through karma and spiritual continuity extending beyond a single lifetime. The possibility of reunion, whether in this life or another, remained embedded within this cosmological understanding of relationality.</p>
+        </div>
+
+        <div class="reader-section-label"><span>Author & References</span></div>
+
+        <div class="reader-narrative">
+            <p style="font-size:0.85rem; color:#888; line-height:1.9;">
+                Thubtoen Tshering. <em>In Search of the Missing Yaks.</em> Chushokha, Haa District, Bhutan, 2024.<br><br>
+                Phanchung, Gyeltshen, N., Wangdi, T., &amp; Yangzom, K. (2022). Resilience of traditional ritual practices in Bhutanese mountain farming systems amid climate change and anthropogenic activities. <em>Mountain Research and Development</em>, 42(4), V11–V18. https://doi.org/10.1659/MRD-JOURNAL-D-22-00005<br><br>
+                Wouters, J. J. P. (2021). Relatedness, trans-species knots and yak personhood in the Bhutan highlands. In D. Smyer Yü &amp; E. de Maaker (Eds.), <em>Environmental humanities in the new Himalayas</em> (pp. 27–42). Routledge.
+            </p>
+        </div>
+    `,
+    related: [
+        { type: 'film',  label: 'Film — Haa',         title: 'Voices of the Valley',             img: 'img/S1.jpg',   meta: '22 min · 2024',        href: 'films.html' },
+        { type: 'essay', label: 'Photo Essay — Haa',  title: 'Between Pastures and Persistence', img: 'img/S3.webp',  meta: '9 photographs · 2024', href: 'photoessay.html' },
+        { type: 'audio', label: 'Audio Archive — Haa','title': 'Highland Ritual Soundscape',      img: 'img/s7.jpg',   meta: 'Field recording · 2024', href: 'audio.html' }
+    ]
+},
+    4: {
+        location: 'Laya / Merak',
+        label: 'Laya — Knowledge',
+        title: 'Reading the Sky',
+        hero: 'images/3.jpg',
+        readtime: '7 min',
+        formats: ['audio','photo'],
+        content: `
+            <div class="reader-narrative">
+                <p>Ap Rinzin learned to read weather from his grandfather, who learned from his father before him. The knowledge has no written form. It lives in the body, in the habit of looking upward at certain times of day, in the ability to feel a change in wind direction before the grass has begun to bend.</p>
+                <p>He shows the researcher three cloud formations that indicate snow within forty-eight hours. He describes the particular quality of silence that precedes a storm in autumn — not the absence of sound, but a different texture of quiet, denser and lower.</p>
+            </div>
+
+            <div class="reader-audio-block">
+                <p class="reader-audio-label">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+                    Oral Knowledge
+                </p>
+                <p class="reader-audio-title">Ap Rinzin describes the pre-storm silence — Merak, 2023</p>
+                <div class="audio-player-ui">
+                    <button class="audio-play-btn" onclick="toggleAudio(this)">
+                        <svg class="play-icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                        <svg class="pause-icon" viewBox="0 0 24 24" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                    </button>
+                    <div class="audio-scrubber-wrap">
+                        <input type="range" class="audio-scrubber" value="0" min="0" max="100">
+                        <div class="audio-time"><span>0:00</span><span>3:17</span></div>
+                    </div>
+                </div>
+                <p class="audio-desc">Ap Rinzin speaks in Dzongkha. He pauses frequently — not from uncertainty, but to listen to the wind outside while he describes it. Subtitles available.</p>
+            </div>
+
+            <div class="reader-pullquote">
+                <p>"The sky will still behave the same way. Whether anyone can read it — that is the question."</p>
+                <cite>— Ap Rinzin, Laya / Merak</cite>
+            </div>
+
+            <div class="reader-photo">
+                <img src="images/3.jpg" alt="Ap Rinzin reading cloud formations">
+                <p class="reader-photo-caption">Ap Rinzin identifies a lenticular cloud formation above the eastern ridge — a sign, he says, of snowfall within two days. — Merak, 2023.</p>
+            </div>
+        `,
+        related: [
+            { type: 'film', label: 'Film — Laya', title: 'Unwritten Knowledge of the Highlands', img: 'images/slider1.jpg', meta: '34 min · 2023' },
+            { type: 'audio', label: 'Audio — Merak', title: 'Full Interview: Ap Rinzin', img: 'images/theme1.jpg', meta: '41 min · Dzongkha / EN subtitles' }
+        ]
+    },
+
+    5: {
+        location: 'RTC Memory Archive',
+        label: 'RTC Memory — Memory',
+        title: 'Ara & Absence',
+        hero: 'images/theme2.jpg',
+        readtime: '6 min',
+        formats: ['audio'],
+        content: `
+            <div class="reader-narrative">
+                <p>Ara is distilled from maize or rice, depending on what the season has given. The process takes three days and requires a specific clay pot, a copper tube, and a patience that most younger people in the valley say they do not have. Dechen has it.</p>
+                <p>Her husband died four years ago. Since then she makes ara once a month, in the quantities she used to make for both of them. She pours his cup first. She sets it on the low table by the window where he used to sit. She does not perform a ritual over it.</p>
+            </div>
+
+            <div class="reader-audio-block">
+                <p class="reader-audio-label">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+                    Oral Account
+                </p>
+                <p class="reader-audio-title">Dechen describes the three-day distillation — RTC Archive</p>
+                <div class="audio-player-ui">
+                    <button class="audio-play-btn" onclick="toggleAudio(this)">
+                        <svg class="play-icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                        <svg class="pause-icon" viewBox="0 0 24 24" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                    </button>
+                    <div class="audio-scrubber-wrap">
+                        <input type="range" class="audio-scrubber" value="0" min="0" max="100">
+                        <div class="audio-time"><span>0:00</span><span>6:44</span></div>
+                    </div>
+                </div>
+                <p class="audio-desc">Dechen speaks slowly, in Lhotshamkha. The recording was made in her kitchen; the sound of the copper pot is audible in the background.</p>
+            </div>
+
+            <div class="reader-pullquote">
+                <p>"He liked it strong and slightly warm. So that is how I pour it."</p>
+                <cite>— Dechen</cite>
+            </div>
+
+            <div class="reader-narrative">
+                <p>When asked about this practice, Dechen says: he liked it strong and slightly warm. So that is how I pour it. The hospitality is not interrupted by his absence. It has simply changed its form.</p>
+            </div>
+        `,
+        related: [
+            { type: 'essay', label: 'Photo Essay — RTC Memory', title: 'Home-Made: Kitchens of the Highland', img: 'images/theme2.jpg', meta: '28 photographs' },
+            { type: 'audio', label: 'Audio — RTC Archive', title: 'Full Conversation with Dechen', img: 'images/slider5.jpg', meta: '22 min recording' },
+            { type: 'film', label: 'Film — RTC Memory', title: 'What Remains: Grief and Ritual', img: 'images/13.jpg', meta: '41 min · 2022' }
+        ]
+    },
+
+    6: {
+        location: 'RTC Memory Archive',
+        label: 'RTC Memory — Craft',
+        title: 'The Last Thangka Painter',
+        hero: 'images/theme1.jpg',
+        readtime: '9 min',
+        formats: ['video','photo','audio'],
+        content: `
+            <div class="reader-narrative">
+                <p>Lopen Karma is seventy-one. His hands are still steady. He holds the squirrel-hair brush between two fingers and a thumb, resting his wrist against a small sandbag to eliminate tremor. The line he draws is thinner than a hair and perfectly even. He has been drawing this line for fifty years.</p>
+            </div>
+
+            <div class="reader-video-block">
+                <div class="reader-video-wrap" id="videoBlock2">
+                    <img src="images/theme1.jpg" alt="Lopen Karma at work" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+                    <div class="video-play-overlay" onclick="playVideo(this,'videoBlock2')">
+                        <div class="video-play-circle"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                    </div>
+                </div>
+                <p class="reader-video-caption">Lopen Karma draws a single line. The footage has not been edited. This is what fifty years of practice looks like. — RTC Archive, 2022.</p>
+            </div>
+
+            <div class="reader-pullquote">
+                <p>"There are prospects everywhere now. He does not say this bitterly."</p>
+            </div>
+
+            <div class="reader-audio-block">
+                <p class="reader-audio-label">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+                    Interview Extract
+                </p>
+                <p class="reader-audio-title">Lopen Karma on the departure of his apprentice</p>
+                <div class="audio-player-ui">
+                    <button class="audio-play-btn" onclick="toggleAudio(this)">
+                        <svg class="play-icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                        <svg class="pause-icon" viewBox="0 0 24 24" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                    </button>
+                    <div class="audio-scrubber-wrap">
+                        <input type="range" class="audio-scrubber" value="0" min="0" max="100">
+                        <div class="audio-time"><span>0:00</span><span>5:28</span></div>
+                    </div>
+                </div>
+                <p class="audio-desc">Lopen Karma speaks in Dzongkha. His voice is unhurried. At one point he picks up the brush mid-sentence and does not put it down again.</p>
+            </div>
+
+            <div class="reader-section-label"><span>The Pigments</span></div>
+
+            <div class="reader-narrative">
+                <p>The thangka he is currently painting will take three years to complete. He does not know who will complete the next one. He continues to paint this one. The brush moves. The line holds.</p>
+            </div>
+
+            <div class="reader-photo-grid">
+                <img src="images/theme1.jpg" alt="Pigments ground from stone">
+                <img src="images/slider1.jpg" alt="The work in progress">
+                <p class="reader-photo-grid-caption">Left: Mineral pigments ground by Lopen Karma each morning before painting begins. Right: The current thangka, estimated three years to completion. — RTC Archive, 2022.</p>
+            </div>
+        `,
+        related: [
+            { type: 'film', label: 'Film — RTC Memory', title: 'The Painted Cosmos: Thangka Traditions of Bhutan', img: 'images/slider5.jpg', meta: '52 min · 2022' },
+            { type: 'essay', label: 'Photo Essay — Craft', title: 'The Brush, the Sandbag, the Line', img: 'images/theme1.jpg', meta: '36 photographs' },
+            { type: 'audio', label: 'Audio — RTC Archive', title: 'Full Interview: Lopen Karma', img: 'images/theme2.jpg', meta: '58 min · Dzongkha / EN subtitles' }
+        ]
+    }
+
+}; // end VIGNETTES
+
+
+// ── TYPE ICONS ──
+var TYPE_META = {
+    film:  { icon: '<polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/>', label: 'Film',       stroke: true  },
+    essay: { icon: '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>', label: 'Photo Essay', stroke: true },
+    audio: { icon: '<path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>', label: 'Audio',       stroke: true }
+};
+
+var FORMAT_META = {
+    photo: { icon: '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>', label: 'Photos'   },
+    audio: { icon: '<path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>', label: 'Audio' },
+    video: { icon: '<polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/>', label: 'Video' }
+};
+
+// ── READER OPEN / CLOSE ──
+var overlay = document.getElementById('readerOverlay');
+var panel   = document.getElementById('readerPanel');
+
+function openReader(cardId) {
+    var card = document.getElementById(cardId);
+    if (!card) return;
+    var vid = card.dataset.vignette;
+    var data = VIGNETTES[vid];
+    if (!data) return;
+    populateReader(data);
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    panel.scrollTop = 0;
+}
+
+function openReaderByVig(vid) {
+    var data = VIGNETTES[vid];
+    if (!data) return;
+    populateReader(data);
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    panel.scrollTop = 0;
+}
+
+function closeReader() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+document.getElementById('readerCloseBtn').addEventListener('click', closeReader);
+document.getElementById('readerScrim').addEventListener('click', closeReader);
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeReader(); });
+
+// make all cards open reader
+document.querySelectorAll('.film-card').forEach(function(card){
+    card.addEventListener('click', function(){
+        var vid = card.dataset.vignette;
+        if(vid) openReaderByVig(vid);
+    });
+});
+
+function populateReader(data) {
+    // hero
+    document.getElementById('readerHeroImg').src   = data.hero;
+    document.getElementById('readerHeroImg').alt   = data.title;
+    document.getElementById('readerLabel').textContent   = data.label;
+    document.getElementById('readerTitle').textContent   = data.title;
+    document.getElementById('readerLocation').textContent = data.location;
+
+    // format tags in topbar
+    var fmtEl = document.getElementById('readerFormats');
+    fmtEl.innerHTML = '';
+    (data.formats||[]).forEach(function(f){
+        var m = FORMAT_META[f];
+        if(!m) return;
+        var t = document.createElement('span');
+        t.className = 'fmt-tag';
+        t.innerHTML = '<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' + m.icon + '</svg>' + m.label;
+        fmtEl.appendChild(t);
+    });
+
+    // meta bar
+    document.getElementById('readerMeta').innerHTML =
+        '<div class="reader-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>' + data.readtime + ' read</div>' +
+        '<div class="reader-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>' + data.location + '</div>';
+
+    // content
+    document.getElementById('readerContent').innerHTML = data.content || '';
+
+    // related resources
+    var grid = document.getElementById('relatedGrid');
+    grid.innerHTML = '';
+    if(data.related && data.related.length) {
+        data.related.forEach(function(r){
+            var tm = TYPE_META[r.type] || TYPE_META.film;
+            var strokeAttr = 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
+            grid.innerHTML += '<div class="related-card">' +
+                '<div class="related-card-img"><img src="' + r.img + '" alt="' + r.title + '">' +
+                '<span class="related-type-badge"><svg width="10" height="10" viewBox="0 0 24 24" ' + strokeAttr + '>' + tm.icon + '</svg>' + tm.label + '</span></div>' +
+                '<div class="related-card-info"><span class="related-card-label">' + r.label + '</span>' +
+                '<p class="related-card-title">' + r.title + '</p>' +
+                '<p class="related-card-meta">' + r.meta + '</p></div></div>';
+        });
+    } else {
+        grid.innerHTML = '<p class="reader-related-empty">No related resources yet.</p>';
+    }
+}
+
+// ── PROGRESS BAR ──
+panel.addEventListener('scroll', function(){
+    var max = panel.scrollHeight - panel.clientHeight;
+    var pct = max > 0 ? (panel.scrollTop / max * 100) : 0;
+    document.getElementById('readerProgress').style.width = pct + '%';
+});
+
+// ── AUDIO PLAYER (demo — no real src) ──
+function toggleAudio(btn) {
+    var playIcon  = btn.querySelector('.play-icon');
+    var pauseIcon = btn.querySelector('.pause-icon');
+    var playing   = btn.dataset.playing === '1';
+    if(playing) {
+        btn.dataset.playing = '0';
+        playIcon.style.display  = '';
+        pauseIcon.style.display = 'none';
+    } else {
+        btn.dataset.playing = '1';
+        playIcon.style.display  = 'none';
+        pauseIcon.style.display = '';
+        // Simulate scrubber progress
+        var wrap    = btn.closest('.audio-player-ui');
+        var scrubber= wrap ? wrap.querySelector('.audio-scrubber') : null;
+        if(scrubber && !btn._interval) {
+            btn._interval = setInterval(function(){
+                if(btn.dataset.playing !== '1'){ clearInterval(btn._interval); btn._interval=null; return; }
+                var v = parseFloat(scrubber.value)||0;
+                scrubber.value = Math.min(100, v + 0.25);
+                if(scrubber.value >= 100){ clearInterval(btn._interval); btn._interval=null; btn.dataset.playing='0'; playIcon.style.display=''; pauseIcon.style.display='none'; }
+            }, 150);
+        }
+    }
+}
+
+// ── VIDEO (demo — no real src) ──
+function playVideo(overlayEl, blockId) {
+    overlayEl.style.display = 'none';
+    // In production: swap img for <video> element and .play()
+}
+
+// ── NAV ──
+var hamburger=document.getElementById('hamburger'),mainNav=document.getElementById('main-nav'),searchBtn=document.getElementById('search-btn'),searchWrapper=document.getElementById('search-wrapper'),searchInput=document.getElementById('search-input');
+document.querySelectorAll('.has-dropdown').forEach(function(item){var drop=item.querySelector('.mega-dropdown')||item.querySelector('.dropdown');if(!drop)return;var t;item.addEventListener('mouseenter',function(){if(window.innerWidth>900){clearTimeout(t);drop.style.display='flex';}});item.addEventListener('mouseleave',function(){if(window.innerWidth>900)t=setTimeout(function(){drop.style.display='';},120);});drop.addEventListener('mouseenter',function(){clearTimeout(t);});drop.addEventListener('mouseleave',function(){if(window.innerWidth>900)t=setTimeout(function(){drop.style.display='';},120);});});
+if(searchBtn){searchBtn.addEventListener('click',function(e){e.stopPropagation();var o=searchWrapper.classList.toggle('expanded');if(o)searchInput.focus();else{searchInput.value='';searchInput.blur();}});}
+document.addEventListener('click',function(e){if(searchWrapper&&!searchWrapper.contains(e.target)){searchWrapper.classList.remove('expanded');if(searchInput)searchInput.value='';}});
+if(hamburger){hamburger.addEventListener('click',function(e){e.stopPropagation();hamburger.classList.toggle('open');mainNav.classList.toggle('open');});}
+document.querySelectorAll('.has-dropdown').forEach(function(item){item.addEventListener('click',function(e){if(window.innerWidth<=900){var drop=item.querySelector('.mega-dropdown')||item.querySelector('.dropdown'),arrow=item.querySelector('.arrow');if(!drop)return;var isOpen=drop.classList.contains('mobile-open');document.querySelectorAll('.mega-dropdown.mobile-open,.dropdown.mobile-open').forEach(function(d){d.classList.remove('mobile-open');});document.querySelectorAll('.arrow').forEach(function(a){a.style.transform='';});if(!isOpen){drop.classList.add('mobile-open');if(arrow)arrow.style.transform='rotate(180deg)';}e.preventDefault();}});});
+document.addEventListener('click',function(e){if(mainNav&&hamburger&&!mainNav.contains(e.target)&&!hamburger.contains(e.target)){mainNav.classList.remove('open');hamburger.classList.remove('open');document.querySelectorAll('.mega-dropdown.mobile-open,.dropdown.mobile-open').forEach(function(d){d.classList.remove('mobile-open');});}});
+// Language switcher
+var langWrapper=document.getElementById('lang-wrapper'),langBtn=document.getElementById('lang-btn');
+if(langBtn){langBtn.addEventListener('click',function(e){e.stopPropagation();langWrapper.classList.toggle('open');});document.addEventListener('click',function(e){if(langWrapper&&!langWrapper.contains(e.target))langWrapper.classList.remove('open');});}
+
+// ── FILTER ──
+var filterBtn  = document.getElementById('filterToggleBtn');
+var sidebar    = document.getElementById('filterSidebar');
+var sidebarOpen= false;
+var activeFilter = null;
+var allCards   = document.querySelectorAll('.film-card');
+var checkItems = document.querySelectorAll('.filter-check-item');
+var innerCards = document.getElementById('innerCards');
+
+filterBtn.addEventListener('click', function(){
+    sidebarOpen = !sidebarOpen;
+    sidebar.classList.toggle('open', sidebarOpen);
+    filterBtn.classList.toggle('open', sidebarOpen);
+    document.querySelector('.filter-arrow').style.transform = sidebarOpen ? 'rotate(180deg)' : '';
+});
+
+checkItems.forEach(function(item){
+    item.addEventListener('click', function(){
+        var cat = item.dataset.category;
+        if(activeFilter===cat){ activeFilter=null; item.classList.remove('checked'); showAll(); return; }
+        checkItems.forEach(function(i){i.classList.remove('checked');}); item.classList.add('checked'); activeFilter=cat;
+        allCards.forEach(function(c){ c.classList.toggle('hidden', c.dataset.category!==cat); });
+    });
+});
+
+document.getElementById('filterClear').addEventListener('click', function(){
+    activeFilter=null; checkItems.forEach(function(i){i.classList.remove('checked');}); showAll();
+});
+
+function showAll(){ allCards.forEach(function(c){c.classList.remove('hidden');}); }
+function playVideoSrc(overlayEl, blockId, src) {
+    var wrap = document.getElementById(blockId);
+    overlayEl.style.display = 'none';
+    var vid = document.createElement('video');
+    vid.src = src;
+    vid.controls = true;
+    vid.autoplay = true;
+    vid.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;';
+    wrap.appendChild(vid);
+    vid.play().catch(function(){});
+}
+</script>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+
+    <div class="footer-partners">
+    <p class="footer-partners-label">In Partnership With</p>
+    <div class="footer-partners-logos">
+
+        <a href="#" target="_blank" rel="noopener" class="partner-logo-link">
+            <img src="imag/HCEH logo.png" alt="HCEH — Himalayan Centre for Environmental Humanities">
+        </a>
+
+        <a href="https://www.rtc.bt" target="_blank" rel="noopener" class="partner-logo-link">
+            <img src="imag/Royal Thimpu College - logo.png" alt="Royal Thimphu College">
+        </a>
+
+        <a href="https://www.universiteitleiden.nl/en" target="_blank" rel="noopener" class="partner-logo-link">
+            <img src="imag/UL - Algemeen Internationaal - RGB-color.jpg" alt="Universiteit Leiden">
+        </a>
+
+        <a href="#" target="_blank" rel="noopener" class="partner-logo-link">
+            <img src="imag/jpg__de.jpg" alt="Gerda Henkel Stiftung">
+        </a>
+
+    </div>
+</div>
+
+    <div class="footer-main">
+        <div class="footer-brand">
+            <span class="footer-logo">RTC Heritage Portal</span>
+            <p>Documenting the living traditions, oral histories, and sacred wisdom of Bhutan's highland communities — for the generations to come.</p>
+        </div>
+        <div class="footer-social">
+            <h4>Follow Our Work</h4>
+            <div class="footer-social-links">
+                <a href="#" class="social-btn" aria-label="Facebook">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    Facebook
+                </a>
+                <a href="#" class="social-btn" aria-label="Instagram">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                    Instagram
+                </a>
+                <a href="#" class="social-btn" aria-label="YouTube">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+                    YouTube
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span class="footer-copy">© 2025 RTC Heritage Portal — Royal Thimphu College, Bhutan</span>
+        <nav class="footer-bottom-links">
+            <a href="vmo.html">VMO</a>
+            <a href="films.html">Films</a>
+            <a href="photoessay.html">Essays</a>
+            <a href="vignettes.html">Vignettes</a>
+        </nav>
+    </div>
+</footer>
+<style>
+.site-footer {
+    background: #fff;
+    border-top: none;
+}
+
+/* ── PARTNERS STRIP ── */
+.footer-partners {
+    border-top: none;
+    border-bottom: none;
+    padding: 28px 8%;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    background: #fff;
+    flex-wrap: wrap;
+}
+
+.footer-partners-label {
+    font-size: 0.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #aaa;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.footer-partners-logos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    gap: 24px;
+    flex-wrap: nowrap;
+}
+
+.partner-logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.25s;
+    flex: 1;
+}
+
+.partner-logo-link:hover { opacity: 1; }
+
+.partner-logo-link img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    max-height: 90px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Gerda Henkel is text-only so constrain it a little */
+.partner-logo-link:nth-child(4) img {
+    max-width: 160px;
+    max-height: 40px;
+}
+
+/* ── MAIN FOOTER ── */
+.footer-main {
+    padding: 16px 8% !important;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
+    align-items: start;
+    border-top: none;
+    border-bottom: none;
+}
+
+.footer-brand .footer-logo {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #000;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.footer-brand p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.82rem;
+    color: #333;
+    line-height: 1.65;
+    margin: 0;
+    max-width: 360px;
+}
+
+.footer-social h4 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #888;
+    margin: 0 0 10px 0;
+}
+
+.footer-social-links {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    border: 1.5px solid #000;
+    border-radius: 999px;
+    text-decoration: none;
+    color: #000;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: background 0.25s, color 0.25s;
+}
+
+.social-btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+.social-btn svg { flex-shrink: 0; }
+
+/* ── FOOTER BOTTOM ── */
+.footer-bottom {
+    padding: 10px 8% !important;
+    border-top: 1px solid #e8e8e8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-copy {
+    font-size: 0.72rem;
+    color: #888;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-bottom-links a {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.72rem;
+    color: #888;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-bottom-links a:hover { color: #000; }
+
+/* ── FOOTER RESPONSIVE ── */
+@media (max-width: 768px) {
+    .footer-partners {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 18px 6%;
+    }
+    .footer-partners-logos {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 28px;
+        width: 100%;
+    }
+    .partner-logo-link {
+        flex: 0 0 calc(50% - 28px);
+    }
+    .partner-logo-link img {
+        max-width: 140px;
+        max-height: 70px;
+    }
+    .partner-logo-link:nth-child(4) img {
+        max-width: 130px;
+        max-height: 36px;
+    }
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 16px 6% !important;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 6% !important;
+        gap: 10px;
+    }
+}
+</style>
+<script>
+(function(){
+    const hamburger = document.getElementById('hamburger');
+    const mainNav   = document.getElementById('main-nav');
+    const searchBtn     = document.getElementById('search-btn');
+    const searchWrapper = document.getElementById('search-wrapper');
+    const searchInput   = document.getElementById('search-input');
+    const langWrapper   = document.getElementById('lang-wrapper');
+    const langBtn       = document.getElementById('lang-btn');
+
+    /* ── DESKTOP DROPDOWNS (hover) ── */
+    document.querySelectorAll('.has-dropdown').forEach(function(item) {
+        const drop = item.querySelector('.mega-dropdown') || item.querySelector('.dropdown');
+        if (!drop) return;
+        let t;
+        function openDrop()  { clearTimeout(t); document.querySelectorAll('.mega-dropdown,.dropdown').forEach(d => { if (d !== drop) d.style.display = ''; }); drop.style.display = 'flex'; }
+        function closeDrop() { t = setTimeout(() => drop.style.display = '', 120); }
+        item.addEventListener('mouseenter', () => { if (window.innerWidth > 900) openDrop(); });
+        item.addEventListener('mouseleave', () => { if (window.innerWidth > 900) closeDrop(); });
+        drop.addEventListener('mouseenter', () => { if (window.innerWidth > 900) clearTimeout(t); });
+        drop.addEventListener('mouseleave', () => { if (window.innerWidth > 900) closeDrop(); });
+    });
+
+    /* ── MOBILE DROPDOWNS (click) ── */
+document.querySelectorAll('.has-dropdown').forEach(function(item) {
+    item.addEventListener('click', function(e) {
+        if (window.innerWidth <= 900) {
+            // If the click was on a child link inside the dropdown, let it navigate
+            var clickedLink  = e.target.closest('a');
+            var toggleLink   = item.querySelector(':scope > a');
+            if (clickedLink && clickedLink !== toggleLink) return;
+
+            const drop  = item.querySelector('.mega-dropdown') || item.querySelector('.dropdown');
+            const arrow = item.querySelector('.arrow');
+            if (!drop) return;
+            const isOpen = drop.classList.contains('mobile-open');
+            document.querySelectorAll('.mega-dropdown.mobile-open,.dropdown.mobile-open').forEach(d => d.classList.remove('mobile-open'));
+            document.querySelectorAll('.has-dropdown .arrow').forEach(a => a.style.transform = '');
+            if (!isOpen) { drop.classList.add('mobile-open'); if (arrow) arrow.style.transform = 'rotate(180deg)'; }
+            e.preventDefault();
+        }
+    });
+});
+
+    /* ── HAMBURGER ── */
+    if (hamburger) {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            hamburger.classList.toggle('open');
+            mainNav.classList.toggle('open');
+        });
+    }
+
+    /* ── CLOSE NAV ON OUTSIDE CLICK ── */
+    document.addEventListener('click', function(e) {
+        if (mainNav && hamburger && !mainNav.contains(e.target) && !hamburger.contains(e.target)) {
+            mainNav.classList.remove('open');
+            hamburger.classList.remove('open');
+            document.querySelectorAll('.mega-dropdown.mobile-open,.dropdown.mobile-open').forEach(d => d.classList.remove('mobile-open'));
+        }
+    });
+
+    /* ── SEARCH EXPAND ── */
+    if (searchBtn) {
+        searchBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const expanded = searchWrapper.classList.toggle('expanded');
+            if (expanded) searchInput.focus();
+            else { searchInput.value = ''; searchInput.blur(); }
+        });
+    }
+    document.addEventListener('click', function(e) {
+        if (searchWrapper && !searchWrapper.contains(e.target)) {
+            searchWrapper.classList.remove('expanded');
+            if (searchInput) searchInput.value = '';
+        }
+    });
+
+    /* ── LANGUAGE TOGGLE ── */
+    if (langBtn) {
+        langBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            langWrapper.classList.toggle('open');
+        });
+    }
+    document.addEventListener('click', function(e) {
+        if (langWrapper && !langWrapper.contains(e.target)) {
+            langWrapper.classList.remove('open');
+        }
+    });
+})();
+</script>
+</body>
+</html>
