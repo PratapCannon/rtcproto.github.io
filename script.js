@@ -20,20 +20,19 @@ window.onload = function () {
         });
     }
 
-    /* ── HERO SLIDER ── */
-    var slides  = document.querySelectorAll('.slide');
-    var current = 0;
+var slides  = document.querySelectorAll('.slide');
+var current = 0;
 
-    if (slides.length > 0) {
-        slides.forEach(function(s) { s.classList.remove('active'); });
-        slides[0].classList.add('active');
+if (slides.length > 0) {
+    slides.forEach(function(s) { s.classList.remove('active'); });
+    slides[0].classList.add('active');
 
-        setInterval(function () {
-            slides[current].classList.remove('active');
-            current = (current + 1) % slides.length;
-            slides[current].classList.add('active');
-        }, 6000);
-    }
+    setInterval(function () {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+    }, 6000);
+}
 
     /* ── STORY VIDEO PLAY BUTTON ── */
     var storyVideo   = document.getElementById('main-video');

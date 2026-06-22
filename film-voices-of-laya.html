@@ -1,391 +1,203 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voices of Laya — Films — Highland Heritages of Bhutan</title>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
     <style>
-        * { font-family: 'Raleway', sans-serif !important; box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body { background: #fff; color: #000; overflow-x: hidden; }
-        a { text-decoration: none; color: inherit; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Raleway', sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background: #fff; color: #000; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
 
-        /* ══════════════════════════════
-           HEADER & NAV (same as films.html)
-        ══════════════════════════════ */
-        header { position: sticky; top: 0; z-index: 1000; background: #fff; padding: 18px 8%; border-bottom: 1px solid #e8e8e8; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; position: relative; }
-        .logo { font-size: 1.4rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; flex-shrink: 0; }
-        .nav-list { list-style: none; display: flex; align-items: center; gap: 28px; margin: 0; padding: 0; }
-        .nav-list > li { position: relative; }
-        .nav-list > li > a { font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1.2px; transition: opacity 0.3s; display: flex; align-items: center; gap: 5px; white-space: nowrap; }
-        .nav-list > li > a:hover { opacity: 0.45; }
-        .arrow { font-size: 0.68rem; transition: transform 0.3s; display: inline-block; }
-        .has-dropdown:hover .arrow { transform: rotate(180deg); }
-        .dropdown { display: none; position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%); background: #fff; border: 1.5px solid #e0e0e0; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); padding: 10px 8px; list-style: none; flex-direction: column; gap: 4px; white-space: nowrap; z-index: 2000; min-width: max-content; }
-        .dropdown::before { content: ''; position: absolute; top: -7px; left: 50%; transform: translateX(-50%); border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 7px solid #e0e0e0; }
-        .dropdown::after  { content: ''; position: absolute; top: -5px; left: 50%; transform: translateX(-50%); border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid #fff; }
-        .has-dropdown:hover .dropdown { display: flex; }
-        .dropdown li a { display: block; padding: 8px 16px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; border-radius: 8px; transition: background 0.2s; white-space: nowrap; }
-        .dropdown li a:hover { background: #f4f4f4; }
-        .mega-dropdown { display: none; position: absolute; top: calc(100% + 14px); left: 0; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.13); padding: 24px 20px; flex-direction: row; gap: 0; z-index: 2000; min-width: 520px; }
-        .mega-dropdown::before { content: ''; position: absolute; top: -7px; left: 36px; border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 7px solid #e0e0e0; }
-        .mega-dropdown::after  { content: ''; position: absolute; top: -5px; left: 36px; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid #fff; }
-        .mega-parent:hover .mega-dropdown { display: flex; }
-        .mega-col { display: flex; flex-direction: column; gap: 2px; flex: 1; padding: 0 16px; }
-        .mega-col:first-child { padding-left: 4px; }
-        .mega-col:last-child  { padding-right: 4px; }
-        .mega-heading { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: #888; margin: 0 0 10px 8px; }
-        .mega-col a { display: block; padding: 8px 12px; font-size: 0.82rem; font-weight: 600; border-radius: 8px; transition: background 0.2s; white-space: nowrap; }
-        .mega-col a:hover { background: #f4f4f4; }
-        .mega-divider { width: 1px; background: #eee; margin: 0 4px; align-self: stretch; }
-        .search-item { list-style: none; }
-        .search-wrapper { display: flex; align-items: center; background: #f4f4f4; border-radius: 999px; padding: 6px 10px; transition: width 0.35s, background 0.2s; overflow: hidden; width: 36px; }
-        .search-wrapper.expanded { width: 200px; background: #f0f0f0; }
-        .search-icon-btn { background: none; border: none; cursor: pointer; padding: 0; display: flex; align-items: center; flex-shrink: 0; }
-        .search-input { border: none; background: transparent; outline: none; font-size: 0.82rem; width: 0; padding: 0; transition: width 0.35s, padding 0.35s; }
-        .search-wrapper.expanded .search-input { width: 140px; padding: 0 0 0 8px; }
-        .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 1100; }
-        .hamburger span { display: block; width: 24px; height: 2px; background: #000; border-radius: 2px; transition: all 0.3s; }
-        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .hamburger.open span:nth-child(2) { opacity: 0; }
-        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-        .lang-item { list-style: none; }
-        .lang-wrapper { position: relative; }
-        .lang-btn { display: flex; align-items: center; gap: 6px; background: #f4f4f4; border: 1.5px solid #e0e0e0; border-radius: 999px; padding: 6px 12px 6px 10px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #000; cursor: pointer; transition: background 0.2s, border-color 0.2s; white-space: nowrap; }
-        .lang-btn:hover { background: #ebebeb; border-color: #bbb; }
-        .lang-dropdown { display: none; position: absolute; top: calc(100% + 10px); right: 0; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); padding: 8px; z-index: 2000; min-width: 180px; flex-direction: column; gap: 2px; }
-        .lang-wrapper.open .lang-dropdown { display: flex; }
-        .lang-option { display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 12px; background: none; border: none; border-radius: 8px; cursor: pointer; transition: background 0.2s; text-align: left; }
-        .lang-option:hover:not([disabled]) { background: #f4f4f4; }
-        .lang-option[disabled] { cursor: default; }
-        .lang-option.active { background: #f8f8f8; }
-        .lang-code { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: #000; min-width: 24px; }
-        .lang-option[disabled] .lang-code { color: #999; }
-        .lang-name { font-size: 0.85rem; font-weight: 500; color: #000; flex: 1; }
-        .lang-option[disabled] .lang-name { color: #aaa; }
-        .lang-check { font-size: 0.75rem; font-weight: 700; color: #000; }
-        .lang-soon { font-size: 0.58rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #888; background: #f0f0f0; border: 1px solid #e0e0e0; padding: 2px 7px; border-radius: 999px; white-space: nowrap; }
+    /* ── BREADCRUMB ── */
+    .breadcrumb { position: sticky; top: 57px; z-index: 900; background: #fff; border-bottom: 1px solid #ececec; padding: 10px 8%; display: flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+    .breadcrumb a { color: #888; transition: color 0.2s; }
+    .breadcrumb a:hover { color: #000; }
+    .bc-sep { color: #ccc; }
+    .bc-current { color: #000; }
 
-        /* ══════════════════════════════
-           BREADCRUMB
-        ══════════════════════════════ */
-        .breadcrumb { position: sticky; top: 57px; z-index: 900; background: #fff; border-bottom: 1px solid #ececec; padding: 10px 8%; display: flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-        .breadcrumb a { color: #888; transition: color 0.2s; }
-        .breadcrumb a:hover { color: #000; }
-        .bc-sep { color: #ccc; }
-        .bc-current { color: #000; }
+    /* ── HERO VIDEO ── */
+   
+.hero-outer { padding: 20px 4% 0; background: #fff; }
+.hero-credit { padding: 10px 8% 10px; display: block; }
+.hero-credit p { font-size: 0.75rem; color: #555; font-style: italic; padding-left: 0; }
+    /* ── HERO CREDIT ── */
+.essay-hero-img { position: relative; width: 100%; background: #000; cursor: pointer; }
+.essay-hero-img video { width: 100%; height: auto; display: block; object-fit: unset; }
+    /* ── TITLE BLOCK ── */
+    .essay-title-block { text-align: center; padding: 72px 20% 56px; border-bottom: 1px solid #ececec; }
+    .essay-type-label { font-size: 0.62rem; font-weight: 800; text-transform: uppercase; letter-spacing: 5px; color: #888; display: block; margin-bottom: 24px; }
+    .essay-title-block h1 { font-size: 3.4rem; font-weight: 700; color: #000; line-height: 1.1; margin-bottom: 20px; letter-spacing: -0.5px; }
+    .essay-byline { font-size: 1rem; font-style: italic; color: #444; margin-bottom: 10px; }
+    .essay-place { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #888; }
 
-        /* ══════════════════════════════
-           FILM DETAIL — HEADER AREA
-        ══════════════════════════════ */
-        .film-detail-header {
-            padding: 56px 8% 0;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
+    /* ── INTRO ── */
+    .essay-intro { padding: 60px 22% 40px; border-bottom: 1px solid #ececec; }
+    .essay-intro p { font-size: 1.22rem; color: #222; line-height: 1.95; font-weight: 400; }
 
-        .film-detail-tag {
-            display: inline-block;
-            font-size: 0.6rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: #aaa;
-            margin-bottom: 16px;
-        }
+   .vid-controls { position: absolute; bottom: 24px; left: 24px; }
+.vid-play-pill {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,0.92); border: none; border-radius: 999px;
+  padding: 8px 20px 8px 8px; cursor: pointer;
+  font-size: 0.92rem; font-weight: 600; color: #000;
+  font-family: 'Raleway', sans-serif;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.22);
+  transition: background 0.2s, transform 0.15s;
+}
+.vid-play-pill:hover { background: #fff; transform: scale(1.04); }
+.pill-icon {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: #fff; border: 2px solid #222;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.pill-label { letter-spacing: 0.02em; }
+    .essay-hero-img:hover .vid-controls,
+    .essay-hero-img.paused .vid-controls { opacity: 1; transform: none; }
+    .vid-progress { width: 100%; height: 3px; background: rgba(255,255,255,0.3); border-radius: 999px; cursor: pointer; position: relative; transition: height 0.15s; }
+    .vid-progress:hover { height: 5px; }
+    .vid-filled { position: absolute; left: 0; top: 0; height: 100%; background: #fff; border-radius: 999px; width: 0%; pointer-events: none; }
+    .vid-row { display: flex; align-items: center; gap: 12px; }
+    .vid-spacer { flex: 1; }
+    .vid-btn { background: none; border: none; cursor: pointer; color: #fff; display: flex; align-items: center; opacity: 0.9; transition: opacity 0.15s, transform 0.15s; padding: 3px; }
+    .vid-btn:hover { opacity: 1; transform: scale(1.15); }
+    .vid-btn svg { width: 20px; height: 20px; }
+    .vid-time { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.8); letter-spacing: 0.4px; white-space: nowrap; }
 
-        .film-detail-title {
-            font-size: clamp(2.2rem, 5vw, 3.6rem);
-            font-weight: 800;
-            line-height: 1.05;
-            color: #000;
-            letter-spacing: -0.5px;
-            margin-bottom: 28px;
-            max-width: 720px;
-        }
+    /* ── ESSAY BODY ── */
+    .essay-body { padding: 60px 22% 80px; }
+    .essay-body p { font-size: 1.05rem; color: #222; line-height: 2.1; margin-bottom: 2rem; }
+    .essay-body p:last-child { margin-bottom: 0; }
+    .essay-body p:first-child::first-letter { font-size: 5.2rem; font-weight: 700; float: left; line-height: 0.72; margin: 0.12em 0.08em 0 0; color: #000; }
 
-        /* Short intro line under title */
-        .film-detail-lead {
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: #333;
-            line-height: 1.8;
-            max-width: 640px;
-            margin-bottom: 0;
-            border-left: 3px solid #000;
-            padding-left: 20px;
-        }
+    /* ── PROJECT CREDITS ── */
+    .essay-credits { padding: 48px 22%; border-top: 1px solid #ececec; border-bottom: 1px solid #ececec; background: #faf9f7; }
+    .essay-credits-label { font-size: 0.58rem; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; color: #aaa; display: block; margin-bottom: 28px; }
+    .credits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+    .credit-item-label { font-size: 0.58rem; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: #aaa; display: block; margin-bottom: 4px; }
+    .credit-item-value { font-size: 0.9rem; color: #222; line-height: 1.6; }
 
-        /* ══════════════════════════════
-           VIDEO PLAYER
-        ══════════════════════════════ */
-        .film-video-wrap {
-            width: 100%;
-            max-width: 1100px;
-            margin: 48px auto 0;
-            padding: 0 8%;
-        }
+    /* ── RELATED RESOURCES ── */
+    .related-section { padding: 80px 8%; }
+    .related-top { margin-bottom: 48px; }
+    .related-top-label { font-size: 0.58rem; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; color: #aaa; display: block; margin-bottom: 10px; }
+    .related-top h2 { font-size: 1.8rem; font-weight: 700; color: #000; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .related-card { display: flex; flex-direction: column; text-decoration: none; color: #000; cursor: pointer; transition: transform 0.3s; }
+    .related-card:hover { transform: translateY(-4px); }
+    .related-card-img { width: 100%; aspect-ratio: 3/2; overflow: hidden; margin-bottom: 16px; }
+    .related-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
+    .related-card:hover .related-card-img img { transform: scale(1.04); }
+    .related-card-type { font-size: 0.58rem; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: #888; display: block; margin-bottom: 6px; }
+    .related-card-title { font-size: 1.05rem; font-weight: 600; color: #000; line-height: 1.35; margin-bottom: 8px; }
+    .related-card-desc { font-size: 0.82rem; color: #555; line-height: 1.7; }
 
-        .film-video-inner {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            background: #000;
-            border-radius: 6px;
-            overflow: hidden;
-        }
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+        .essay-hero-img { height: 60vh; }
+        .essay-title-block { padding: 52px 8% 40px; }
+        .essay-title-block h1 { font-size: 2.4rem; }
+        .essay-intro { padding: 40px 8% 32px; }
+        .essay-body { padding: 40px 8% 60px; }
+        .essay-credits { padding: 40px 8%; }
+        .credits-grid { grid-template-columns: 1fr; gap: 20px; }
+        .related-section { padding: 60px 6%; }
+        .related-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+        .hamburger { display: flex; }
+        #main-nav { display: none; position: absolute; top: calc(100% + 18px); left: 0; right: 0; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); padding: 16px 0; z-index: 999; }
+        #main-nav.open { display: block; }
+        .nav-list { flex-direction: column; align-items: flex-start; gap: 0; padding: 0 8px; }
+        .nav-list > li { width: 100%; }
+        .nav-list > li > a { padding: 12px 16px; border-radius: 10px; justify-content: space-between; width: 100%; }
+        .mega-dropdown { position: static; flex-direction: column; box-shadow: none; border: none; border-radius: 0; padding: 0 0 8px 12px; min-width: unset; width: 100%; display: none !important; }
+        .mega-dropdown.mobile-open { display: flex !important; }
+        .mega-dropdown::before, .mega-dropdown::after { display: none; }
+        .mega-col { padding: 4px 0; }
+        .mega-divider { width: 100%; height: 1px; margin: 6px 0; }
+        .dropdown { position: static; transform: none; box-shadow: none; border: none; border-radius: 0; padding: 0 0 8px 16px; flex-direction: column; background: transparent; min-width: unset; display: none !important; }
+        .dropdown.mobile-open { display: flex !important; }
+        .dropdown::before, .dropdown::after { display: none; }
+        .search-item { padding: 8px 16px; width: 100%; }
+        .search-wrapper { width: 100% !important; }
+        .search-input { width: 100% !important; padding: 0 0 0 8px !important; }
+        .lang-item { padding: 8px 16px; width: 100%; margin-left: 0; }
+        .lang-wrapper { width: 100%; }
+        .lang-btn { width: 100%; }
+        .lang-dropdown { position: static; box-shadow: none; border: none; padding: 4px 0 4px 12px; background: transparent; }
+        .lang-dropdown::before, .lang-dropdown::after { display: none; }
+    }
+    @media (max-width: 600px) {
+        .essay-title-block h1 { font-size: 2rem; }
+        .related-grid { grid-template-columns: 1fr; }
+        .essay-body p:first-child::first-letter { font-size: 3.8rem; }
+    }
 
-        .film-video-inner video {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-        }
+    /* ── HEADER ── */
+    header { position: sticky; top: 0; z-index: 1000; background: #fff; padding: 18px 8%; border-bottom: 1px solid #e8e8e8; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; position: relative; }
+    .logo { font-size: 1.3rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; flex-shrink: 0; color: #000; }
+    .nav-list { list-style: none; display: flex; align-items: center; gap: 28px; margin: 0; padding: 0; }
+    .nav-list > li { position: relative; }
+    .nav-list > li > a { font-size: 0.88rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; transition: opacity 0.3s; display: flex; align-items: center; gap: 5px; white-space: nowrap; }
+    .nav-list > li > a:hover { opacity: 0.45; }
+    .arrow { font-size: 0.65rem; transition: transform 0.3s; display: inline-block; }
+    .has-dropdown { padding-bottom: 14px; margin-bottom: -14px; }
+    .dropdown { display: none; position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%); background: #fff; border: 1.5px solid #e0e0e0; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); padding: 10px 8px; list-style: none; flex-direction: row; gap: 4px; white-space: nowrap; z-index: 2000; min-width: max-content; margin-top: -14px; padding-top: 14px; }
+    .dropdown::before { content:''; position:absolute; top:-7px; left:50%; transform:translateX(-50%); border-left:7px solid transparent; border-right:7px solid transparent; border-bottom:7px solid #e0e0e0; }
+    .dropdown::after  { content:''; position:absolute; top:-5px; left:50%; transform:translateX(-50%); border-left:6px solid transparent; border-right:6px solid transparent; border-bottom:6px solid #fff; }
+    .has-dropdown:hover .dropdown { display: flex; }
+    .dropdown li a { display: block; padding: 8px 16px; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; border-radius: 8px; transition: background 0.2s; white-space: nowrap; }
+    .dropdown li a:hover { background: #f4f4f4; }
+    .mega-dropdown { display: none; position: absolute; top: calc(100% + 14px); left: 0; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.13); padding: 24px 20px; flex-direction: row; gap: 0; z-index: 2000; min-width: 520px; margin-top: -14px; padding-top: 24px; }
+    .mega-dropdown::before { content:''; position:absolute; top:-7px; left:36px; border-left:7px solid transparent; border-right:7px solid transparent; border-bottom:7px solid #e0e0e0; }
+    .mega-dropdown::after  { content:''; position:absolute; top:-5px; left:36px; border-left:6px solid transparent; border-right:6px solid transparent; border-bottom:6px solid #fff; }
+    .mega-parent:hover .mega-dropdown { display: flex; }
+    .mega-col { display: flex; flex-direction: column; gap: 2px; flex: 1; padding: 0 16px; }
+    .mega-col:first-child { padding-left: 4px; }
+    .mega-col:last-child  { padding-right: 4px; }
+    .mega-heading { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.28em; color: #999; margin: 0 0 10px 8px; }
+    .mega-col a { display: block; padding: 8px 12px; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; border-radius: 8px; transition: background 0.2s; white-space: nowrap; }
+    .mega-col a:hover { background: #f4f4f4; }
+    .mega-divider { width: 1px; background: #eee; margin: 0 4px; align-self: stretch; }
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 1100; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #000; border-radius: 2px; transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .lang-item { list-style: none; margin-left: auto; }
+    .lang-wrapper { position: relative; }
+    .lang-btn { display: flex; align-items: center; gap: 6px; background: #f4f4f4; border: 1.5px solid #e0e0e0; border-radius: 999px; padding: 6px 12px 6px 10px; font-size: 0.88rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #000; cursor: pointer; transition: background 0.2s, border-color 0.2s; white-space: nowrap; }
+    .lang-btn:hover { background: #ebebeb; border-color: #bbb; }
+    .lang-btn .arrow { font-size: 0.65rem; transition: transform 0.3s; }
+    .lang-wrapper.open .lang-btn .arrow { transform: rotate(180deg); }
+    .lang-dropdown { display: none; position: absolute; top: calc(100% + 10px); right: 0; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); padding: 8px; z-index: 2000; min-width: 180px; flex-direction: column; gap: 2px; }
+    .lang-dropdown::before { content: ''; position: absolute; top: -7px; right: 18px; border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 7px solid #e0e0e0; }
+    .lang-dropdown::after  { content: ''; position: absolute; top: -5px; right: 18px; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid #fff; }
+    .lang-wrapper.open .lang-dropdown { display: flex; }
+    .lang-option { display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 12px; background: none; border: none; border-radius: 8px; cursor: pointer; transition: background 0.2s; text-align: left; }
+    .lang-option:hover:not([disabled]) { background: #f4f4f4; }
+    .lang-option[disabled] { cursor: default; opacity: 1; }
+    .lang-option.active { background: #f8f8f8; }
+    .lang-code { font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: #000; min-width: 24px; }
+    .lang-option[disabled] .lang-code { color: #999; }
+    .lang-name { font-size: 1rem; font-weight: 500; color: #000; flex: 1; }
+    .lang-option[disabled] .lang-name { color: #aaa; }
+    .lang-check { font-size: 0.75rem; font-weight: 700; color: #000; }
+    .lang-soon { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #888; background: #f0f0f0; border: 1px solid #e0e0e0; padding: 2px 7px; border-radius: 999px; white-space: nowrap; }
+    .search-item { list-style: none; }
+    .search-wrapper { display: flex; align-items: center; background: #f4f4f4; border-radius: 999px; padding: 6px 10px; transition: width 0.35s, background 0.2s; overflow: hidden; width: 36px; }
+    .search-wrapper.expanded { width: 200px; background: #f0f0f0; }
+    .search-icon-btn { background: none; border: none; cursor: pointer; padding: 0; display: flex; align-items: center; flex-shrink: 0; }
+    .search-input { border: none; background: transparent; outline: none; font-size: 0.95rem; color: #000; width: 0; padding: 0; transition: width 0.35s, padding 0.35s; }
+    .search-wrapper.expanded .search-input { width: 140px; padding: 0 0 0 8px; }
 
-        /* custom controls bar */
-        .vid-controls {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            padding: 40px 20px 16px;
-            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            opacity: 0;
-            transform: translateY(4px);
-            transition: opacity 0.25s, transform 0.25s;
-        }
-        .film-video-inner:hover .vid-controls,
-        .film-video-inner.paused .vid-controls { opacity: 1; transform: none; }
-
-        .vid-progress { width: 100%; height: 3px; background: rgba(255,255,255,0.3); border-radius: 999px; cursor: pointer; position: relative; transition: height 0.15s; }
-        .vid-progress:hover { height: 5px; }
-        .vid-filled { position: absolute; left: 0; top: 0; height: 100%; background: #fff; border-radius: 999px; width: 0%; pointer-events: none; }
-
-        .vid-row { display: flex; align-items: center; gap: 12px; }
-        .vid-spacer { flex: 1; }
-        .vid-btn { background: none; border: none; cursor: pointer; color: #fff; display: flex; align-items: center; opacity: 0.9; transition: opacity 0.15s, transform 0.15s; padding: 3px; }
-        .vid-btn:hover { opacity: 1; transform: scale(1.15); }
-        .vid-btn svg { width: 18px; height: 18px; }
-        .vid-time { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.8); letter-spacing: 0.4px; white-space: nowrap; }
-
-        /* ══════════════════════════════
-           SYNOPSIS & PROJECT INFO
-        ══════════════════════════════ */
-        .film-body {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 64px 8% 0;
-            display: grid;
-            grid-template-columns: 1fr 320px;
-            gap: 72px;
-            align-items: start;
-        }
-
-        /* LEFT — full synopsis */
-        .film-synopsis h3 {
-            font-size: 0.65rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: #aaa;
-            margin-bottom: 20px;
-        }
-
-        .film-synopsis p {
-            font-size: 1rem;
-            color: #222;
-            line-height: 1.95;
-            margin-bottom: 20px;
-        }
-
-        .film-synopsis p:last-child { margin-bottom: 0; }
-
-        /* RIGHT — project details sidebar */
-        .film-meta-panel {
-            position: sticky;
-            top: 80px;
-        }
-
-        .film-meta-block {
-            border-top: 1px solid #e8e8e8;
-            padding: 20px 0;
-        }
-
-        .film-meta-block:first-child { border-top: none; padding-top: 0; }
-
-        .film-meta-label {
-            font-size: 0.6rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 3.5px;
-            color: #aaa;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .film-meta-value {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #000;
-            line-height: 1.6;
-        }
-
-        /* ══════════════════════════════
-           DIVIDER
-        ══════════════════════════════ */
-        .film-divider {
-            max-width: 1100px;
-            margin: 80px auto 0;
-            padding: 0 8%;
-        }
-        .film-divider hr {
-            border: none;
-            border-top: 1px solid #e8e8e8;
-        }
-
-        /* ══════════════════════════════
-           RELATED RESOURCES
-        ══════════════════════════════ */
-        .related-section {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 64px 8% 100px;
-        }
-
-        .related-header {
-            margin-bottom: 44px;
-        }
-
-        .related-header h2 {
-            font-size: 0.65rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: #aaa;
-            margin-bottom: 12px;
-        }
-
-        .related-header p {
-            font-size: 1rem;
-            color: #333;
-            font-weight: 400;
-        }
-
-        /* 
-            Related resources grid — all together, no category separation.
-            3 columns on desktop, responsive below.
-        */
-        .related-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-        }
-
-        .related-card {
-            display: block;
-            text-decoration: none;
-            color: #000;
-            transition: transform 0.3s;
-        }
-        .related-card:hover { transform: translateY(-3px); }
-
-        .related-card-thumb {
-            width: 100%;
-            aspect-ratio: 4/3;
-            overflow: hidden;
-            border-radius: 4px;
-            background: #f0f0f0;
-            margin-bottom: 16px;
-        }
-
-        .related-card-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-        .related-card:hover .related-card-thumb img { transform: scale(1.04); }
-
-        /* "Film" / "Photo Essay" / "Vignette" / "Audio" — just the type */
-        .related-card-type {
-            font-size: 0.58rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #aaa;
-            display: block;
-            margin-bottom: 7px;
-        }
-
-        .related-card h4 {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: #000;
-            line-height: 1.3;
-            margin-bottom: 6px;
-        }
-
-        .related-card p {
-            font-size: 0.8rem;
-            color: #666;
-            line-height: 1.65;
-        }
-
-        /* ══════════════════════════════
-           BACK LINK
-        ══════════════════════════════ */
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.72rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #888;
-            transition: color 0.2s;
-            margin-bottom: 40px;
-        }
-        .back-link:hover { color: #000; }
-        .back-link svg { width: 13px; height: 13px; }
-
-        /* ══════════════════════════════
-           RESPONSIVE
-        ══════════════════════════════ */
-        @media (max-width: 900px) {
-            .hamburger { display: flex; }
-            #main-nav { display: none; position: absolute; top: calc(100% + 18px); left: 0; right: 0; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); padding: 16px 0; z-index: 999; }
-            #main-nav.open { display: block; }
-            .nav-list { flex-direction: column; align-items: flex-start; gap: 0; padding: 0 8px; }
-            .nav-list > li { width: 100%; }
-            .nav-list > li > a { padding: 12px 16px; border-radius: 10px; justify-content: space-between; width: 100%; }
-            .nav-list > li > a:hover { background: #f4f4f4; opacity: 1; }
-            .mega-dropdown { position: static; flex-direction: column; box-shadow: none; border: none; border-radius: 0; padding: 0 0 8px 12px; min-width: unset; width: 100%; display: none !important; }
-            .mega-dropdown.mobile-open { display: flex !important; }
-            .mega-dropdown::before, .mega-dropdown::after { display: none; }
-            .dropdown { position: static; transform: none; box-shadow: none; border: none; border-radius: 0; padding: 0 0 8px 16px; flex-direction: column; background: transparent; min-width: unset; display: none !important; }
-            .dropdown.mobile-open { display: flex !important; }
-            .dropdown::before, .dropdown::after { display: none; }
-            .search-item { padding: 8px 16px; width: 100%; }
-            .search-wrapper { width: 100% !important; }
-            .search-input { width: 100% !important; padding: 0 0 0 8px !important; }
-            .mega-col { padding: 4px 0; }
-            .mega-divider { width: 100%; height: 1px; margin: 6px 0; }
-
-            .film-body { grid-template-columns: 1fr; gap: 48px; }
-            .film-meta-panel { position: static; }
-            .related-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-        }
-
-        @media (max-width: 600px) {
-            .film-detail-header, .film-video-wrap, .film-body, .film-divider, .related-section { padding-left: 6%; padding-right: 6%; }
-            .related-grid { grid-template-columns: 1fr; }
-            .film-detail-title { font-size: 2rem; }
-        }
+    /* ── FOOTER ── */
+    .site-footer { background: #fff; border-top: 1px solid #e8e8e8; padding: 90px 8% 70px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+    .footer-nav-links { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+    .footer-nav-links a { font-size: 1rem; color: #000; font-weight: 400; text-decoration: none; }
+    .footer-copy { font-size: 0.90rem; color: #000; font-style: italic; margin-top: 15px; }
     </style>
 </head>
 <body>
@@ -402,6 +214,14 @@
                     <a href="#">Location, Theme & More <span class="arrow">▾</span></a>
                     <div class="mega-dropdown">
                         <div class="mega-col">
+                            <p class="mega-heading">Theme</p>
+                            <a href="theme-environment.html">Migration</a>
+                            <a href="theme-cosmology.html">Social Changes</a>
+                            <a href="theme-culture.html">Cosmological Landscape</a>
+                            <a href="#themesScrollTrack">People, Plant & Animal</a>
+                        </div>
+                        <div class="mega-divider"></div>
+                        <div class="mega-col">
                             <p class="mega-heading">Location</p>
                             <a href="haa-resourea.html">Haa Resources</a>
                             <a href="#sephu">Sephu Resources</a>
@@ -409,46 +229,61 @@
                         </div>
                         <div class="mega-divider"></div>
                         <div class="mega-col">
-                            <p class="mega-heading">Theme</p>
-                            <a href="index.html?theme=0">Page Theme</a>
-                            <a href="index.html?theme=1">Theme Cultural</a>
-                            <a href="index.html?theme=2">Theme Cosmetic</a>
-                        </div>
-                        <div class="mega-divider"></div>
-                        <div class="mega-col">
                             <p class="mega-heading">More</p>
-                            <a href="resources.html">Additional Resources</a>
                             <a href="interactive-map.html">Interactive Map</a>
-                            <a href="#">Announcement</a>
+                            <a href="#">Announcements</a>
                         </div>
                     </div>
                 </li>
                 <li class="has-dropdown">
-                    <a href="vmo.html">About <span class="arrow">▾</span></a>
+                    <a href="#">Archive <span class="arrow">▾</span></a>
                     <ul class="dropdown">
-                        <li><a href="vmo.html">Vision</a></li>
-                        <li><a href="vmo.html">Mission</a></li>
-                        <li><a href="vmo.html">Objective</a></li>
+                        <li><a href="films.html">Films</a></li>
+                        <li><a href="photoessay.html">Photo Essays</a></li>
+                        <li><a href="vignettes.html">Vignettes</a></li>
+                        <li><a href="audio.html">Sounds</a></li>
                     </ul>
                 </li>
                 <li><a href="lesson-plan.html">Lesson Plans</a></li>
+                <li><a href="publication.html">Publication</a></li>
+                <li class="has-dropdown">
+                    <a href="#">About <span class="arrow">▾</span></a>
+                    <ul class="dropdown">
+                        <li><a href="vmo.html">VMO</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                    </ul>
+                </li>
                 <li class="lang-item">
                     <div class="lang-wrapper" id="lang-wrapper">
                         <button class="lang-btn" id="lang-btn" aria-label="Change language">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
                             <span id="lang-label">EN</span>
                             <span class="arrow">▾</span>
                         </button>
                         <div class="lang-dropdown" id="lang-dropdown">
-                            <button class="lang-option active" data-lang="en"><span class="lang-code">EN</span><span class="lang-name">English</span><span class="lang-check">✓</span></button>
-                            <button class="lang-option" data-lang="dz" disabled><span class="lang-code">DZ</span><span class="lang-name">རྫོང་ཁ</span><span class="lang-soon">Coming Soon</span></button>
+                            <button class="lang-option active" data-lang="en">
+                                <span class="lang-code">EN</span>
+                                <span class="lang-name">English</span>
+                                <span class="lang-check">✓</span>
+                            </button>
+                            <button class="lang-option" data-lang="dz" disabled>
+                                <span class="lang-code">DZ</span>
+                                <span class="lang-name">རྫོང་ཁ</span>
+                                <span class="lang-soon">Coming Soon</span>
+                            </button>
                         </div>
                     </div>
                 </li>
                 <li class="search-item">
                     <div class="search-wrapper" id="search-wrapper">
                         <button class="search-icon-btn" id="search-btn" aria-label="Search">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"/>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                            </svg>
                         </button>
                         <input type="text" class="search-input" id="search-input" placeholder="Search...">
                     </div>
@@ -466,227 +301,258 @@
     <span class="bc-current">Voices of Laya</span>
 </nav>
 
-<!-- ══════════════════════════════
-     FILM HEADER
-══════════════════════════════ -->
-<div class="film-detail-header">
-    <a href="films.html" class="back-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-        
-    </a>
-    <span class="film-detail-tag">Film</span>
-    <h1 class="film-detail-title">Voices of Laya</h1>
-    <p class="film-detail-lead">A portrait of the Layap people — their yak herding traditions, matrilineal customs, and the haunting songs sung at altitude in the heart of Bhutan's western highlands.</p>
+<!-- HERO VIDEO — full bleed, acts as both thumbnail and player -->
+<!-- HERO VIDEO -->
+<div class="hero-outer">
+  <div class="essay-hero-img" id="videoWrap">
+    <video id="mainVideo" loop playsinline preload="metadata" poster="images/12.jpg">
+      <source src="image/Bhutan - Trekking to the 'hidden land' of Laya village.mp4" type="video/mp4">
+    </video>
+    <div class="vid-controls">
+      <button class="vid-play-pill" id="vidPlayBtn">
+        <span class="pill-icon">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="black"><polygon points="6,4 20,12 6,20"/></svg>
+        </span>
+        <span class="pill-label" id="pillLabel">Play Video</span>
+      </button>
+    </div>
+  </div>
+</div>
+<!-- credit line -->
+<div class="hero-credit">
+    <p>Film: RTC Heritage Portal — Laya, Gasa District, Bhutan — 2022–2024</p>
 </div>
 
-<!-- ══════════════════════════════
-     VIDEO PLAYER
-══════════════════════════════ -->
-<div class="film-video-wrap">
-    <div class="film-video-inner paused" id="videoWrap">
-        <video id="mainVideo" loop playsinline preload="metadata"
-               poster="">
-            <source src="image/Bhutan - Trekking to the 'hidden land' of Laya village.mp4" type="video/mp4">
-        </video>
-        <div class="vid-controls">
-            <div class="vid-progress" id="vidProgress">
-                <div class="vid-filled" id="vidFilled"></div>
-            </div>
-            <div class="vid-row">
-                <button class="vid-btn" id="vidPlayBtn" onclick="vidToggle()">
-                    <svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
-                </button>
-                <button class="vid-btn" id="vidMuteBtn" onclick="vidMute()">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11,5 6,9 2,9 2,15 6,15 11,19"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                </button>
-                <span class="vid-time" id="vidTime">0:00 / 0:00</span>
-                <div class="vid-spacer"></div>
-                <button class="vid-btn" onclick="vidFullscreen()">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
-                </button>
-            </div>
+<!-- TITLE BLOCK -->
+<div class="essay-title-block">
+    <span class="essay-type-label">Film</span>
+    <h1>Voices of Laya</h1>
+    <p class="essay-byline">by RTC Department of Cultural Studies</p>
+    <p class="essay-place">Place: Laya, Gasa District, Western Bhutan</p>
+</div>
+
+<!-- INTRO -->
+<div class="essay-intro">
+    <p>A portrait of the Layap people — their yak herding traditions, matrilineal customs, and the haunting songs sung at altitude in the heart of Bhutan's western highlands.</p>
+</div>
+
+<!-- ESSAY BODY -->
+<div class="essay-body">
+    <p>Deep in the valleys of western Bhutan, the Layap people have maintained a way of life that stretches back centuries. Semi-nomadic herders of yak and cattle, they move between highland pastures in summer and lower valleys in winter — their entire existence shaped by altitude, season, and kinship.</p>
+
+    <p>This film follows three Layap families across one full pastoral year. We witness the spring migration northward to summer pastures, the preparation of churpi and butter during the lush months, and the long descent before the snows close the passes. Throughout, we hear the women's songs — work songs, courtship songs, laments — passed down not through script but through breath and memory.</p>
+
+    <p>Central to the film is the village's matrilineal inheritance system, rare in South Asia, through which land, livestock, and household authority pass through the female line. In conversations with elders, young herders, and monastery lamas, the film asks: what does it mean to carry a tradition forward when the world below is accelerating?</p>
+
+    <p>This film was produced over two years of fieldwork in collaboration with the Laya Gewog Administration and community elders who contributed both access and insight. Filming took place across four separate visits between 2022 and 2024, spanning different seasons to capture the full cycle of pastoral life. All footage was reviewed by community representatives before the final edit. A copy of the full unedited archive has been deposited with the Laya community for their own use and future reference.</p>
+
+    <p>Voices of Laya is not an elegy. It is a document of a living culture — resilient, self-aware, and quietly extraordinary.</p>
+</div>
+
+<!-- PROJECT CREDITS -->
+<div class="essay-credits">
+    <span class="essay-credits-label">About This Film</span>
+    <div class="credits-grid">
+        <div>
+            <span class="credit-item-label">Direction & Production</span>
+            <span class="credit-item-value">RTC Department of Cultural Studies, Royal Thimphu College</span>
+        </div>
+        <div>
+            <span class="credit-item-label">Location</span>
+            <span class="credit-item-value">Laya, Gasa District, Western Bhutan</span>
+        </div>
+        <div>
+            <span class="credit-item-label">Field Period</span>
+            <span class="credit-item-value">2022 – 2024, across four filming seasons</span>
+        </div>
+        <div>
+            <span class="credit-item-label">Language</span>
+            <span class="credit-item-value">Layapkha with English subtitles</span>
+        </div>
+        <div>
+            <span class="credit-item-label">Duration</span>
+            <span class="credit-item-value">52 minutes</span>
+        </div>
+        <div>
+            <span class="credit-item-label">Community Consent</span>
+            <span class="credit-item-value">Filmed with the knowledge and permission of Laya Gewog Administration and participating community members</span>
         </div>
     </div>
 </div>
 
-<!-- ══════════════════════════════
-     SYNOPSIS + PROJECT INFO
-══════════════════════════════ -->
-<div class="film-body">
-
-    <!-- LEFT: Full synopsis -->
-    <div class="film-synopsis">
-        <h3>Synopsis</h3>
-        <p>Deep in the valleys of western Bhutan, the Layap people have maintained a way of life that stretches back centuries. Semi-nomadic herders of yak and cattle, they move between highland pastures in summer and lower valleys in winter — their entire existence shaped by altitude, season, and kinship.</p>
-        <p>This film follows three Layap families across one full pastoral year. We witness the spring migration northward to summer pastures, the preparation of churpi and butter during the lush months, and the long descent before the snows close the passes. Throughout, we hear the women's songs — work songs, courtship songs, laments — passed down not through script but through breath and memory.</p>
-        <p>Central to the film is the village's matrilineal inheritance system, rare in South Asia, through which land, livestock, and household authority pass through the female line. In conversations with elders, young herders, and monastery lamas, the film asks: what does it mean to carry a tradition forward when the world below is accelerating?</p>
-        <p>Voices of Laya is not an elegy. It is a document of a living culture — resilient, self-aware, and quietly extraordinary.</p>
-
-        <h3 style="margin-top: 48px;">About the Project</h3>
-        <p>This film was produced as part of the Highland Heritages of Bhutan initiative, a research and documentation project based at Royal Thimphu College. The project was developed over two years of fieldwork in collaboration with the Laya Gewog Administration and community elders who contributed both access and insight.</p>
-        <p>Filming took place across four separate visits between 2022 and 2024, spanning different seasons to capture the full cycle of pastoral life. The crew — comprising RTC faculty, student researchers, and a local Layap guide and translator — prioritised community consent and cultural sensitivity throughout.</p>
-        <p>All footage was reviewed by community representatives before the final edit. A copy of the full unedited archive has been deposited with the Laya community for their own use and future reference.</p>
+<!-- RELATED RESOURCES -->
+<div class="related-section">
+    <div class="related-top">
+        <span class="related-top-label">Related Resources</span>
+        <h2>From the Same Ground</h2>
     </div>
-
-    <!-- RIGHT: Meta panel -->
-    <aside class="film-meta-panel">
-        <div class="film-meta-block">
-            <span class="film-meta-label">Location</span>
-            <span class="film-meta-value">Laya, Gasa District<br>Western Bhutan</span>
-        </div>
-        <div class="film-meta-block">
-            <span class="film-meta-label">Duration</span>
-            <span class="film-meta-value">52 minutes</span>
-        </div>
-        <div class="film-meta-block">
-            <span class="film-meta-label">Filmed</span>
-            <span class="film-meta-value">2022 – 2024</span>
-        </div>
-        <div class="film-meta-block">
-            <span class="film-meta-label">Directed by</span>
-            <span class="film-meta-value">RTC Department of<br>Cultural Studies</span>
-        </div>
-        <div class="film-meta-block">
-            <span class="film-meta-label">Language</span>
-            <span class="film-meta-value">Layapkha<br><span style="color:#aaa; font-size:0.82rem;">with English subtitles</span></span>
-        </div>
-        <div class="film-meta-block">
-            <span class="film-meta-label">Community Partner</span>
-            <span class="film-meta-value">Laya Gewog Administration</span>
-        </div>
-    </aside>
-
-</div>
-
-<!-- ══════════════════════════════
-     DIVIDER
-══════════════════════════════ -->
-<div class="film-divider"><hr></div>
-
-<!-- ══════════════════════════════
-     RELATED RESOURCES
-     All together — no category headers.
-     Client said: "together and not divided into categories"
-══════════════════════════════ -->
-<section class="related-section">
-
-    <div class="related-header">
-        <h2>Related Resources</h2>
-        <p>More from the Laya archive — photographs, sounds, and written vignettes gathered alongside this film.</p>
-    </div>
-
-    <!-- 
-        All resource types mixed together in one grid.
-        Each card says its type (Photo Essay / Vignette / Audio) — no group headings.
-    -->
     <div class="related-grid">
 
-        <a class="related-card" href="photoessay-laya.html">
-            <div class="related-card-thumb">
-                <img src="image/Bhutan_mountains.jpg" alt="Above the Cloud Line">
+        <a href="photo_inne.html" class="related-card">
+            <div class="related-card-img">
+                <img src="images/slider6.jpg" alt="Above the Cloud Line">
             </div>
             <span class="related-card-type">Photo Essay</span>
-            <h4>Above the Cloud Line</h4>
-            <p>High-altitude landscapes of the Lunana Gewog — glacial lakes reflecting a sky untouched by light pollution.</p>
+            <h3 class="related-card-title">Before The Mask</h3>
+            <p class="related-card-desc">This series documents the hours before the public Tsechu ceremony begins — the quiet, restricted space of preparation where dancers, monks, and elders ready themselves for the ritual transformation that the cham dance requires.</p>
         </a>
 
-        <a class="related-card" href="vignette-laya.html">
-            <div class="related-card-thumb">
+        <a href="vignettes.html#vignette-2" class="related-card">
+            <div class="related-card-img">
                 <img src="image/ritual.jpeg" alt="When the Snow Comes Early">
             </div>
             <span class="related-card-type">Vignette</span>
-            <h4>When the Snow Comes Early</h4>
-            <p>A Laya herder recounts the winter of 2019 — when unexpected snow buried pastureland and changed a migration route forever.</p>
+            <h3 class="related-card-title">The Archery Ground at Dusk</h3>
+            <p class="related-card-desc">A single afternoon at a village datse competition — laughter, rivalry, and the unspoken language between men who have known each other all their lives.</p>
         </a>
 
-        <a class="related-card" href="audio-laya.html">
-            <div class="related-card-thumb">
-                <img src="images/1.jpg" alt="Songs of the Herders">
+       <a href="audio.html#sound-2" class="related-card">
+            <div class="related-card-img">
+                <img src="img/r3.jpg" alt="Songs of the Herders">
             </div>
             <span class="related-card-type">Audio</span>
-            <h4>Songs of the Herders</h4>
-            <p>Field recordings of Layap women's work songs, courtship melodies, and seasonal chants collected during the summer migration.</p>
+            <h3 class="related-card-title">The River at Dawn</h3>
+            <p class="related-card-desc">Field recordings of Layap women's work songs, courtship melodies, and seasonal chants collected during the summer migration.</p>
         </a>
 
     </div>
+</div>
 
-</section>
-
+<style>
+.site-footer { background: #fff; border-top: 1px solid #e8e8e8; padding: 90px 8% 70px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+.footer-nav-links { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+.footer-nav-links a { font-size: 1rem; color: #000; font-weight: 400; text-decoration: none; transition: color 0.2s; }
+.footer-nav-links a:hover { color: #888; }
+.footer-social { display: flex; justify-content: center; align-items: center; gap: 22px; }
+.footer-social a { color: #000; display: inline-flex; transition: opacity 0.2s; }
+.footer-social a:hover { opacity: 0.55; }
+.footer-copy { font-size: 0.90rem; color: #000; font-style: italic; margin-top: 15px; }
+</style>
+<footer class="site-footer">
+    <nav class="footer-nav-links">
+        <a href="vmo.html">VMO</a>
+        <a href="partners.html">Partners</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Terms of Use</a>
+    </nav>
+    <div class="footer-social">
+        <a href="#" aria-label="YouTube">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg>
+        </a>
+        <a href="#" aria-label="Facebook">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+        </a>
+    </div>
+    <span class="footer-copy">© 2025 Royal Thimphu College, Bhutan</span>
+</footer>
 <script>
 (function () {
-
     /* ── NAV ── */
-    var hamburger=document.getElementById('hamburger'),mainNav=document.getElementById('main-nav');
-    var searchBtn=document.getElementById('search-btn'),searchWrapper=document.getElementById('search-wrapper'),searchInput=document.getElementById('search-input');
-    var langBtn=document.getElementById('lang-btn'),langWrapper=document.getElementById('lang-wrapper'),langLabel=document.getElementById('lang-label'),langDrop=document.getElementById('lang-dropdown');
+    var hamburger    = document.getElementById('hamburger');
+    var mainNav      = document.getElementById('main-nav');
+    var searchBtn    = document.getElementById('search-btn');
+    var searchWrapper= document.getElementById('search-wrapper');
+    var searchInput  = document.getElementById('search-input');
+    var langBtn      = document.getElementById('lang-btn');
+    var langWrapper  = document.getElementById('lang-wrapper');
 
-    document.querySelectorAll('.has-dropdown').forEach(function(item){
-        var drop=item.querySelector('.mega-dropdown')||item.querySelector('.dropdown');
-        if(!drop)return;
+    document.querySelectorAll('.has-dropdown').forEach(function (item) {
+        var drop = item.querySelector('.mega-dropdown') || item.querySelector('.dropdown');
+        if (!drop) return;
         var t;
-        item.addEventListener('mouseenter',function(){if(window.innerWidth>900){clearTimeout(t);drop.style.display='flex';}});
-        item.addEventListener('mouseleave',function(){if(window.innerWidth>900)t=setTimeout(function(){drop.style.display='';},120);});
-        drop.addEventListener('mouseenter',function(){clearTimeout(t);});
-        drop.addEventListener('mouseleave',function(){if(window.innerWidth>900)t=setTimeout(function(){drop.style.display='';},120);});
-        item.addEventListener('click',function(e){
-            if(window.innerWidth<=900){
-                var clickedLink=e.target.closest('a');
-                var toggleLink=item.querySelector(':scope > a');
-                if(clickedLink&&clickedLink!==toggleLink)return;
-                var arrow=item.querySelector('.arrow');
-                var isOpen=drop.classList.contains('mobile-open');
-                document.querySelectorAll('.mega-dropdown.mobile-open,.dropdown.mobile-open').forEach(function(d){d.classList.remove('mobile-open');});
-                document.querySelectorAll('.arrow').forEach(function(a){a.style.transform='';});
-                if(!isOpen){drop.classList.add('mobile-open');if(arrow)arrow.style.transform='rotate(180deg)';}
+        item.addEventListener('mouseenter', function () { if (window.innerWidth > 900) { clearTimeout(t); drop.style.display = 'flex'; } });
+        item.addEventListener('mouseleave', function () { if (window.innerWidth > 900) t = setTimeout(function () { drop.style.display = ''; }, 120); });
+        drop.addEventListener('mouseenter', function () { clearTimeout(t); });
+        drop.addEventListener('mouseleave', function () { if (window.innerWidth > 900) t = setTimeout(function () { drop.style.display = ''; }, 120); });
+        item.addEventListener('click', function (e) {
+            if (window.innerWidth <= 900) {
+                var clickedLink = e.target.closest('a');
+                var toggleLink  = item.querySelector(':scope > a');
+                if (clickedLink && clickedLink !== toggleLink) return;
+                var arrow  = item.querySelector('.arrow');
+                var isOpen = drop.classList.contains('mobile-open');
+                document.querySelectorAll('.mega-dropdown.mobile-open,.dropdown.mobile-open').forEach(function (d) { d.classList.remove('mobile-open'); });
+                document.querySelectorAll('.arrow').forEach(function (a) { a.style.transform = ''; });
+                if (!isOpen) { drop.classList.add('mobile-open'); if (arrow) arrow.style.transform = 'rotate(180deg)'; }
                 e.preventDefault();
             }
         });
     });
 
-    if(searchBtn){searchBtn.addEventListener('click',function(e){e.stopPropagation();var o=searchWrapper.classList.toggle('expanded');if(o)searchInput.focus();else{searchInput.value='';searchInput.blur();}});}
+    if (searchBtn) {
+        searchBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            var o = searchWrapper.classList.toggle('expanded');
+            if (o) searchInput.focus(); else { searchInput.value = ''; searchInput.blur(); }
+        });
+    }
 
-    document.addEventListener('click',function(e){
-        if(searchWrapper&&!searchWrapper.contains(e.target)){searchWrapper.classList.remove('expanded');if(searchInput)searchInput.value='';}
-        if(langWrapper&&!langWrapper.contains(e.target)){langWrapper.classList.remove('open');}
-        if(mainNav&&hamburger&&!mainNav.contains(e.target)&&!hamburger.contains(e.target)){
+    document.addEventListener('click', function (e) {
+        if (searchWrapper && !searchWrapper.contains(e.target)) { searchWrapper.classList.remove('expanded'); if (searchInput) searchInput.value = ''; }
+        if (langWrapper && !langWrapper.contains(e.target)) langWrapper.classList.remove('open');
+        if (mainNav && hamburger && !mainNav.contains(e.target) && !hamburger.contains(e.target)) {
             mainNav.classList.remove('open');
             hamburger.classList.remove('open');
-            document.querySelectorAll('.mega-dropdown.mobile-open,.dropdown.mobile-open').forEach(function(d){d.classList.remove('mobile-open');});
+            document.querySelectorAll('.mega-dropdown.mobile-open,.dropdown.mobile-open').forEach(function (d) { d.classList.remove('mobile-open'); });
         }
     });
 
-    if(hamburger){hamburger.addEventListener('click',function(e){e.stopPropagation();hamburger.classList.toggle('open');mainNav.classList.toggle('open');});}
+    if (hamburger) {
+        hamburger.addEventListener('click', function (e) {
+            e.stopPropagation();
+            hamburger.classList.toggle('open');
+            mainNav.classList.toggle('open');
+        });
+    }
 
-    if(langBtn){
-        langBtn.addEventListener('click',function(e){e.stopPropagation();langWrapper.classList.toggle('open');});
-        document.querySelectorAll('.lang-option').forEach(function(opt){
-            opt.addEventListener('click',function(){
-                if(opt.disabled)return;
-                document.querySelectorAll('.lang-option').forEach(function(o){o.classList.remove('active');});
+    if (langBtn) {
+        langBtn.addEventListener('click', function (e) { e.stopPropagation(); langWrapper.classList.toggle('open'); });
+        document.querySelectorAll('.lang-option').forEach(function (opt) {
+            opt.addEventListener('click', function () {
+                if (opt.disabled) return;
+                document.querySelectorAll('.lang-option').forEach(function (o) { o.classList.remove('active'); });
                 opt.classList.add('active');
-                if(langLabel)langLabel.textContent=opt.dataset.lang.toUpperCase();
+                document.getElementById('lang-label').textContent = opt.dataset.lang.toUpperCase();
                 langWrapper.classList.remove('open');
             });
         });
-        if(langDrop)langDrop.addEventListener('click',function(e){e.stopPropagation();});
+        document.getElementById('lang-dropdown').addEventListener('click', function (e) { e.stopPropagation(); });
     }
 
     /* ── VIDEO PLAYER ── */
-    var vid=document.getElementById('mainVideo'),wrap=document.getElementById('videoWrap'),filled=document.getElementById('vidFilled'),timeEl=document.getElementById('vidTime'),playBtn=document.getElementById('vidPlayBtn'),muteBtn=document.getElementById('vidMuteBtn'),prog=document.getElementById('vidProgress');
-    var PLAY='<svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>';
-    var PAUSE='<svg viewBox="0 0 24 24" fill="white"><rect x="5" y="3" width="4" height="18" rx="1"/><rect x="15" y="3" width="4" height="18" rx="1"/></svg>';
-    var VOL_ON='<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11,5 6,9 2,9 2,15 6,15 11,19"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>';
-    var VOL_OFF='<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11,5 6,9 2,9 2,15 6,15 11,19"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>';
-    function fmt(s){s=Math.floor(s||0);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
-    vid.addEventListener('timeupdate',function(){if(!vid.duration)return;filled.style.width=(vid.currentTime/vid.duration*100)+'%';timeEl.textContent=fmt(vid.currentTime)+' / '+fmt(vid.duration);});
-    vid.addEventListener('loadedmetadata',function(){timeEl.textContent='0:00 / '+fmt(vid.duration);});
-    vid.addEventListener('play',function(){wrap.classList.remove('paused');playBtn.innerHTML=PAUSE;});
-    vid.addEventListener('pause',function(){wrap.classList.add('paused');playBtn.innerHTML=PLAY;});
-    prog.addEventListener('click',function(e){if(!vid.duration)return;var r=prog.getBoundingClientRect();vid.currentTime=((e.clientX-r.left)/r.width)*vid.duration;});
-    wrap.addEventListener('click',function(e){if(e.target===wrap||e.target===vid)vidToggle();});
-    window.vidToggle=function(){vid.paused?vid.play():vid.pause();};
-    window.vidMute=function(){vid.muted=!vid.muted;muteBtn.innerHTML=vid.muted?VOL_OFF:VOL_ON;};
-    window.vidFullscreen=function(){if(!document.fullscreenElement)wrap.requestFullscreen&&wrap.requestFullscreen();else document.exitFullscreen&&document.exitFullscreen();};
+    var vid       = document.getElementById('mainVideo');
+    var wrap      = document.getElementById('videoWrap');
+    var playBtn   = document.getElementById('vidPlayBtn');
+    var pillLabel = document.getElementById('pillLabel');
+    var pillIcon  = playBtn.querySelector('.pill-icon');
+
+    var PLAY_SVG  = '<svg viewBox="0 0 24 24" width="18" height="18" fill="black"><polygon points="6,4 20,12 6,20"/></svg>';
+    var PAUSE_SVG = '<svg viewBox="0 0 24 24" width="18" height="18" fill="black"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>';
+
+    function vidToggle() {
+        if (vid.paused) { vid.play(); } else { vid.pause(); }
+    }
+
+    vid.addEventListener('play', function () {
+        pillIcon.innerHTML = PAUSE_SVG;
+        pillLabel.textContent = 'Pause';
+    });
+    vid.addEventListener('pause', function () {
+        pillIcon.innerHTML = PLAY_SVG;
+        pillLabel.textContent = 'Play Video';
+    });
+
+    playBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        vidToggle();
+    });
+
+    wrap.addEventListener('click', function (e) {
+        if (e.target === wrap || e.target === vid) vidToggle();
+    });
 
 })();
 </script>

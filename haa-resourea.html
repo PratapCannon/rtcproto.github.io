@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,43 +10,7 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Raleway', sans-serif; background: #fff; color: #111; -webkit-font-smoothing: antialiased; }
         a { text-decoration: none; color: inherit; }
-        header { position: sticky; top: 0; z-index: 1000; background: #fff; padding: 18px 8%; border-bottom: 1px solid #e8e8e8; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; position: relative; }
-        .logo { font-family: 'Raleway', sans-serif; font-size: 1.05rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; flex-shrink: 0; color: #000; }
-        .nav-list { list-style: none; display: flex; align-items: center; gap: 28px; margin: 0; padding: 0; }
-        .nav-list > li { position: relative; }
-        .nav-list > li > a { font-family: 'Raleway', sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; transition: opacity 0.3s; display: flex; align-items: center; gap: 5px; white-space: nowrap; }
-        .nav-list > li > a:hover { opacity: 0.45; }
-        .arrow { font-size: 0.65rem; transition: transform 0.3s; display: inline-block; }
-        .has-dropdown:hover .arrow { transform: rotate(180deg); }
-        .dropdown { display: none; position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%); background: #fff; border: 1.5px solid #e0e0e0; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); padding: 10px 8px; list-style: none; flex-direction: row; gap: 4px; white-space: nowrap; z-index: 2000; min-width: max-content; }
-        .dropdown::before { content:''; position:absolute; top:-7px; left:50%; transform:translateX(-50%); border-left:7px solid transparent; border-right:7px solid transparent; border-bottom:7px solid #e0e0e0; }
-        .dropdown::after  { content:''; position:absolute; top:-5px; left:50%; transform:translateX(-50%); border-left:6px solid transparent; border-right:6px solid transparent; border-bottom:6px solid #fff; }
-        .has-dropdown:hover .dropdown { display: flex; }
-        .dropdown li a { display: block; padding: 8px 16px; font-family: 'Raleway', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em; border-radius: 8px; transition: background 0.2s; white-space: nowrap; }
-        .dropdown li a:hover { background: #f4f4f4; }
-        .mega-dropdown { display: none; position: absolute; top: calc(100% + 14px); left: 0; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.13); padding: 24px 20px; flex-direction: row; gap: 0; z-index: 2000; min-width: 520px; }
-        .mega-dropdown::before { content:''; position:absolute; top:-7px; left:36px; border-left:7px solid transparent; border-right:7px solid transparent; border-bottom:7px solid #e0e0e0; }
-        .mega-dropdown::after  { content:''; position:absolute; top:-5px; left:36px; border-left:6px solid transparent; border-right:6px solid transparent; border-bottom:6px solid #fff; }
-        .mega-parent:hover .mega-dropdown { display: flex; }
-        .mega-col { display: flex; flex-direction: column; gap: 2px; flex: 1; padding: 0 16px; }
-        .mega-col:first-child { padding-left: 4px; }
-        .mega-col:last-child  { padding-right: 4px; }
-        .mega-heading { font-family: 'Raleway', sans-serif; font-size: 0.58rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.28em; color: #999; margin: 0 0 10px 8px; }
-        .mega-col a { display: block; padding: 8px 12px; font-family: 'Raleway', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em; border-radius: 8px; transition: background 0.2s; white-space: nowrap; }
-        .mega-col a:hover { background: #f4f4f4; }
-        .mega-divider { width: 1px; background: #eee; margin: 0 4px; align-self: stretch; }
-        .search-item { list-style: none; }
-        .search-wrapper { display: flex; align-items: center; background: #f4f4f4; border-radius: 999px; padding: 6px 10px; transition: width 0.35s, background 0.2s; overflow: hidden; width: 36px; }
-        .search-wrapper.expanded { width: 200px; background: #f0f0f0; }
-        .search-icon-btn { background: none; border: none; cursor: pointer; padding: 0; display: flex; align-items: center; flex-shrink: 0; }
-        .search-input { border: none; background: transparent; outline: none; font-family: 'Raleway', sans-serif; font-size: 0.78rem; font-weight: 400; width: 0; padding: 0; transition: width 0.35s, padding 0.35s; }
-        .search-wrapper.expanded .search-input { width: 140px; padding: 0 0 0 8px; }
-        .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 1100; }
-        .hamburger span { display: block; width: 24px; height: 2px; background: #000; border-radius: 2px; transition: all 0.3s; }
-        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .hamburger.open span:nth-child(2) { opacity: 0; }
-        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+       
         .hero { position: relative; width: 100%; height: 72vh; min-height: 480px; overflow: hidden; background: #0d1a14; }
         .hero-bg { position: absolute; inset: 0; background-image: url('images/ha.png'); background-size: cover; background-position: center 30%; opacity: 1; transform: scale(1.04); animation: heroZoom 14s ease-in-out forwards; }
         @keyframes heroZoom { from { transform: scale(1.04); } to { transform: scale(1.00); } }
@@ -73,18 +37,22 @@
         .films-grid    { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; padding: 0 8%; }
         .photo-grid    { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; padding: 0 8%; }
         .vignette-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; padding: 0 8%; }
+        .resources-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; padding: 0 8%; }
         .res-card { display: block; overflow: hidden; position: relative; background: #fff; text-decoration: none; color: #000; border-radius: 4px; box-shadow: 0 2px 10px rgba(248,248,248,0.925); transition: box-shadow 0.3s, transform 0.3s; }
         .res-card:hover { box-shadow: 0 10px 36px rgba(0,0,0,0.14); transform: translateY(-2px); }
-        .res-card-thumb { display: block; width: 100%; object-fit: cover; transition: transform 0.55s ease, opacity 0.35s ease; }
+        .res-card-thumb { display: block; width: 100%; object-fit: cover; transition: transform 0.55s ease, opacity 0.35s ease; aspect-ratio: 16/10; }
         .res-card:hover .res-card-thumb { transform: scale(1.05); opacity: 0.82; }
         .films-grid    .res-card-thumb { aspect-ratio: 16/10; }
         .photo-grid    .res-card-thumb { aspect-ratio: 3/2; }
         .vignette-grid .res-card-thumb { aspect-ratio: 4/5; }
         .res-card-body { padding: 16px 18px 20px; background: #fff; border-top: 1px solid #f0f0f0; }
+        .res-card-category { font-family: 'Raleway', sans-serif; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #999; margin-bottom: 6px; }
         .res-card-title { font-family: 'Raleway', sans-serif; font-size: 1.3rem; font-weight: 600; line-height: 1.25; margin-bottom: 7px; color: #111; }
         .vignette-grid .res-card-title { font-size: 1rem; }
+        .resources-grid .res-card-title { font-size: 1.1rem; }
         .res-card-desc { font-family: 'Raleway', sans-serif; font-size: 1rem; font-weight: 400; color: #666; line-height: 1.75; }
         .vignette-grid .res-card-desc { display: none; }
+        .resources-grid .res-card-desc { font-size: 0.9rem; }
         .res-card-arrow { position: absolute; top: 14px; right: 14px; width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.92); display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(0.8); transition: opacity 0.25s, transform 0.25s; z-index: 5; backdrop-filter: blur(4px); }
         .res-card:hover .res-card-arrow { opacity: 1; transform: scale(1); }
         .photo-grid .res-card:first-child { grid-row: span 2; display: flex; flex-direction: column; }
@@ -97,11 +65,12 @@
         .section-breadcrumb a:hover { color: #000; }
         .section-breadcrumb .bc-sep { color: #ddd; font-size: 0.75rem; }
         .section-breadcrumb .bc-current { color: #000; }
-        @media (max-width: 1100px) { .vignette-grid { grid-template-columns: repeat(3,1fr); } }
+        @media (max-width: 1100px) { .vignette-grid { grid-template-columns: repeat(3,1fr); } .resources-grid { grid-template-columns: repeat(2,1fr); } }
         @media (max-width: 900px) {
             .films-grid    { grid-template-columns: repeat(2,1fr); }
             .photo-grid    { grid-template-columns: 1fr; }
             .vignette-grid { grid-template-columns: repeat(2,1fr); }
+            .resources-grid { grid-template-columns: repeat(2,1fr); }
             .photo-grid .res-card:first-child { grid-row: span 1; }
             .photo-grid .res-card:first-child .res-card-thumb { flex: none; aspect-ratio: 3/2; height: auto; min-height: unset; }
             .section-header { padding: 48px 5% 24px; }
@@ -130,233 +99,106 @@
         @media (max-width: 600px) {
             .films-grid { grid-template-columns: 1fr; }
             .vignette-grid { grid-template-columns: repeat(2,1fr); }
+            .resources-grid { grid-template-columns: 1fr; }
             .hero { height: 60vh; }
             .hero h1 { font-size: 2.4rem; }
             .hero-stats { gap: 20px; }
             .section-header { flex-direction: column; align-items: flex-start; gap: 14px; }
             .section-block { padding-bottom: 40px; }
         }
-        /* ── LANGUAGE TOGGLE ── */
-.lang-item { 
-    list-style: none; 
-    margin-left: auto;
-}
+      
+header { position: sticky; top: 0; z-index: 1200; background: #fff; padding: 18px 8%; border-bottom: 1px solid #e8e8e8; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.nav-container { display: flex; justify-content: space-between; align-items: center; position: relative; gap: 40px; }
+.logo { font-size: 1.0rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.10em; flex-shrink: 0; color: #000; margin-right: 20px; }
+.nav-list { list-style: none; display: flex; align-items: center; gap: 28px; margin: 0; padding: 0; }
+.nav-list > li { position: relative; }
+.nav-list > li > a { font-size: 0.88rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; transition: opacity 0.3s; display: flex; align-items: center; gap: 5px; white-space: nowrap; }
+.nav-list > li > a:hover { opacity: 0.45; }
+.arrow { font-size: 0.65rem; transition: transform 0.3s; display: inline-block; }
+.has-dropdown { padding-bottom: 14px; margin-bottom: -14px; }
+.dropdown { display: none; position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%); background: #fff; border: 1.5px solid #e0e0e0; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); padding: 10px 8px; list-style: none; flex-direction: row; gap: 4px; white-space: nowrap; z-index: 2000; min-width: max-content; margin-top: -14px; padding-top: 14px; }
+.dropdown::before { content:''; position:absolute; top:-7px; left:50%; transform:translateX(-50%); border-left:7px solid transparent; border-right:7px solid transparent; border-bottom:7px solid #e0e0e0; }
+.dropdown::after  { content:''; position:absolute; top:-5px; left:50%; transform:translateX(-50%); border-left:6px solid transparent; border-right:6px solid transparent; border-bottom:6px solid #fff; }
+.has-dropdown:hover .dropdown { display: flex; }
+.dropdown li a { display: block; padding: 8px 16px; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; border-radius: 8px; transition: background 0.2s; white-space: nowrap; }
+.dropdown li a:hover { background: #f4f4f4; }
+.mega-dropdown { display: none; position: absolute; top: calc(100% + 14px); left: 0; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.13); padding: 24px 20px; flex-direction: row; gap: 0; z-index: 2000; min-width: 520px; margin-top: -14px; padding-top: 24px; }
+.mega-dropdown::before { content:''; position:absolute; top:-7px; left:36px; border-left:7px solid transparent; border-right:7px solid transparent; border-bottom:7px solid #e0e0e0; }
+.mega-dropdown::after  { content:''; position:absolute; top:-5px; left:36px; border-left:6px solid transparent; border-right:6px solid transparent; border-bottom:6px solid #fff; }
+.mega-parent:hover .mega-dropdown { display: flex; }
+.mega-col { display: flex; flex-direction: column; gap: 2px; flex: 1; padding: 0 16px; }
+.mega-col:first-child { padding-left: 4px; }
+.mega-col:last-child  { padding-right: 4px; }
+.mega-heading { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.28em; color: #999; margin: 0 0 10px 8px; }
+.mega-col a { display: block; padding: 8px 12px; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; border-radius: 8px; transition: background 0.2s; white-space: nowrap; }
+.mega-col a:hover { background: #f4f4f4; }
+.mega-divider { width: 1px; background: #eee; margin: 0 4px; align-self: stretch; }
+.hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 1100; }
+.hamburger span { display: block; width: 24px; height: 2px; background: #000; border-radius: 2px; transition: all 0.3s; }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-.lang-wrapper { 
-    position: relative; 
-}
-
-.lang-btn {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: #f4f4f4;
-    border: 1.5px solid #e0e0e0;
-    border-radius: 999px;
-    padding: 6px 12px 6px 10px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: #000;
-    cursor: pointer;
-    transition: background 0.2s, border-color 0.2s;
-    font-family: 'Raleway', sans-serif;
-    white-space: nowrap;
-}
-
-.lang-btn:hover {
-    background: #ebebeb;
-    border-color: #bbb;
-}
-
-.lang-btn .arrow {
-    font-size: 0.65rem;
-    transition: transform 0.3s;
-}
-
-.lang-wrapper.open .lang-btn .arrow { 
-    transform: rotate(180deg); 
-}
-
-.lang-dropdown {
-    display: none;
-    position: absolute;
-    top: calc(100% + 10px);
-    right: 0;
-    background: #fff;
-    border: 1.5px solid #e0e0e0;
-    border-radius: 14px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-    padding: 8px;
-    z-index: 2000;
-    min-width: 180px;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.lang-dropdown::before {
-    content: '';
-    position: absolute;
-    top: -7px;
-    right: 18px;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-bottom: 7px solid #e0e0e0;
-}
-
-.lang-dropdown::after {
-    content: '';
-    position: absolute;
-    top: -5px;
-    right: 18px;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-bottom: 6px solid #fff;
-}
-
-.lang-wrapper.open .lang-dropdown { 
-    display: flex; 
-}
-
-.lang-option {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    padding: 10px 12px;
-    background: none;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-family: 'Raleway', sans-serif;
-    transition: background 0.2s;
-    text-align: left;
-}
-
-.lang-option:hover:not([disabled]) { 
-    background: #f4f4f4; 
-}
-
-.lang-option[disabled] { 
-    cursor: default; 
-    opacity: 1; 
-}
-
-.lang-option.active { 
-    background: #f8f8f8; 
-}
-
-.lang-code {
-    font-size: 0.72rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #000;
-    min-width: 24px;
-}
-
-.lang-option[disabled] .lang-code { 
-    color: #999; 
-}
-
-.lang-name {
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: #000;
-    flex: 1;
-}
-
-.lang-option[disabled] .lang-name { 
-    color: #aaa; 
-}
-
-.lang-check {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: #000;
-}
-
-.lang-soon {
-    font-size: 0.58rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #888;
-    background: #f0f0f0;
-    border: 1px solid #e0e0e0;
-    padding: 2px 7px;
-    border-radius: 999px;
-    white-space: nowrap;
-}
+/* ── LANGUAGE TOGGLE ── */
+.lang-item { list-style: none; margin-left: auto; }
+.lang-wrapper { position: relative; }
+.lang-btn { display: flex; align-items: center; gap: 6px; background: #f4f4f4; border: 1.5px solid #e0e0e0; border-radius: 999px; padding: 6px 12px 6px 10px; font-size: 0.88rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #000; cursor: pointer; transition: background 0.2s, border-color 0.2s; white-space: nowrap; }
+.lang-btn:hover { background: #ebebeb; border-color: #bbb; }
+.lang-btn .arrow { font-size: 0.65rem; transition: transform 0.3s; }
+.lang-wrapper.open .lang-btn .arrow { transform: rotate(180deg); }
+.lang-dropdown { display: none; position: absolute; top: calc(100% + 10px); right: 0; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); padding: 8px; z-index: 2000; min-width: 180px; flex-direction: column; gap: 2px; }
+.lang-dropdown::before { content: ''; position: absolute; top: -7px; right: 18px; border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 7px solid #e0e0e0; }
+.lang-dropdown::after  { content: ''; position: absolute; top: -5px; right: 18px; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid #fff; }
+.lang-wrapper.open .lang-dropdown { display: flex; }
+.lang-option { display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 12px; background: none; border: none; border-radius: 8px; cursor: pointer; transition: background 0.2s; text-align: left; }
+.lang-option:hover:not([disabled]) { background: #f4f4f4; }
+.lang-option[disabled] { cursor: default; opacity: 1; }
+.lang-option.active { background: #f8f8f8; }
+.lang-code { font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: #000; min-width: 24px; }
+.lang-option[disabled] .lang-code { color: #999; }
+.lang-name { font-size: 1rem; font-weight: 500; color: #000; flex: 1; }
+.lang-option[disabled] .lang-name { color: #aaa; }
+.lang-check { font-size: 0.75rem; font-weight: 700; color: #000; }
+.lang-soon { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #888; background: #f0f0f0; border: 1px solid #e0e0e0; padding: 2px 7px; border-radius: 999px; white-space: nowrap; }
 
 /* ── SEARCH ── */
-.search-item { 
-    list-style: none; 
-    margin-left: auto;
-}
+.search-item { list-style: none; }
+.search-wrapper { display: flex; align-items: center; background: #f4f4f4; border-radius: 999px; padding: 6px 10px; transition: width 0.35s, background 0.2s; overflow: hidden; width: 36px; }
+.search-wrapper.expanded { width: 200px; background: #f0f0f0; }
+.search-icon-btn { background: none; border: none; cursor: pointer; padding: 0; display: flex; align-items: center; flex-shrink: 0; }
+.search-input { border: none; background: transparent; outline: none; font-size: 0.95rem; color: #000; width: 0; padding: 0; transition: width 0.35s, padding 0.35s; }
+.search-wrapper.expanded .search-input { width: 140px; padding: 0 0 0 8px; }
 
-.search-wrapper {
-    display: flex;
-    align-items: center;
-    background: #f4f4f4;
-    border-radius: 999px;
-    padding: 6px 10px;
-    transition: width 0.35s, background 0.2s;
-    overflow: hidden;
-    width: 36px;
+/* ── MOBILE NAV ── */
+@media (max-width: 900px) {
+    .hamburger { display: flex; }
+    #main-nav { display: none; position: absolute; top: calc(100% + 18px); left: 0; right: 0; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); padding: 16px 0; z-index: 999; }
+    #main-nav.open { display: block; }
+    .nav-list { flex-direction: column; align-items: flex-start; gap: 0; padding: 0 8px; }
+    .nav-list > li { width: 100%; }
+    .nav-list > li > a { padding: 12px 16px; border-radius: 10px; justify-content: space-between; width: 100%; }
+    .nav-list > li > a:hover { background: #f4f4f4; opacity: 1; }
+    .mega-dropdown { position: static; flex-direction: column; box-shadow: none; border: none; border-radius: 0; padding: 0 0 8px 12px; min-width: unset; width: 100%; display: none !important; margin-top: 0; }
+    .mega-dropdown::before, .mega-dropdown::after { display: none; }
+    .mega-dropdown.mobile-open { display: flex !important; }
+    .mega-col { padding: 4px 0; }
+    .mega-divider { width: 100%; height: 1px; margin: 6px 0; }
+    .dropdown { position: static; transform: none; box-shadow: none; border: none; border-radius: 0; padding: 0 0 8px 16px; flex-direction: column; background: transparent; min-width: unset; display: none !important; margin-top: 0; }
+    .dropdown::before, .dropdown::after { display: none; }
+    .dropdown.mobile-open { display: flex !important; }
+    .search-item { padding: 8px 16px; width: 100%; }
+    .search-wrapper { width: 100% !important; }
+    .search-input { width: 100% !important; padding: 0 0 0 8px !important; }
+    .lang-item { padding: 8px 16px; width: 100%; margin-left: 0; }
+    .lang-dropdown { position: static; box-shadow: none; border: none; border-radius: 0; padding: 0; display: none !important; }
+    .lang-dropdown::before, .lang-dropdown::after { display: none; }
+    .lang-wrapper.open .lang-dropdown { display: flex !important; }
 }
-
-.search-wrapper.expanded {
-    width: 200px;
-    background: #f0f0f0;
-}
-
-.search-icon-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-.search-input {
-    border: none;
-    background: transparent;
-    outline: none;
-    font-size: 0.82rem;
-    color: #000;
-    width: 0;
-    padding: 0;
-    transition: width 0.35s, padding 0.35s;
-    font-family: 'Raleway', sans-serif;
-}
-
-.search-wrapper.expanded .search-input {
-    width: 140px;
-    padding: 0 0 0 8px;
-}
-/* Bridge the gap so cursor doesn't fall through */
-.has-dropdown {
-    padding-bottom: 14px;
-    margin-bottom: -14px;
-}
-
-/* Keep dropdown open while cursor travels to it */
-.dropdown,
-.mega-dropdown {
-    margin-top: -14px;
-    padding-top: 14px;
-}
-    </style>
-</head>
-<body>
+</style>
 
 <header>
     <div class="nav-container">
-       <a href="index.html" class="logo">RTC Heritage Portal</a>
+        <a href="index.html" class="logo">RTC Heritage Portal</a>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu">
             <span></span><span></span><span></span>
         </button>
@@ -366,6 +208,14 @@
                     <a href="#">Location, Theme & More <span class="arrow">▾</span></a>
                     <div class="mega-dropdown">
                         <div class="mega-col">
+                            <p class="mega-heading">Theme</p>
+                            <a href="theme-environment.html">Migration</a>
+                            <a href="theme-cosmology.html">Social Changes</a>
+                            <a href="theme-culture.html">Cosmological Landscape</a>
+                            <a href="#themesScrollTrack">People, Plant & Animal</a>
+                        </div>
+                        <div class="mega-divider"></div>
+                        <div class="mega-col">
                             <p class="mega-heading">Location</p>
                             <a href="haa-resourea.html">Haa Resources</a>
                             <a href="#sephu">Sephu Resources</a>
@@ -373,41 +223,34 @@
                         </div>
                         <div class="mega-divider"></div>
                         <div class="mega-col">
-                            <p class="mega-heading">Theme</p>
-                            <a href="index.html#themesScrollTrack">Page Theme</a>
-                            <a href="index.html#themesScrollTrack">Theme Cultural</a>
-                            <a href="index.html#themesScrollTrack">Theme Cosmetic</a>
-                        </div>
-                        <div class="mega-divider"></div>
-                        <div class="mega-col">
                             <p class="mega-heading">More</p>
-                            <a href="resources.html">Additional Resources</a>
                             <a href="interactive-map.html">Interactive Map</a>
-                            <a href="#">Announcement</a>
+                            <a href="#">Announcements</a>
                         </div>
                     </div>
                 </li>
                 <li class="has-dropdown">
-                    <a href="">About <span class="arrow">▾</span></a>
-                    <ul class="dropdown">
-                         <li><a href="index.html#about-portal">VMO</a></li>
-                        <li><a href="partners.html">Partners</a></li>
-                    </ul>
-            
-                </li>
-                <li class="has-dropdown">
                     <a href="#">Archive <span class="arrow">▾</span></a>
                     <ul class="dropdown">
-                        <li><a href="index.html#card-films">Films</a></li>
-                        <li><a href="index.html#card-essay">Photo Essays</a></li>
-                        <li><a href="index.html#card-vignette">Vignettes</a></li>
-                        <li><a href="index.html#card-audio">Sounds</a></li>
+                        <li><a href="films.html">Films</a></li>
+                        <li><a href="photoessay.html">Photo Essays</a></li>
+                        <li><a href="vignettes.html">Vignettes</a></li>
+                        <li><a href="audio.html">Sounds</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="lesson-plan.html">Lesson Plans</a>
                 </li>
-               
+                <li>
+                    <a href="publication.html">Publication</a>
+                </li>
+                <li class="has-dropdown">
+                    <a href="#">About <span class="arrow">▾</span></a>
+                    <ul class="dropdown">
+                        <li><a href="vmo.html">VMO</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                    </ul>
+                </li>
                 <li class="lang-item">
                     <div class="lang-wrapper" id="lang-wrapper">
                         <button class="lang-btn" id="lang-btn" aria-label="Change language">
@@ -448,6 +291,7 @@
     </div>
 </header>
 
+
 <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
@@ -480,35 +324,31 @@
 
 <div class="resources-body">
 
-    <div class="section-sentinel" id="sentinel-films"></div>
-    <nav class="section-breadcrumb" id="bc-films">
-        <a href="index.html">Home</a>
-        <span class="bc-sep">&#8250;</span>
-        <a href="haa-resources.html">Haa Resources</a>
-        <span class="bc-sep">&#8250;</span>
-        <span class="bc-current">Films</span>
-    </nav>
-
     <div class="section-block">
         <div class="section-header">
             <div class="section-label-group">
-                <span class="section-eyebrow">Moving Image</span>
-                <h2 class="section-title">Films</h2>
+                <span class="section-eyebrow">Location Collection</span>
+                <h2 class="section-title">All Resources</h2>
             </div>
-            <a href="films.html" class="section-view-all">
-                View all films
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
+            <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                <a href="films.html" class="section-view-all">
+                    View all 
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              
+            </div>
         </div>
 
-        <div class="films-grid">
+        <div class="resources-grid">
 
+            <!-- FILMS -->
             <a href="films.html" class="res-card">
                 <img class="res-card-thumb" src="images/slider2.jpg" alt="Voices of Haa">
                 <div class="res-card-arrow">
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </div>
                 <div class="res-card-body">
+                    <span class="res-card-category">Film</span>
                     <h3 class="res-card-title">Voices of Haa</h3>
                     <p class="res-card-desc">An intimate portrait of the Haap people — their dialect, their fortresses, and a pastoral way of life shaped by altitude and isolation.</p>
                 </div>
@@ -520,6 +360,7 @@
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </div>
                 <div class="res-card-body">
+                    <span class="res-card-category">Film</span>
                     <h3 class="res-card-title">The Western Gate</h3>
                     <p class="res-card-desc">Tracing the ancient pilgrimage trail that connects Haa valley to the sacred sites along the Bhutan–Tibet border through high alpine passes.</p>
                 </div>
@@ -531,45 +372,20 @@
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </div>
                 <div class="res-card-body">
+                    <span class="res-card-category">Film</span>
                     <h3 class="res-card-title">Seasons of Katsho</h3>
                     <p class="res-card-desc">A year-long portrait of a single village in upper Haa — from the summer yak drives to the first snowfall that seals the valley until spring.</p>
                 </div>
             </a>
 
-        </div>
-    </div>
-
-    <div class="section-divider"></div>
-
-    <div class="section-sentinel" id="sentinel-photo"></div>
-    <nav class="section-breadcrumb" id="bc-photo">
-        <a href="index.html">Home</a>
-        <span class="bc-sep">&#8250;</span>
-        <a href="haa-resources.html">Haa Resources</a>
-        <span class="bc-sep">&#8250;</span>
-        <span class="bc-current">Photo Essays</span>
-    </nav>
-
-    <div class="section-block">
-        <div class="section-header">
-            <div class="section-label-group">
-                <span class="section-eyebrow">Still Image</span>
-                <h2 class="section-title">Photo Essays</h2>
-            </div>
-            <a href="photoessay.html" class="section-view-all">
-                View all essays
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-        </div>
-
-        <div class="photo-grid">
-
+            <!-- PHOTO ESSAYS -->
             <a href="photoessay.html" class="res-card">
                 <img class="res-card-thumb" src="images/10.jpg" alt="Faces of the Valley Floor">
                 <div class="res-card-arrow">
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </div>
                 <div class="res-card-body">
+                    <span class="res-card-category">Photo Essay</span>
                     <h3 class="res-card-title">Faces of the Valley Floor</h3>
                     <p class="res-card-desc">Portraits gathered across three seasons in Haa — elders, children, monks, and herders — each face a chapter in a story of continuity and change.</p>
                 </div>
@@ -581,6 +397,7 @@
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </div>
                 <div class="res-card-body">
+                    <span class="res-card-category">Photo Essay</span>
                     <h3 class="res-card-title">Lha Kha Karpo — The White God Mountain</h3>
                     <p class="res-card-desc">A photographic journey to the sacred peak above Haa, following the annual offering procession made by Haap families at the start of summer.</p>
                 </div>
@@ -592,6 +409,7 @@
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </div>
                 <div class="res-card-body">
+                    <span class="res-card-category">Photo Essay</span>
                     <h3 class="res-card-title">Inside the Dzong</h3>
                     <p class="res-card-desc">The Haa Dzong — rarely photographed — opens its inner courtyards for this visual record of murals, butter lamps, and monastic daily life.</p>
                 </div>
@@ -603,45 +421,20 @@
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </div>
                 <div class="res-card-body">
+                    <span class="res-card-category">Photo Essay</span>
                     <h3 class="res-card-title">The Last Weavers of Haa</h3>
                     <p class="res-card-desc">Four women — the only remaining practitioners of Haa's distinctive wool-weaving tradition — photographed at their looms over two winters.</p>
                 </div>
             </a>
 
-        </div>
-    </div>
-
-    <div class="section-divider"></div>
-
-    <div class="section-sentinel" id="sentinel-vignette"></div>
-    <nav class="section-breadcrumb" id="bc-vignette">
-        <a href="index.html">Home</a>
-        <span class="bc-sep">&#8250;</span>
-        <a href="haa-resources.html">Haa Resources</a>
-        <span class="bc-sep">&#8250;</span>
-        <span class="bc-current">Vignettes</span>
-    </nav>
-
-    <div class="section-block">
-        <div class="section-header">
-            <div class="section-label-group">
-                <span class="section-eyebrow">Written Observation</span>
-                <h2 class="section-title">Ethnographic Vignettes</h2>
-            </div>
-            <a href="vignettes.html" class="section-view-all">
-                View all vignettes
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-        </div>
-
-        <div class="vignette-grid">
-
+            <!-- ETHNOGRAPHIC VIGNETTES -->
             <a href="vignettes.html" class="res-card">
                 <img class="res-card-thumb" src="images/theme2.jpg" alt="The Firewood Stack">
                 <div class="res-card-arrow">
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </div>
                 <div class="res-card-body">
+                    <span class="res-card-category">Ethnographic Vignette</span>
                     <h3 class="res-card-title">The Firewood Stack</h3>
                 </div>
             </a>
@@ -652,6 +445,7 @@
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </div>
                 <div class="res-card-body">
+                    <span class="res-card-category">Ethnographic Vignette</span>
                     <h3 class="res-card-title">A Dog Barks at Dusk</h3>
                 </div>
             </a>
@@ -662,6 +456,7 @@
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </div>
                 <div class="res-card-body">
+                    <span class="res-card-category">Ethnographic Vignette</span>
                     <h3 class="res-card-title">How Buckwheat is Threshed</h3>
                 </div>
             </a>
@@ -672,6 +467,7 @@
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </div>
                 <div class="res-card-body">
+                    <span class="res-card-category">Ethnographic Vignette</span>
                     <h3 class="res-card-title">The Grandmother's Prayer Wheel</h3>
                 </div>
             </a>
@@ -682,6 +478,7 @@
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </div>
                 <div class="res-card-body">
+                    <span class="res-card-category">Ethnographic Vignette</span>
                     <h3 class="res-card-title">First Snow</h3>
                 </div>
             </a>
@@ -692,6 +489,7 @@
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </div>
                 <div class="res-card-body">
+                    <span class="res-card-category">Ethnographic Vignette</span>
                     <h3 class="res-card-title">The Sound of the Conch</h3>
                 </div>
             </a>
@@ -700,275 +498,36 @@
     </div>
 
 </div>
-<footer class="site-footer">
-
-    <div class="footer-partners">
-    <p class="footer-partners-label">In Partnership With</p>
-    <div class="footer-partners-logos">
-
-        <a href="#" target="_blank" rel="noopener" class="partner-logo-link">
-            <img src="imag/HCEH logo.png" alt="HCEH — Himalayan Centre for Environmental Humanities">
-        </a>
-
-        <a href="https://www.rtc.bt" target="_blank" rel="noopener" class="partner-logo-link">
-            <img src="imag/Royal Thimpu College - logo.png" alt="Royal Thimphu College">
-        </a>
-
-        <a href="https://www.universiteitleiden.nl/en" target="_blank" rel="noopener" class="partner-logo-link">
-            <img src="imag/UL - Algemeen Internationaal - RGB-color.jpg" alt="Universiteit Leiden">
-        </a>
-
-        <a href="#" target="_blank" rel="noopener" class="partner-logo-link">
-            <img src="imag/jpg__de.jpg" alt="Gerda Henkel Stiftung">
-        </a>
-
-    </div>
-</div>
-
-    <div class="footer-main">
-        <div class="footer-brand">
-            <span class="footer-logo">RTC Heritage Portal</span>
-            <p>Documenting the living traditions, oral histories, and sacred wisdom of Bhutan's highland communities — for the generations to come.</p>
-        </div>
-        <div class="footer-social">
-            <h4>Follow Our Work</h4>
-            <div class="footer-social-links">
-                <a href="#" class="social-btn" aria-label="Facebook">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                    Facebook
-                </a>
-                <a href="#" class="social-btn" aria-label="Instagram">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-                    Instagram
-                </a>
-                <a href="#" class="social-btn" aria-label="YouTube">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
-                    YouTube
-                </a>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="footer-bottom">
-        <span class="footer-copy">© 2025 RTC Heritage Portal — Royal Thimphu College, Bhutan</span>
-        <nav class="footer-bottom-links">
-            <a href="vmo.html">VMO</a>
-            <a href="films.html">Films</a>
-            <a href="photoessay.html">Essays</a>
-            <a href="vignettes.html">Vignettes</a>
-        </nav>
-    </div>
-
-</footer>
-
-
- 
 <style>
-.site-footer {
-    background: #fff;
-    border-top: none;
-}
-
-/* ── PARTNERS STRIP ── */
-.footer-partners {
-    border-top: none;
-    border-bottom: none;
-    padding: 28px 8%;
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    background: #fff;
-    flex-wrap: wrap;
-}
-
-.footer-partners-label {
-    font-size: 0.6rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    color: #aaa;
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-
-.footer-partners-logos {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex: 1;
-    gap: 24px;
-    flex-wrap: nowrap;
-}
-
-.partner-logo-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    opacity: 0.8;
-    transition: opacity 0.25s;
-    flex: 1;
-}
-
-.partner-logo-link:hover { opacity: 1; }
-
-.partner-logo-link img {
-    width: 100%;
-    max-width: 180px;
-    height: auto;
-    max-height: 90px;
-    object-fit: contain;
-    display: block;
-}
-
-/* Gerda Henkel is text-only so constrain it a little */
-.partner-logo-link:nth-child(4) img {
-    max-width: 160px;
-    max-height: 40px;
-}
-
-/* ── MAIN FOOTER ── */
-.footer-main {
-    padding: 16px 8% !important;
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 40px;
-    align-items: start;
-    border-top: none;
-    border-bottom: none;
-}
-
-.footer-brand .footer-logo {
-    font-size: 1.1rem;
-    font-weight: 800;
-    color: #000;
-    letter-spacing: 2px;
-    display: block;
-    margin-bottom: 8px;
-}
-
-.footer-brand p {
-    font-family: 'Raleway', sans-serif;
-    font-size: 0.82rem;
-    color: #333;
-    line-height: 1.65;
-    margin: 0;
-    max-width: 360px;
-}
-
-.footer-social h4 {
-    font-family: 'Raleway', sans-serif;
-    font-size: 0.6rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    color: #888;
-    margin: 0 0 10px 0;
-}
-
-.footer-social-links {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.social-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 7px 14px;
-    border: 1.5px solid #000;
-    border-radius: 999px;
-    text-decoration: none;
-    color: #000;
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    transition: background 0.25s, color 0.25s;
-}
-
-.social-btn:hover {
-    background: #000;
-    color: #fff;
-}
-
-.social-btn svg { flex-shrink: 0; }
-
-/* ── FOOTER BOTTOM ── */
-.footer-bottom {
-    padding: 10px 8% !important;
-    border-top: 1px solid #e8e8e8;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
-.footer-copy {
-    font-size: 0.72rem;
-    color: #888;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.footer-bottom-links {
-    display: flex;
-    gap: 24px;
-}
-
-.footer-bottom-links a {
-    font-family: 'Raleway', sans-serif;
-    font-size: 0.72rem;
-    color: #888;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.footer-bottom-links a:hover { color: #000; }
-
-/* ── FOOTER RESPONSIVE ── */
-@media (max-width: 768px) {
-    .footer-partners {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-        padding: 18px 6%;
-    }
-    .footer-partners-logos {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 28px;
-        width: 100%;
-    }
-    .partner-logo-link {
-        flex: 0 0 calc(50% - 28px);
-    }
-    .partner-logo-link img {
-        max-width: 140px;
-        max-height: 70px;
-    }
-    .partner-logo-link:nth-child(4) img {
-        max-width: 130px;
-        max-height: 36px;
-    }
-    .footer-main {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        padding: 16px 6% !important;
-    }
-    .footer-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px 6% !important;
-        gap: 10px;
-    }
-}
+.site-footer { background: #fff; border-top: 1px solid #e8e8e8; padding: 90px 8% 70px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+.footer-nav-links { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+.footer-nav-links a { font-size: 1rem; color: #000; font-weight: 400; text-decoration: none; transition: color 0.2s; }
+.footer-nav-links a:hover { color: #888; }
+.footer-social { display: flex; justify-content: center; align-items: center; gap: 22px; }
+.footer-social a { color: #000; display: inline-flex; transition: opacity 0.2s; }
+.footer-social a:hover { opacity: 0.55; }
+.footer-copy { font-size: 0.90rem; color: #000; font-style: italic; margin-top: 15px; }
 </style>
+<footer class="site-footer">
+    <nav class="footer-nav-links">
+        <a href="vmo.html">VMO</a>
+        <a href="partners.html">Partners</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Terms of Use</a>
+    </nav>
+    <div class="footer-social">
+        <a href="#" aria-label="YouTube">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg>
+        </a>
+        <a href="#" aria-label="Facebook">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+        </a>
+    </div>
+    <span class="footer-copy">© 2025 Royal Thimphu College, Bhutan</span>
+</footer>
 <script>
 (function(){
     const hamburger = document.getElementById('hamburger');

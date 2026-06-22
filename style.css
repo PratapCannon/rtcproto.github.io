@@ -1,3 +1,11 @@
+*, *::before, *::after,
+html, body,
+h1, h2, h3, h4, h5, h6,
+p, a, span, li, label,
+button, input, textarea, select,
+div, section, header, footer, nav {
+    font-family: 'Raleway', sans-serif !important;
+}
 :root {
     /* ── Spacing (existing) ── */
     --section-padding-y: 100px;
@@ -56,7 +64,7 @@ html {
 }
 
 body {
-    font-family: 'Raleway', sans-serif;
+    
     font-weight: 400;
     color: #000;
     background: #fff;
@@ -68,13 +76,9 @@ a {
     color: inherit;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Raleway', sans-serif;
-}
 
-p, a, span, li, button, input {
-    font-family: 'Raleway', sans-serif;
-}
+
+
 
 
 
@@ -105,25 +109,28 @@ p, a, span, li, button, input {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    transition: opacity 1.8s ease-in-out;
+    transform: scale(1.12);
+    transition: opacity 2s ease-in-out, transform 8s linear;
     z-index: 1;
-    will-change: opacity;
+    will-change: opacity, transform;
 }
 
 .slide.active {
     opacity: 1;
     z-index: 2;
-    animation: kenburns 8s ease-in-out forwards;
+    transform: scale(1);
 }
 
 @keyframes kenburns {
-    0%   { transform: scale(1); }
-    100% { transform: scale(1.08); }
+    0%   { transform: scale(1.08); }
+    100% { transform: scale(1); }
 }
 
-.slide:nth-child(1) { background-image: url('images/slider6.jpg'); }
-.slide:nth-child(2) { background-image: url('images/slider1.jpg'); }
-.slide:nth-child(3) { background-image: url('images/slider3.jpg'); }
+
+
+.slide:nth-child(1) { background-image: url('img/a8.jpg'); }
+.slide:nth-child(2) { background-image: url('images/slider3.jpg'); }
+.slide:nth-child(3) { background-image: url('images/1.jpg'); }
 .slide:nth-child(4) { background-image: url('images/slider2.jpg'); }
 
 .slider-container::after {
@@ -166,7 +173,7 @@ p, a, span, li, button, input {
     margin: 0 0 28px 0;
     line-height: 1;
     letter-spacing: -0.5px;
-    text-shadow: 0 0 80px rgba(0,0,0,0.8), 0 0 30px rgba(0,0,0,0.6), 0 4px 20px rgba(0,0,0,0.9);
+    text-shadow: 0 0 40px rgba(0,0,0,0.7), 0 0 15px rgba(0,0,0,0.5), 0 2px 10px rgba(0,0,0,0.8);
 }
 
 .slider-subtext {
@@ -174,7 +181,7 @@ p, a, span, li, button, input {
     color: #fff;
     line-height: 1.9;
     font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 6px;
     text-transform: uppercase;
     margin: 0;
     text-shadow: 0 2px 18px rgba(0,0,0,0.85), 0 1px 6px rgba(0,0,0,0.7);
@@ -227,7 +234,7 @@ p, a, span, li, button, input {
 }
 
 .story-text-box h3 {
-    font-family: 'Raleway', sans-serif;
+   
     font-size: 3.8rem;
     color: #000;
     font-weight: 800;
@@ -237,7 +244,7 @@ p, a, span, li, button, input {
     text-shadow: none;
 }
 .story-text-box p {
-    font-family: 'Raleway', sans-serif;
+    
     font-size: 1rem;
     color: #333;
     line-height: 1.8;
@@ -300,7 +307,7 @@ p, a, span, li, button, input {
 }
 
 .play-label {
-    font-family: 'Raleway', sans-serif;
+   
     font-size: 0.78rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -474,7 +481,7 @@ p, a, span, li, button, input {
 }
 
 .gallery-info-box h3 {
-    font-family: 'Raleway', sans-serif;
+    
     font-size: 1.8rem;
     font-weight: 900;
     letter-spacing: 1px;
@@ -485,7 +492,7 @@ p, a, span, li, button, input {
 }
 
 .gallery-info-box p {
-    font-family: 'Raleway', sans-serif;
+   
     font-size: 0.88rem;
     color: #333;
     line-height: 1.75;
@@ -497,7 +504,12 @@ p, a, span, li, button, input {
 .gallery-row .gallery-info-box p {
     display: none;
 }
-
+.gallery-row .gallery-info-box h3 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin: 0 0 14px 0;
+    white-space: nowrap;
+}
 .gallery-btn {
     display: inline-block;
     padding: 9px 22px;
@@ -580,180 +592,6 @@ p, a, span, li, button, input {
 }
 
 
-/* ── RESPONSIVE ── */
-
-
-.themes-section {
-    background: #fff;
-    overflow: hidden;
-    padding: 120px 0 0 0;    /* remove any bottom padding */
-    margin-bottom: 0;        /* remove any bottom margin */
-}
-.themes-layout {
-    display: flex;
-    align-items: flex-start;
-    min-height: 360px;
-    padding-bottom: 0;
-    margin-bottom: 0;
-}
-.themes-text-panel {
-    flex-shrink: 0;
-    width: 50%;
-    padding: 0 48px 40px 10%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
-.themes-label {
-    font-size: 0.6rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    color: #aaa;
-    margin-bottom: 16px;
-    display: block;
-}
-.themes-text-panel h2 {
-    font-family: 'Raleway', sans-serif;
-    font-size: 3.8rem;
-    font-weight: 800;
-    color: #000;
-    line-height: 1.1;
-    letter-spacing: -0.5px;
-    margin-bottom: 16px;
-}
-.themes-text-panel p {
-    font-size: 0.88rem;
-    color: #666;
-    line-height: 1.9;
-    margin: 0 0 24px 0;
-}
-.themes-scroll-outer {
-    width: 50%;
-    flex-shrink: 0;
-    overflow: hidden;
-}
-.themes-scroll-track {
-    display: flex;
-    width: 100%;
-}
-.themes-pair {
-    display: flex;
-    flex-shrink: 0;
-    width: 100%;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 24px;
-    padding: 0 24px 20px 24px;   /* reduced from 40px */
-    box-sizing: border-box;
-}
-.theme-item {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 12px;
-}
-.theme-circle {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid #e8e4de;
-    flex-shrink: 0;
-}
-.theme-circle img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-.theme-item-label {
-    font-family: 'Raleway', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #000;
-    display: block;
-    line-height: 1.3;
-}
-.theme-item-desc {
-    font-size: 0.78rem;
-    color: #666;
-    line-height: 1.8;
-    margin: 0;
-    max-width: 150px;
-}
-.theme-explore-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #000;
-    border: 1.5px solid #000;
-    border-radius: 999px;
-    padding: 6px 16px;
-    text-decoration: none;
-    transition: background 0.25s, color 0.25s;
-}
-.theme-explore-btn:hover {
-    background: #000;
-    color: #fff;
-}
-.ts-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #ccc;
-    transition: width 0.3s, background 0.3s;
-    cursor: pointer;
-    display: inline-block;
-}
-.ts-dot.active {
-    width: 18px;
-    border-radius: 3px;
-    background: #000;
-}
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-    .themes-layout {
-        flex-direction: column;
-        min-height: auto;
-    }
-    .themes-text-panel {
-        width: 100%;
-        padding: 40px 6% 24px;
-    }
-    .themes-scroll-outer {
-        width: 100%;
-        overflow: visible;
-    }
-    .themes-scroll-track {
-        display: flex !important;
-        flex-direction: column !important;
-        transform: none !important;
-        transition: none !important;
-        width: 100% !important;
-        overflow: visible !important;
-    }
-    .themes-pair {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        width: 100% !important;
-        min-width: 100% !important;
-        padding: 20px 6% !important;
-        gap: 16px !important;
-    }
-    .ts-dot {
-        display: none;
-    }
-}
 
 
 
