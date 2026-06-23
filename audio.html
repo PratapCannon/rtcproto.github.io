@@ -12,8 +12,6 @@
         body { background: #fff; color: #000; overflow-x: hidden; }
         a { text-decoration: none; color: inherit; }
 
-       
-
         /* ── BREADCRUMB ── */
         .breadcrumb { position: sticky; top: 57px; z-index: 900; background: #fff; border-bottom: 1px solid #ececec; padding: 10px 8%; display: flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
         .breadcrumb a { color: #888; transition: color 0.2s; }
@@ -36,6 +34,7 @@
         .sounds-hero-eyebrow {
             display: inline-flex; align-items: center; gap: 10px;
             font-size: 0.6rem; font-weight: 800; text-transform: uppercase;
+            font-family: 'Raleway', sans-serif !important;
             letter-spacing: 4px; color: #aaa;
             margin-bottom: 20px;
         }
@@ -51,16 +50,16 @@
         @keyframes heroWave { 0%,100% { transform: scaleY(0.35); opacity: 0.4; } 50% { transform: scaleY(1); opacity: 1; } }
 
         /* heading uses site's 3.8rem scale */
-        .sounds-hero h1 { font-size: 3.8rem; font-weight: 800; color: #000; line-height: 1; letter-spacing: -0.5px; margin-bottom: 20px; }
-        .sounds-hero p  { font-size: 0.95rem; font-weight: 400; color: #555; line-height: 1.9; max-width: 480px; }
+        .sounds-hero h1 { font-size: 3.8rem; font-weight: 800; color: #000; line-height: 1; letter-spacing: -0.5px; margin-bottom: 20px; font-family: 'Raleway', sans-serif !important; }
+        .sounds-hero p  { font-size: 0.95rem; font-weight: 400; color: #555; line-height: 1.9; max-width: 480px;  font-family: 'Raleway', sans-serif !important;}
 
         .sounds-hero-stats {
             display: flex; align-items: center; gap: 28px;
             margin-top: 36px; padding-top: 28px;
             border-top: 1px solid #ececec;
         }
-        .hero-stat-num   { font-size: 1.4rem; font-weight: 800; color: #000; display: block; letter-spacing: -0.5px; }
-        .hero-stat-label { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: #aaa; display: block; margin-top: 3px; }
+        .hero-stat-num   { font-size: 1.4rem; font-weight: 800; font-family: 'Raleway', sans-serif !important; color: #000; display: block; letter-spacing: -0.5px;  font-family: 'Raleway', sans-serif !important;}
+        .hero-stat-label { font-size: 0.6rem; font-weight: 700; font-family: 'Raleway', sans-serif !important; text-transform: uppercase; letter-spacing: 3px; color: #aaa; display: block; margin-top: 3px; font-family: 'Raleway', sans-serif !important; }
         .hero-stat-sep   { width: 1px; height: 36px; background: #e8e8e8; }
 
         /* ══════════════════════════════
@@ -75,17 +74,16 @@
         .sounds-grid-label::after { content: ''; flex: 1; height: 1px; background: #ececec; }
 
         .sounds-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
-        .sound-card:nth-child(1), .sound-card:nth-child(5), .sound-card:nth-child(8) { grid-row: span 2; }
 
-        .sound-card { position: relative; cursor: pointer; overflow: hidden; border-radius: 6px; background: #111; min-height: 240px; }
-        .sound-card:nth-child(1), .sound-card:nth-child(5), .sound-card:nth-child(8) { min-height: 500px; }
+        /* All cards identical size, 3:2 aspect ratio */
+        .sound-card { position: relative; cursor: pointer; overflow: hidden; border-radius: 6px; background: #111; aspect-ratio: 3 / 2; }
 
         .sc-img {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;   /* show the whole photo — never crop */
     transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), filter 0.1s;
     filter: brightness(0.7) saturate(0.85);
 }
@@ -134,13 +132,7 @@
         .sc-location { font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: rgba(255,255,255,0.38); margin-bottom: 6px; display: flex; align-items: center; gap: 5px; }
         .sc-location svg { width: 9px; height: 9px; opacity: 0.55; }
         .sc-title { font-size: 0.95rem; font-weight: 700; color: #f0ebe2; line-height: 1.25; margin-bottom: 8px; }
-        .sound-card:nth-child(1) .sc-title,
-        .sound-card:nth-child(5) .sc-title,
-        .sound-card:nth-child(8) .sc-title { font-size: 1.1rem; }
         .sc-desc { font-size: 0.8rem; font-weight: 400; color: rgba(240,235,226,0.5); line-height: 1.7; margin-bottom: 12px; display: none; }
-        .sound-card:nth-child(1) .sc-desc,
-        .sound-card:nth-child(5) .sc-desc,
-        .sound-card:nth-child(8) .sc-desc { display: block; }
         .sc-meta { display: flex; align-items: center; gap: 10px; }
         .sc-duration { display: inline-flex; align-items: center; gap: 5px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 999px; padding: 3px 10px; font-size: 0.6rem; font-weight: 700; letter-spacing: 1.5px; color: rgba(255,255,255,0.45); }
         .sc-duration svg { width: 9px; height: 9px; }
@@ -159,7 +151,6 @@
     transform: translateY(0);
 }
 
-Yo
         .player-handle { display: flex; justify-content: center; padding: 14px 0 0; flex-shrink: 0; cursor: pointer; }
         .player-handle-bar { width: 36px; height: 3px; border-radius: 999px; background: #e0e0e0; }
 
@@ -174,17 +165,20 @@ Yo
         .player-photo-bg { position: absolute; inset: 0; background-size: cover; background-position: center; filter: blur(24px) brightness(0.35) saturate(0.5); transform: scale(1.15); }
         .player-photo-img { position: absolute; inset: 16px; border-radius: 8px; overflow: hidden; box-shadow: 0 16px 48px rgba(0,0,0,0.3); }
         .player-photo-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .player-photo-img img.layer-a, .player-photo-img img.layer-b { position: absolute; inset: 0; }
+        .player-photo-img img.fade-in { opacity: 1; transition: opacity 2s ease; }
+        .player-photo-img img.fade-out { opacity: 0; transition: opacity 2s ease; }
 
         /* text + controls */
         .player-content { padding: 36px 44px 40px; display: flex; flex-direction: column; justify-content: center; border-left: 1px solid #ececec; overflow-y: auto; }
 
-        .player-tag   { font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; color: #aaa; display: block; margin-bottom: 8px; }
+        .player-tag   { font-size: 0.6rem; font-weight: 800; font-family: 'Raleway', sans-serif !important; text-transform: uppercase; letter-spacing: 4px; color: #aaa; display: block; margin-bottom: 8px; }
         .player-title { font-size: 1.8rem; font-weight: 800; color: #000; line-height: 1.15; margin-bottom: 6px; letter-spacing: -0.3px; }
-        .player-loc   { font-size: 0.72rem; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+        .player-loc   { font-size: 0.72rem; font-weight: 600; color: #888; font-family: 'Raleway', sans-serif !important; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
         .player-loc svg { width: 10px; height: 10px; }
-        .player-desc  { font-size: 0.85rem; font-weight: 400; color: #555; line-height: 1.85; margin-bottom: 24px; max-width: 460px; }
+        .player-desc  { font-size: 0.85rem; font-weight: 400; font-family: 'Raleway', sans-serif !important; color: #555; line-height: 1.85; margin-bottom: 24px; max-width: 460px; }
         .player-tags  { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 28px; }
-        .player-tag-pill { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #888; background: #f4f4f4; border: 1px solid #e0e0e0; padding: 4px 12px; border-radius: 999px; }
+        .player-tag-pill { font-size: 0.6rem; font-weight: 700; font-family: 'Raleway', sans-serif !important; text-transform: uppercase; letter-spacing: 1.5px; color: #888; background: #f4f4f4; border: 1px solid #e0e0e0; padding: 4px 12px; border-radius: 999px; }
 
         /* waveform */
         .player-waveform { height: 52px; display: flex; align-items: center; gap: 2px; margin-bottom: 12px; cursor: pointer; overflow: hidden; }
@@ -215,13 +209,9 @@ Yo
         .player-vol-slider { width: 80px; height: 2px; -webkit-appearance: none; appearance: none; background: #e4e4e4; border-radius: 999px; cursor: pointer; outline: none; }
         .player-vol-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 10px; height: 10px; border-radius: 50%; background: #000; cursor: pointer; }
 
-        
-
         /* ── RESPONSIVE ── */
         @media (max-width: 1000px) {
             .sounds-grid { grid-template-columns: repeat(2,1fr); }
-            .sound-card:nth-child(1) { grid-column: span 2; min-height: 360px; }
-            .sound-card:nth-child(5), .sound-card:nth-child(8) { grid-row: span 1; min-height: 240px; }
             .player-inner { grid-template-columns: 1fr; }
             .player-photo-wrap { height: 260px; }
             .player-content { padding: 24px 28px 32px; border-left: none; border-top: 1px solid #ececec; }
@@ -229,8 +219,6 @@ Yo
         }
         @media (max-width: 700px) {
             .sounds-grid { grid-template-columns: 1fr; }
-            .sound-card { min-height: 220px !important; grid-row: span 1 !important; grid-column: span 1 !important; }
-            .sound-card .sc-desc { display: block; }
             .sounds-hero { padding: 56px 6% 52px; }
             .sounds-hero h1 { font-size: 2.4rem; }
             .player-vol-group { display: none; }
@@ -431,7 +419,8 @@ Yo
     .lang-wrapper.open .lang-dropdown { display: flex !important; }
 }
 </style>
-
+</head>
+<body>
 <header>
     <div class="nav-container">
         <a href="index.html" class="logo">RTC Heritage Portal</a>
@@ -718,274 +707,40 @@ Yo
     </div>
 </div>
 
-
+<!-- FOOTER -->
+<style>
+.site-footer { background: #fff; border-top: 1px solid #e8e8e8; padding: 90px 8% 70px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+.footer-nav-links { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+.footer-nav-links a { font-size: 1rem; color: #000; font-weight: 400; text-decoration: none; transition: color 0.2s; }
+.footer-nav-links a:hover { color: #888; }
+.footer-social { display: flex; justify-content: center; align-items: center; gap: 22px; }
+.footer-social a { color: #000; display: inline-flex; transition: opacity 0.2s; }
+.footer-social a:hover { opacity: 0.55; }
+.footer-copy { font-size: 0.90rem; color: #000; font-style: italic; margin-top: 15px; }
+</style>
 <footer class="site-footer">
-
-    <div class="footer-partners">
-    <p class="footer-partners-label">In Partnership With</p>
-    <div class="footer-partners-logos">
-
-        <a href="#" target="_blank" rel="noopener" class="partner-logo-link">
-            <img src="imag/HCEH logo.png" alt="HCEH — Himalayan Centre for Environmental Humanities">
+    <nav class="footer-nav-links">
+        <a href="vmo.html">VMO</a>
+        <a href="partners.html">Partners</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Terms of Use</a>
+    </nav>
+    <div class="footer-social">
+        <a href="#" aria-label="YouTube">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg>
         </a>
-
-        <a href="https://www.rtc.bt" target="_blank" rel="noopener" class="partner-logo-link">
-            <img src="imag/Royal Thimpu College - logo.png" alt="Royal Thimphu College">
+        <a href="#" aria-label="Facebook">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
         </a>
-
-        <a href="https://www.universiteitleiden.nl/en" target="_blank" rel="noopener" class="partner-logo-link">
-            <img src="imag/UL - Algemeen Internationaal - RGB-color.jpg" alt="Universiteit Leiden">
+        <a href="#" aria-label="Instagram">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
         </a>
-
-        <a href="#" target="_blank" rel="noopener" class="partner-logo-link">
-            <img src="imag/jpg__de.jpg" alt="Gerda Henkel Stiftung">
-        </a>
-
     </div>
-</div>
-
-    <div class="footer-main">
-        <div class="footer-brand">
-            <span class="footer-logo">RTC Heritage Portal</span>
-            <p>Documenting the living traditions, oral histories, and sacred wisdom of Bhutan's highland communities — for the generations to come.</p>
-        </div>
-        <div class="footer-social">
-            <h4>Follow Our Work</h4>
-            <div class="footer-social-links">
-                <a href="#" class="social-btn" aria-label="Facebook">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                    Facebook
-                </a>
-                <a href="#" class="social-btn" aria-label="Instagram">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-                    Instagram
-                </a>
-                <a href="#" class="social-btn" aria-label="YouTube">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
-                    YouTube
-                </a>
-            </div>
-        </div>
-    </div>
+    <span class="footer-copy">© 2025 Royal Thimphu College, Bhutan</span>
+</footer>
 
     <audio id="mainAudio"></audio>
-    <style>
-.site-footer {
-    background: #fff;
-    border-top: none;
-}
 
-/* ── PARTNERS STRIP ── */
-.footer-partners {
-    border-top: none;
-    border-bottom: none;
-    padding: 28px 8%;
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    background: #fff;
-    flex-wrap: wrap;
-}
-
-.footer-partners-label {
-    font-size: 0.6rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    color: #aaa;
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-
-.footer-partners-logos {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex: 1;
-    gap: 24px;
-    flex-wrap: nowrap;
-}
-
-.partner-logo-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    opacity: 0.8;
-    transition: opacity 0.25s;
-    flex: 1;
-}
-
-.partner-logo-link:hover { opacity: 1; }
-
-.partner-logo-link img {
-    width: 100%;
-    max-width: 180px;
-    height: auto;
-    max-height: 90px;
-    object-fit: contain;
-    display: block;
-}
-
-/* Gerda Henkel is text-only so constrain it a little */
-.partner-logo-link:nth-child(4) img {
-    max-width: 160px;
-    max-height: 40px;
-}
-
-/* ── MAIN FOOTER ── */
-.footer-main {
-    padding: 16px 8% !important;
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 40px;
-    align-items: start;
-    border-top: none;
-    border-bottom: none;
-}
-
-.footer-brand .footer-logo {
-    font-size: 1.1rem;
-    font-weight: 800;
-    color: #000;
-    letter-spacing: 2px;
-    display: block;
-    margin-bottom: 8px;
-}
-
-.footer-brand p {
-    font-family: 'Raleway', sans-serif;
-    font-size: 0.82rem;
-    color: #333;
-    line-height: 1.65;
-    margin: 0;
-    max-width: 360px;
-}
-
-.footer-social h4 {
-    font-family: 'Raleway', sans-serif;
-    font-size: 0.6rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    color: #888;
-    margin: 0 0 10px 0;
-}
-
-.footer-social-links {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.social-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 7px 14px;
-    border: 1.5px solid #000;
-    border-radius: 999px;
-    text-decoration: none;
-    color: #000;
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    transition: background 0.25s, color 0.25s;
-}
-
-.social-btn:hover {
-    background: #000;
-    color: #fff;
-}
-
-.social-btn svg { flex-shrink: 0; }
-
-/* ── FOOTER BOTTOM ── */
-.footer-bottom {
-    padding: 10px 8% !important;
-    border-top: 1px solid #e8e8e8;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
-.footer-copy {
-    font-size: 0.72rem;
-    color: #888;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.footer-bottom-links {
-    display: flex;
-    gap: 24px;
-}
-
-.footer-bottom-links a {
-    font-family: 'Raleway', sans-serif;
-    font-size: 0.72rem;
-    color: #888;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.footer-bottom-links a:hover { color: #000; }
-
-/* ── FOOTER RESPONSIVE ── */
-@media (max-width: 768px) {
-    .footer-partners {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-        padding: 18px 6%;
-    }
-    .footer-partners-logos {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 28px;
-        width: 100%;
-    }
-    .partner-logo-link {
-        flex: 0 0 calc(50% - 28px);
-    }
-    .partner-logo-link img {
-        max-width: 140px;
-        max-height: 70px;
-    }
-    .partner-logo-link:nth-child(4) img {
-        max-width: 130px;
-        max-height: 36px;
-    }
-    .footer-main {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        padding: 16px 6% !important;
-    }
-    .footer-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px 6% !important;
-        gap: 10px;
-    }
-}
-.player-photo-img img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.player-photo-img img.layer-a { position: absolute; inset: 0; opacity: 1; z-index: 2; }
-.player-photo-img img.layer-b { position: absolute; inset: 0; opacity: 0; z-index: 1; }
-.player-photo-img img.layer-a.fade-out { opacity: 0; }
-.player-photo-img img.layer-b.fade-in  { opacity: 1; }
-</style>
 
 <script>
 (function(){
@@ -1004,7 +759,7 @@ scenes:[
     {at:45,  img:'img/h10.jpg',  desc:'The herd settles again, bells quieting as the horses find their patch of grass.'},
     {at:50,  img:'img/h11.jpg',  desc:'Wind moves through the valley below, carrying the sound upward through the pass.'},
     {at:55,  img:'img/h12.jpeg', desc:'A final sweep across the pasture — sixteen horses, open sky, and silence between the bells.'}
-]},    
+]},
  2:{tag:'Water · Glacial',loc:'Merak',title:'The River at Dawn',img:'images/5.jpg',desc:'Glacial meltwater rushing over rounded stones in the Merak valley. Before the first light, the river is the only sound. Everything else listens. Recorded at 5:20am, April 2023.',tags:['Water','Glacial','Dawn'],dur:'3:12',sec:192},
         3:{tag:'Wind · Sacred',loc:'Laya Pass, 4,380m',title:'Prayer Flags in Wind',img:'images/3.jpg',desc:'Hundreds of lung-ta — wind horses — snapping on the mountain pass above Laya. Between gusts, a silence so complete you can hear your own pulse. Recorded October 2022.',tags:['Wind','Sacred','High Altitude'],dur:'2:34',sec:154},
         4:{tag:'Animals · Pasture',loc:'Summer Pasture, Haa',title:'Horses Grazing at Altitude',img:'images/7.jpg',desc:'An afternoon with sixteen horses on open alpine pasture at 3,600m. Hooves on soft ground, the tearing of grass, the occasional snort — a sound of unhurried time. Recorded August 2023.',tags:['Animals','Pasture','Afternoon'],dur:'2:55',sec:175},
@@ -1197,7 +952,7 @@ function play() {
     redraw(totSec>0?curSec/totSec:0);
 }
     function toggle(){if(playing)stop();else play();}
-    
+
     window.openPlayer = function(id){
         var d=SOUNDS[id];if(!d)return;
         if(curId===id&&overlay.classList.contains('open')){toggle();return;}

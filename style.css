@@ -128,8 +128,8 @@ a {
 
 
 
-.slide:nth-child(1) { background-image: url('img/a8.jpg'); }
-.slide:nth-child(2) { background-image: url('images/slider3.jpg'); }
+.slide:nth-child(1) { background-image: url('image/20241110_125400.webp'); }
+.slide:nth-child(2) { background-image: url('image/textile.jpeg'); }
 .slide:nth-child(3) { background-image: url('images/1.jpg'); }
 .slide:nth-child(4) { background-image: url('images/slider2.jpg'); }
 
